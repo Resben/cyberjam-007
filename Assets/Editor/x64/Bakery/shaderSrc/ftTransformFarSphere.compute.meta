@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 84e158810fe530a499c974bba77a220a
+timeCreated: 1617749862
+licenseType: Store
+ComputeShaderImporter:
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/shaderSrc/ftTransformFarSphere.compute
+  uploadId: 641446

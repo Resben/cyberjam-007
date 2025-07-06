@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6ea9d5243f56c9947812b84c5e8ae20f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Passes/FindGeometryEdges.cs
+  uploadId: 542118

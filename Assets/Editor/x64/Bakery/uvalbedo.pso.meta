@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 093c1707bbb241d4f9d4c405104ffeea
+timeCreated: 1679559308
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/uvalbedo.pso
+  uploadId: 641446

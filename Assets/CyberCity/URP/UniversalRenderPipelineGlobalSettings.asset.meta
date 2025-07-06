@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ecb0d0f2902d4b49ac06cc61d3b334c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/URP/UniversalRenderPipelineGlobalSettings.asset
+  uploadId: 618451

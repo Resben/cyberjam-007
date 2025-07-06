@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 81c36c1f006bd8848b64a84a623af92d
+timeCreated: 1526161016
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/fixPos2.ptx
+  uploadId: 641446

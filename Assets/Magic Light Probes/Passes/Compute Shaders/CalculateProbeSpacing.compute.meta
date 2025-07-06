@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 60e81a594eafaff4fbf99dbfb9cff888
+ComputeShaderImporter:
+  externalObjects: {}
+  currentAPIMask: 4
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Passes/Compute Shaders/CalculateProbeSpacing.compute
+  uploadId: 542118

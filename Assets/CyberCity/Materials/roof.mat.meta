@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: decb481fa63ea8d43af2191b7d58e3a0
+timeCreated: 1525040903
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Materials/roof.mat
+  uploadId: 618451

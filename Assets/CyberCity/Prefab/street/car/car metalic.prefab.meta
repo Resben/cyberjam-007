@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bf985132022cfdd4d8a72e3a2d90a4b0
+timeCreated: 1540758090
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/car/car metalic.prefab
+  uploadId: 618451

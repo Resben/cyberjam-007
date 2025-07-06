@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ae73a32ff26c99e4fa7ad5baf4a1a5ec
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/Scene Data/Directional Light/MLP Group
+    0/ContrastPointsData/MLP Group 0_vol_1_ContrastPointsData.mlpdat
+  uploadId: 542118

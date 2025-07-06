@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 27401003d6559f147baae0443847c44c
+timeCreated: 1530260521
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lambert_lodselect.ptx
+  uploadId: 641446

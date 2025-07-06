@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8e93cdd837ccece47adea672aa4bcff2
+timeCreated: 1537695617
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/addSH.ptx
+  uploadId: 641446

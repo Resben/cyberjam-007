@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c4a072cc61459504787bab0c05fdbc59
+timeCreated: 1527459500
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/pipe/pipe.prefab
+  uploadId: 618451

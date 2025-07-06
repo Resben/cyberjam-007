@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: 696c8614630913740bbad3fe5408e490
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316808
+  packageName: URP Dithering Post Process
+  packageVersion: 1.0
+  assetPath: Assets/R3DWorks/RenderFeatures/URP/Dithering/Scripts/R3DWorksURPDitheringVolumeComponent.cs
+  uploadId: 747989

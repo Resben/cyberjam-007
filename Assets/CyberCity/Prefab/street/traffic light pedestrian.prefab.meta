@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 17bfabf2cb8534747957c6bfae169a0a
+timeCreated: 1527965247
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/traffic light pedestrian.prefab
+  uploadId: 618451

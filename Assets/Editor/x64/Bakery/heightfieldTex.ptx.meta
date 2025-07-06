@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2024b1f0802e2384caf3d3dcaffe1e9e
+timeCreated: 1547673362
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/heightfieldTex.ptx
+  uploadId: 641446

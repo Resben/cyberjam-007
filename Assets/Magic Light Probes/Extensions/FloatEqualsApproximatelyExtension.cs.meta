@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: cb20452be584bed41b9a6c20ee56906b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Extensions/FloatEqualsApproximatelyExtension.cs
+  uploadId: 542118

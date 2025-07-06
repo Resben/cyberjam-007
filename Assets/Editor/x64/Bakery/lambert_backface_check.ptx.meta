@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e65f981759769984da75f419f9ec11ad
+timeCreated: 1526161016
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lambert_backface_check.ptx
+  uploadId: 641446

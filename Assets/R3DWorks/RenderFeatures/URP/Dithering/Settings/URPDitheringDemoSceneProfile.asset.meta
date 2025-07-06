@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 59c648a1ae503874285001081ca02b88
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316808
+  packageName: URP Dithering Post Process
+  packageVersion: 1.0
+  assetPath: Assets/R3DWorks/RenderFeatures/URP/Dithering/Settings/URPDitheringDemoSceneProfile.asset
+  uploadId: 747989

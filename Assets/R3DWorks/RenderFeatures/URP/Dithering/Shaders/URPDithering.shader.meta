@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 008e83c6a3f070f45b2fc003fcbf97fe
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316808
+  packageName: URP Dithering Post Process
+  packageVersion: 1.0
+  assetPath: Assets/R3DWorks/RenderFeatures/URP/Dithering/Shaders/URPDithering.shader
+  uploadId: 747989

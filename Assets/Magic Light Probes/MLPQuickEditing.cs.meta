@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 440115f7b545d274fa3c4d5b50f36fa1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/MLPQuickEditing.cs
+  uploadId: 542118

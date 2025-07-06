@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 49a47f703769d8044b6e7b48aae38b3e
+timeCreated: 1528158280
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/snow.prefab
+  uploadId: 618451

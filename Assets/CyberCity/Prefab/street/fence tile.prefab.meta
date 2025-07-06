@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: def7520d3b9fa9540a2007429cb2ffc7
+timeCreated: 1527980472
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/fence tile.prefab
+  uploadId: 618451

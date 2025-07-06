@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 04a9623f45d46d64b8d852e0b0ea9a81
+timeCreated: 1535032797
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/scripts/ftLightingDataGen.cs
+  uploadId: 641446

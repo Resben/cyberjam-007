@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6fd71cfd53c204445bc09923a80e8bd6
+timeCreated: 1537386825
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmSkyDir.ptx
+  uploadId: 641446

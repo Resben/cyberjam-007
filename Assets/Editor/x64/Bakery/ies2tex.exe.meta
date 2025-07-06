@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6621917730988734a8310aa09d12c50b
+timeCreated: 1526330848
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/ies2tex.exe
+  uploadId: 641446

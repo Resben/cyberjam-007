@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f1386c908e92ef64287e16194552143d
+timeCreated: 1527275740
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/shaderSrc/ftrace.cginc
+  uploadId: 641446

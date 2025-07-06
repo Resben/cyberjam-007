@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 25613c7320d9d2e4389ebad7e23aba11
+timeCreated: 1527528502
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lambert_sky.ptx
+  uploadId: 641446

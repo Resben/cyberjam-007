@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 6e410fad58c875a40999cde0e5fec07f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Extensions/Editor/ClosestPoint.cs
+  uploadId: 542118

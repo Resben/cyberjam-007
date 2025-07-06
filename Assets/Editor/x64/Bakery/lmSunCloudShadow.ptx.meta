@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 22a23f40220350645b1ad4b887eeebc1
+timeCreated: 1581075098
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmSunCloudShadow.ptx
+  uploadId: 641446

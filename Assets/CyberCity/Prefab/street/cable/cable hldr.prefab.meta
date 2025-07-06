@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8372c88d87b23e449bb38b0120137ec6
+timeCreated: 1527504238
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/cable/cable hldr.prefab
+  uploadId: 618451

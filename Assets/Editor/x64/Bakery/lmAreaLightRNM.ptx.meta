@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: af8693c7623b99b49b07c2f1bbe20a19
+timeCreated: 1537530274
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmAreaLightRNM.ptx
+  uploadId: 641446

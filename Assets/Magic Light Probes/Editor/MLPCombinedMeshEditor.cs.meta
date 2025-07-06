@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 9125785852e84d44ea6d89da2c1cb66c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/MLPCombinedMeshEditor.cs
+  uploadId: 542118

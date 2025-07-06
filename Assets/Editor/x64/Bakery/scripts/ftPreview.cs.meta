@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: e9cb6f498e7ed0249a5558868baedabc
+timeCreated: 1573490479
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 164462
+  packageName: Bakery Real-Time Preview
+  packageVersion: 1.196
+  assetPath: Assets/Editor/x64/Bakery/scripts/ftPreview.cs
+  uploadId: 641449

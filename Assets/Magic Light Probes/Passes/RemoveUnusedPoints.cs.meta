@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 0eb485aff71871f4bbddf3dff527e3ed
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Passes/RemoveUnusedPoints.cs
+  uploadId: 542118

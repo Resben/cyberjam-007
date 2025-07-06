@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e65c11674cb367f479c518d362e91279
+timeCreated: 1537814797
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmCookieLightSH.ptx
+  uploadId: 641446

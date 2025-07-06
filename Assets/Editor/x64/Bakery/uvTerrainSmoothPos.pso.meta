@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 50dad8e5c6c394b48b0fd448d27993cf
+timeCreated: 1547668316
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/uvTerrainSmoothPos.pso
+  uploadId: 641446

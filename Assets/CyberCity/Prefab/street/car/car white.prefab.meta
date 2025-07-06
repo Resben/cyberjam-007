@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a7fb87e6b94b7e042834fa54e0a1cddc
+timeCreated: 1528390687
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/car/car white.prefab
+  uploadId: 618451

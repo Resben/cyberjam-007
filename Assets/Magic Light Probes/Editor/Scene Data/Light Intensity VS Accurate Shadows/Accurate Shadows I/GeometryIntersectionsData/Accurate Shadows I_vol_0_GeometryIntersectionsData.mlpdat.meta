@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ec432d3c74acf4645b9e70a4d0c360f6
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/Scene Data/Light Intensity VS Accurate
+    Shadows/Accurate Shadows I/GeometryIntersectionsData/Accurate Shadows I_vol_0_GeometryIntersectionsData.mlpdat
+  uploadId: 542118

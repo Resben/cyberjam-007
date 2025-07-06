@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cd4999b2b2c754c498d15bee1ab7a05f
+timeCreated: 1679559308
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/uvsmoothpos.pso
+  uploadId: 641446

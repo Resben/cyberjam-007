@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: aa2c6f245990b69408c255eb48c206eb
+timeCreated: 1534430149
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/addAO.ptx
+  uploadId: 641446

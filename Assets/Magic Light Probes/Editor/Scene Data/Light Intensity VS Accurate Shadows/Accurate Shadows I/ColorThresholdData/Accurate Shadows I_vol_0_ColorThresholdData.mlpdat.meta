@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c1f17df747f6f544babdb88e263104af
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/Scene Data/Light Intensity VS Accurate
+    Shadows/Accurate Shadows I/ColorThresholdData/Accurate Shadows I_vol_0_ColorThresholdData.mlpdat
+  uploadId: 542118
