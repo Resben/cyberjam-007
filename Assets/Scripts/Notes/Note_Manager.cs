@@ -17,9 +17,9 @@ public class Note_Manager : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;
 
     // Properties for the notes, This should have level difficulty in mind
-    [SerializeField] private float _noteDuration = 2.0f;
     [SerializeField] private float _graceWindow = 0.5f;
     [SerializeField] private float _acceptanceWindow = 0.2f;
+    [SerializeField] private float _leadWindowTime = 2.0f; // Time before the note occurs
     
     private GameObject[] _notes;
 
@@ -73,7 +73,7 @@ public class Note_Manager : MonoBehaviour
     IEnumerator SpawnNotesCoroutine()
     {
         // @DEBUG: Wait for a short duration before starting to spawn notes
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
 
         BeatManager beatManager = GetComponent<BeatManager>();
 
@@ -95,14 +95,14 @@ public class Note_Manager : MonoBehaviour
                     -20f // Fixed Z position for simplicity
                 );
 
-                yield return new WaitForSeconds(beatNote.time); // Wait for the note's time before spawning
+                yield return new WaitForSeconds(beatNote.time - _leadWindowTime); // Wait for the note's time before spawning
 
-                SpawnNote(notePosition, beatNote.duration, _graceWindow, _acceptanceWindow);
+                SpawnNote(notePosition, beatNote.duration, _leadWindowTime, _graceWindow, _acceptanceWindow);
             }
         }
     }
 
-    void SpawnNote(Vector3 position, float duration, float graceWindow, float acceptanceWindow)
+    void SpawnNote(Vector3 position, float duration, float leadWindowTime, float graceWindow, float acceptanceWindow)
     {
         // Instantiate a note at the specified position and rotation
         GameObject note = Instantiate(_notePrefab, position, Quaternion.identity);
@@ -138,7 +138,7 @@ public class Note_Manager : MonoBehaviour
             return; // Exit if the Note script is not found
         }
 
-        noteScript.InitializeNote(duration, graceWindow, acceptanceWindow, _cameraTransform);
+        noteScript.InitializeNote(duration, leadWindowTime, graceWindow, acceptanceWindow, _cameraTransform);
     }
 
    

@@ -4,9 +4,10 @@ using DG.Tweening;
 public class Note : MonoBehaviour
 {
     // Properties for the note
-    private float _duration { get; set; } = 2.0f;
-    private float _graceWindow { get; set; } = 0.5f;
-    private float _acceptanceWindow { get; set; } = 0.2f;
+    private float _duration = 0.5f;
+    private float _leadWindowTime = 2.0f; // Time before the note occurs
+    private float _graceWindow = 0.5f;
+    private float _acceptanceWindow = 0.2f;
 
     // Properties for Note Animation
     private float _shakeDuration { get; set; } = 0.2f;
@@ -17,12 +18,12 @@ public class Note : MonoBehaviour
     [SerializeField] private MeshRenderer _outerRingMeshRenderer;
 
     // Camera reference
-    [SerializeField] private Transform _cameraTransform = null;
+    private Transform _cameraTransform = null;
 
     void Awake()
     {
         // Ensure that the outer ring and its MeshRenderer are set
-        if (!_outerRing || !_outerRingMeshRenderer || !_cameraTransform)
+        if (!_outerRing || !_outerRingMeshRenderer)
         {
             Debug.LogError("Outer ring or MeshRenderer references is not set on the note.");
             return;
@@ -32,14 +33,20 @@ public class Note : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _outerRingMeshRenderer.material.DOFade(1.0f, _duration * 0.25f).SetEase(Ease.InOutCubic);
+        if (_cameraTransform == null)
+        {
+            Debug.LogError("Camera Transform is not set. Please initialize the note with a camera transform.");
+            DestroyNote();
+        }
+
+        _outerRingMeshRenderer.material.DOFade(1.0f, _leadWindowTime + _duration * 0.25f).SetEase(Ease.InOutCubic);
 
         // Start by setting the scale of the outer ring to a larger size
         // This can be done using DOTween to animate the scale of the outer ring
         // Lerp Shrink the outer ring of the note for the duration to reset the scale
         _outerRing.localScale = Vector3.one * 5.0f; // Set initial scale
         // Animate to original scale over duration, to slightly smaller size
-        _outerRing.DOScale(Vector3.one * 0.8f, _duration + (0.5f * _graceWindow))
+        _outerRing.DOScale(Vector3.one * 0.8f, _leadWindowTime + _duration + (0.5f * _graceWindow))
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
                 {
@@ -63,10 +70,11 @@ public class Note : MonoBehaviour
         OnDestroy(); // Call OnDestroy to clean up the note
     }
 
-    public void InitializeNote(float duration, float graceWindow, float acceptanceWindow, Transform cameraTransform)
+    public void InitializeNote(float duration, float leadWindowTime, float graceWindow, float acceptanceWindow, Transform cameraTransform)
     {
         // Initialize the note with the given parameters
         _duration = duration;
+        _leadWindowTime = leadWindowTime;
         _graceWindow = graceWindow;
         _acceptanceWindow = acceptanceWindow;
         _cameraTransform = cameraTransform;
