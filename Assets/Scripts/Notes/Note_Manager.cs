@@ -100,6 +100,9 @@ public class Note_Manager : MonoBehaviour
                 SpawnNote(notePosition, beatNote.duration, _leadWindowTime, _graceWindow, _acceptanceWindow);
             }
         }
+
+        yield return new WaitForSeconds(1.0f);
+        SpawnNotesCoroutine(); // Restart the coroutine to spawn notes again
     }
 
     void SpawnNote(Vector3 position, float duration, float leadWindowTime, float graceWindow, float acceptanceWindow)
