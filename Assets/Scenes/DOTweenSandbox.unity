@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 427267414}
   - component: {fileID: 427267413}
+  - component: {fileID: 427267415}
   m_Layer: 0
   m_Name: Test_NoteManagerObject
   m_TagString: Untagged
@@ -171,6 +172,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &427267415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427267412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149f46bea62d204408bc0224ad7a2410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - Guid:
+      Data1: 499722963
+      Data2: 1339460889
+      Data3: -1562697598
+      Data4: 538215563
+    Path: event:/AX/Item Sound/Test
 --- !u!1 &659259530
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +478,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1113942838}
-  - component: {fileID: 1113942837}
   m_Layer: 0
   m_Name: Test_BaseManager
   m_TagString: Untagged
@@ -466,25 +485,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1113942837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1113942836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149f46bea62d204408bc0224ad7a2410, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music:
-  - Guid:
-      Data1: 499722963
-      Data2: 1339460889
-      Data3: -1562697598
-      Data4: 538215563
-    Path: event:/AX/Item Sound/Test
 --- !u!4 &1113942838
 Transform:
   m_ObjectHideFlags: 0
@@ -723,5 +723,5 @@ SceneRoots:
   - {fileID: 659259532}
   - {fileID: 3831406929549320653}
   - {fileID: 427267414}
-  - {fileID: 3165006673990227906}
   - {fileID: 1113942838}
+  - {fileID: 3165006673990227906}
