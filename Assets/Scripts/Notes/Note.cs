@@ -31,11 +31,6 @@ public class Note : MonoBehaviour
             Debug.LogError("Outer ring or MeshRenderer references is not set on the note.");
             return;
         }
-
-        // @TODO: I dont like this, but it works for now
-        // Set the outer ring's material to be transparent initially 
-        // and possibly the note's material as well
-        _outerRingMeshRenderer.material.DOFade(0.0f, 0.0f).SetEase(Ease.InSine);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,7 +45,7 @@ public class Note : MonoBehaviour
             DestroyNote();
         }
 
-        _outerRingMeshRenderer.material.DOFade(1.0f, _duration).SetEase(Ease.InOutCubic);
+        _outerRingMeshRenderer.material.DOFade(1.0f, _duration * 0.25f).SetEase(Ease.InOutCubic);
 
         // Start by setting the scale of the outer ring to a larger size
         // This can be done using DOTween to animate the scale of the outer ring
