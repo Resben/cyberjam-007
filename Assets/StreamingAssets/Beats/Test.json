@@ -12,22 +12,22 @@
     },
     {
       "name": "Marker B",
-      "time": 0.25482912332838037,
+      "time": 1,
       "duration": -1
     },
     {
       "name": "Marker C",
-      "time": 0.5,
+      "time": 1.5,
       "duration": -1
     },
     {
       "name": "Marker D",
-      "time": 0.7615156017830609,
+      "time": 3,
       "duration": -1
     },
     {
       "name": "Marker E",
-      "time": 1,
+      "time": 4,
       "duration": -1
     }
   ]

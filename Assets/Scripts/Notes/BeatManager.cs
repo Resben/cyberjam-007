@@ -40,7 +40,7 @@ public class BeatManager : MonoBehaviour
 
     private readonly List<MusicEvent> musicData = new();
 
-    void Start()
+    void Awake()
     {
         foreach (var musicEvent in music)
         {
@@ -58,5 +58,10 @@ public class BeatManager : MonoBehaviour
 
             musicData.Add(musicEventInstance);
         }
+    }
+
+    public List<MusicEvent> GetMusicData()
+    {
+        return musicData;
     }
 }

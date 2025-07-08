@@ -4,29 +4,25 @@ using DG.Tweening;
 public class Note : MonoBehaviour
 {
     // Properties for the note
-    public float _duration { get; set; } = 2.0f;
-    public float _graceWindow { get; set; } = 0.5f;
-    public float _acceptanceWindow { get; set; } = 0.2f;
+    private float _duration { get; set; } = 2.0f;
+    private float _graceWindow { get; set; } = 0.5f;
+    private float _acceptanceWindow { get; set; } = 0.2f;
 
     // Properties for Note Animation
-    public float _shakeDuration { get; set; } = 0.2f;
-    public float _shakeStrength { get; set; } = 0.2f;
+    private float _shakeDuration { get; set; } = 0.2f;
+    private float _shakeStrength { get; set; } = 0.2f;
 
     // References to the outer ring and its MeshRenderer
     [SerializeField] private Transform _outerRing;
     [SerializeField] private MeshRenderer _outerRingMeshRenderer;
 
     // Camera reference
-    public Transform _cameraTransform { get; set; } = null;
+    [SerializeField] private Transform _cameraTransform = null;
 
     void Awake()
     {
-        // Initialize the note, set up references, etc.
-        // This is called when the script instance is being loaded
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-
         // Ensure that the outer ring and its MeshRenderer are set
-        if (!_outerRing || !_outerRingMeshRenderer || !meshRenderer)
+        if (!_outerRing || !_outerRingMeshRenderer || !_cameraTransform)
         {
             Debug.LogError("Outer ring or MeshRenderer references is not set on the note.");
             return;
@@ -36,15 +32,6 @@ public class Note : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-
-        // Ensure that the outer ring and its MeshRenderer are set
-        if (!_outerRing || !_outerRingMeshRenderer || !meshRenderer)
-        {
-            Debug.LogError("Outer ring or MeshRenderer references is not set on the note.");
-            DestroyNote();
-        }
-
         _outerRingMeshRenderer.material.DOFade(1.0f, _duration * 0.25f).SetEase(Ease.InOutCubic);
 
         // Start by setting the scale of the outer ring to a larger size
@@ -52,10 +39,12 @@ public class Note : MonoBehaviour
         // Lerp Shrink the outer ring of the note for the duration to reset the scale
         _outerRing.localScale = Vector3.one * 5.0f; // Set initial scale
         // Animate to original scale over duration, to slightly smaller size
-        _outerRing.DOScale(Vector3.one * 0.8f, _duration + (0.5f * _graceWindow)).SetEase(Ease.OutCubic).OnComplete(() =>
-        {
-            OnNoteMissed(); // Call OnNoteMissed when the animation completes
-        });
+        _outerRing.DOScale(Vector3.one * 0.8f, _duration + (0.5f * _graceWindow))
+            .SetEase(Ease.OutCubic)
+            .OnComplete(() =>
+                {
+                    OnNoteMissed(); // Call OnNoteMissed when the animation completes
+                });
     }
 
     private void OnDestroy()
@@ -83,6 +72,26 @@ public class Note : MonoBehaviour
         _cameraTransform = cameraTransform;
     }
 
+    void Update()
+    {
+        // listen for input events, e.g., mouse clicks or touches
+        // If the note is clicked or tapped, call OnNoteClicked
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log("Note clicked: " + hit.transform.name); // Debug log for clicked note
+                if (hit.transform == transform) // Check if the clicked object is this note
+                {
+                    OnNoteClicked(); // Call OnNoteClicked to handle the click
+                }
+            }
+        }   
+    }
+
     // This method is called when the note is clicked or tapped
     public bool OnNoteClicked()
     {
@@ -90,6 +99,8 @@ public class Note : MonoBehaviour
         // You can also use DOTween to animate the note or its outer ring
         // If Click occurs within the acceptance window, you can trigger a successful hit
         // else you can trigger a miss or a grace hit
+
+        transform.DOKill(); // Stop any ongoing animations on the outer ring
 
         // @DEBUG: For now, we will assume the note is clicked successfully
         OnNoteHit(); // Call OnNoteHit to handle the successful hit
@@ -100,36 +111,41 @@ public class Note : MonoBehaviour
     // This method is called when the note is missed
     public void OnNoteMissed()
     {
-        // Handle the note being missed, e.g., play a miss sound, trigger a miss animation, etc.
-        // You can also use DOTween to animate the note or its outer ring to indicate a miss
-        transform.DOShakePosition(_shakeDuration, _shakeStrength).OnComplete(() =>
-        {
-            // After shaking, destroy the note
-            DestroyNote();
-        });
+        // Play a Missed sound
+
+        // Subtract from the progress meter or something
+        
+        transform.DOShakePosition(_shakeDuration, _shakeStrength)
+            .OnComplete(() =>
+                {
+                    // After shaking, destroy the note
+                    DestroyNote();
+                });
     }
 
     // This method is called when the note is hit with grace
     public void OnNoteGraceHit()
     {
-        // Handle the note being hit with grace, e.g., play a grace hit sound, trigger a grace hit animation, etc.
-        // You can also use DOTween to animate the note or its outer ring to indicate a grace hit
+        // Play a Grace sound
+
+        // Maybe animate phase out or change color
     }
 
     // This method is called when the note is hit successfully
     public void OnNoteHit()
     {
-        // Handle the note being hit successfully, e.g., play a hit sound, trigger a hit animation, etc.
-        // You can also use DOTween to animate the note or its outer ring to indicate a successful hit
+        // Play a hit sound
+        
+        // Add to progress meter or something
 
         // get vector3 between the camera and the note
         Vector3 direction = (_cameraTransform.position - transform.position).normalized;
-        transform.DOPunchPosition(direction, _shakeDuration);
-
-        // Play a hit sound
-
-        // Add to progress meter or something
-
-        DestroyNote();
+        transform.DOPunchPosition(direction, _shakeDuration)
+            .SetEase(Ease.OutCubic)
+            .OnComplete(() =>
+                {
+                    // After the punch animation, destroy the note
+                    DestroyNote();
+                });
     }
 }
