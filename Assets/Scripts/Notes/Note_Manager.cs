@@ -17,10 +17,9 @@ public class Note_Manager : MonoBehaviour
     [SerializeField] private Transform _cameraTransform;
 
     // Properties for the notes, This should have level difficulty in mind
-    [SerializeField] private float _graceWindow = 0.5f;
     [SerializeField] private float _acceptanceWindow = 0.2f;
     [SerializeField] private float _leadWindowTime = 2.0f; // Time before the note occurs
-    
+
     private GameObject[] _notes;
 
     void Awake()
@@ -47,7 +46,7 @@ public class Note_Manager : MonoBehaviour
         // Destroy();
     }
 
-     public void DestroyManager()
+    public void DestroyManager()
     {
         OnDestroy(); // Call OnDestroy to clean up the notes
     }
@@ -64,7 +63,7 @@ public class Note_Manager : MonoBehaviour
         {
             if (note)
             {
-                note.GetComponent<Note>().DestroyNote(); // Call DestroyNote to clean up the note
+                Destroy(note); // Call DestroyNote to clean up the note
             }
         }
         _notes = null; // Clear the notes array
@@ -77,35 +76,44 @@ public class Note_Manager : MonoBehaviour
 
         BeatManager beatManager = GetComponent<BeatManager>();
 
-        // Loop through the notes and spawn them at their respective positions
-        foreach (MusicEvent musicEvent in beatManager.GetMusicData())
+        if (!beatManager)
         {
-            if (musicEvent.data.tags == null || musicEvent.data.tags.Count == 0)
-            {
-                Debug.LogWarning($"No tags found for music event: {musicEvent.name}");
-                continue; // Skip if no tags are found
-            }
-
-            foreach (BeatNote beatNote in musicEvent.data.tags)
-            {
-                // Calculate the position based on the note's time and other properties
-                Vector3 notePosition = new Vector3(
-                    Random.Range(-_windowWidth / 2, _windowWidth / 2),
-                    Random.Range(1f, _windowHeight - 1f),
-                    -20f // Fixed Z position for simplicity
-                );
-
-                yield return new WaitForSeconds(beatNote.time - _leadWindowTime); // Wait for the note's time before spawning
-
-                SpawnNote(notePosition, beatNote.duration, _leadWindowTime, _graceWindow, _acceptanceWindow);
-            }
+            Debug.LogError("BeatManager component not found on Note_Manager.");
+            yield break; // Exit if BeatManager is not found
         }
 
-        yield return new WaitForSeconds(1.0f);
-        SpawnNotesCoroutine(); // Restart the coroutine to spawn notes again
+        // @DEBUG: remove while loop when done testing
+        while (true)
+        {
+            // Loop through the notes and spawn them at their respective positions
+            foreach (MusicEvent musicEvent in beatManager.GetMusicData())
+            {
+                if (musicEvent.data.tags == null || musicEvent.data.tags.Count == 0)
+                {
+                    Debug.LogWarning($"No tags found for music event: {musicEvent.name}");
+                    continue; // Skip if no tags are found
+                }
+
+                foreach (BeatNote beatNote in musicEvent.data.tags)
+                {
+                    Debug.LogWarning($"Spawning note: {beatNote.name} at time: {beatNote.time} with duration: {beatNote.duration}");
+                    // Calculate the position based on the note's time and other properties
+                    Vector3 notePosition = new Vector3(
+                        Random.Range(-_windowWidth / 2, _windowWidth / 2),
+                        Random.Range(1f, _windowHeight - 1f),
+                        -20f // Fixed Z position for simplicity
+                    );
+
+                    yield return new WaitForSeconds(beatNote.time - _leadWindowTime); // Wait for the note's time before spawning
+
+                    SpawnNote(notePosition, beatNote.duration, _leadWindowTime, _acceptanceWindow);
+                }
+            }
+        }
+        
     }
 
-    void SpawnNote(Vector3 position, float duration, float leadWindowTime, float graceWindow, float acceptanceWindow)
+    void SpawnNote(Vector3 position, float duration, float leadWindowTime, float acceptanceWindow)
     {
         // Instantiate a note at the specified position and rotation
         GameObject note = Instantiate(_notePrefab, position, Quaternion.identity);
@@ -125,13 +133,8 @@ public class Note_Manager : MonoBehaviour
         _notes.Append(note); // Add the note to the notes array
         */
 
-        // @Debug: TEST RANDOM POSITIONING
-        // Set a random position for the note
-        note.transform.position = new Vector3(
-            Random.Range(-5f, 5f),
-            Random.Range(1f, 3f),
-            -20f
-        );
+        // Set a random position on screen for the note
+        note.transform.position = GetRandomPosition();
 
         // Pass duration, grace window, acceptance window, into its script
         Note noteScript = note.GetComponent<Note>();
@@ -141,7 +144,15 @@ public class Note_Manager : MonoBehaviour
             return; // Exit if the Note script is not found
         }
 
-        noteScript.InitializeNote(duration, leadWindowTime, graceWindow, acceptanceWindow, _cameraTransform);
+        noteScript.InitializeNote(duration, leadWindowTime, acceptanceWindow, _cameraTransform);
+    }
+    
+    Vector3 GetRandomPosition()
+    {
+        // Generate a random position within the terminal window bounds
+        float x = Random.Range(-_windowWidth / 2, _windowWidth / 2);
+        float y = Random.Range(1f, _windowHeight - 1f);
+        return new Vector3(x, y, -20f); // Fixed Z position for simplicity
     }
 
    

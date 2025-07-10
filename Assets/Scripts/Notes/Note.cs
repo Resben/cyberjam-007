@@ -6,8 +6,8 @@ public class Note : MonoBehaviour
     // Properties for the note
     private float _duration = 0.5f;
     private float _leadWindowTime = 2.0f; // Time before the note occurs
-    private float _graceWindow = 0.5f;
     private float _acceptanceWindow = 0.2f;
+    private float _outerRingStartingScale = 5.0f; // Initial scale of the outer ring
 
     // Properties for Note Animation
     private float _shakeDuration { get; set; } = 0.2f;
@@ -36,17 +36,18 @@ public class Note : MonoBehaviour
         if (_cameraTransform == null)
         {
             Debug.LogError("Camera Transform is not set. Please initialize the note with a camera transform.");
-            DestroyNote();
+            Destroy(gameObject);
         }
 
-        _outerRingMeshRenderer.material.DOFade(1.0f, _leadWindowTime + _duration * 0.25f).SetEase(Ease.InOutCubic);
+        _outerRingMeshRenderer.material.DOFade(1.0f, _leadWindowTime + _duration * 0.25f)
+            .SetEase(Ease.InOutCubic);
 
         // Start by setting the scale of the outer ring to a larger size
         // This can be done using DOTween to animate the scale of the outer ring
         // Lerp Shrink the outer ring of the note for the duration to reset the scale
-        _outerRing.localScale = Vector3.one * 5.0f; // Set initial scale
+        _outerRing.localScale = Vector3.one * _outerRingStartingScale;
         // Animate to original scale over duration, to slightly smaller size
-        _outerRing.DOScale(Vector3.one * 0.8f, _leadWindowTime + _duration + (0.5f * _graceWindow))
+        _outerRing.DOScale(Vector3.one * 0.8f, _leadWindowTime + _duration)
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
                 {
@@ -56,26 +57,14 @@ public class Note : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Clean up the note, e.g., remove it from the scene, reset properties, etc.
-        // This can be called when the note is missed or hit successfully
-        if (_outerRing)
-        {
-            _outerRing.DOKill(); // Stop any ongoing animations on the outer ring
-        }
-        Destroy(gameObject); // Destroy the note GameObject
+        StopAnimations();
     }
 
-    public void DestroyNote()
-    {
-        OnDestroy(); // Call OnDestroy to clean up the note
-    }
-
-    public void InitializeNote(float duration, float leadWindowTime, float graceWindow, float acceptanceWindow, Transform cameraTransform)
+    public void InitializeNote(float duration, float leadWindowTime, float acceptanceWindow, Transform cameraTransform)
     {
         // Initialize the note with the given parameters
         _duration = duration;
         _leadWindowTime = leadWindowTime;
-        _graceWindow = graceWindow;
         _acceptanceWindow = acceptanceWindow;
         _cameraTransform = cameraTransform;
     }
@@ -97,10 +86,10 @@ public class Note : MonoBehaviour
                     OnNoteClicked(); // Call OnNoteClicked to handle the click
                 }
             }
-        }   
+        }
     }
 
-    // This method is called when the note is clicked or tapped
+    // This method is called when the note is clicked
     public bool OnNoteClicked()
     {
         // Handle the note being clicked, e.g., play a sound based on the hit type (hit, miss, grace hit)
@@ -108,7 +97,7 @@ public class Note : MonoBehaviour
         // If Click occurs within the acceptance window, you can trigger a successful hit
         // else you can trigger a miss or a grace hit
 
-        transform.DOKill(); // Stop any ongoing animations on the outer ring
+        StopAnimations();
 
         // @DEBUG: For now, we will assume the note is clicked successfully
         OnNoteHit(); // Call OnNoteHit to handle the successful hit
@@ -119,31 +108,23 @@ public class Note : MonoBehaviour
     // This method is called when the note is missed
     public void OnNoteMissed()
     {
-        // Play a Missed sound
+        // @TODO: Play a Missed sound
 
         // Subtract from the progress meter or something
-        
+
         transform.DOShakePosition(_shakeDuration, _shakeStrength)
             .OnComplete(() =>
                 {
                     // After shaking, destroy the note
-                    DestroyNote();
+                    Destroy(gameObject);
                 });
-    }
-
-    // This method is called when the note is hit with grace
-    public void OnNoteGraceHit()
-    {
-        // Play a Grace sound
-
-        // Maybe animate phase out or change color
     }
 
     // This method is called when the note is hit successfully
     public void OnNoteHit()
     {
-        // Play a hit sound
-        
+        // @TODO: Play a hit sound
+
         // Add to progress meter or something
 
         // get vector3 between the camera and the note
@@ -153,7 +134,24 @@ public class Note : MonoBehaviour
             .OnComplete(() =>
                 {
                     // After the punch animation, destroy the note
-                    DestroyNote();
+                    Destroy(gameObject);
                 });
+    }
+
+    void StopAnimations()
+    {
+        // Stop any ongoing animations on the note and its outer ring
+        transform.DOKill();
+        if (_outerRing)
+        {
+            _outerRing.DOKill();
+        }
+    }
+    
+    bool IsNoteClickCorrect(float clickTime)
+    {
+        // Check if the click time is within the acceptance window
+        float noteTime = _leadWindowTime + _duration;
+        return Mathf.Abs(clickTime - noteTime) <= _acceptanceWindow;
     }
 }
