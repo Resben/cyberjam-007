@@ -42,13 +42,30 @@ public class BeatManager : MonoBehaviour
 
     void Awake()
     {
+        if (music == null || music.Count == 0)
+        {
+            Debug.LogError("No music events assigned in BeatManager.");
+            return;
+        }
+
         foreach (var musicEvent in music)
         {
             string eventName = musicEvent.Path[(musicEvent.Path.LastIndexOf('/') + 1)..];
-            string path = Path.Combine(Application.streamingAssetsPath, "Beats/" + eventName + ".json");
+            string path = Path.Combine(Application.streamingAssetsPath, eventName + ".json");
             string jsonText = File.ReadAllText(path);
+            if (string.IsNullOrEmpty(jsonText))
+            {
+                Debug.LogError($"No JSON data found for {eventName} at {path}");
+                continue;
+            }
 
             BeatData beatData = JsonUtility.FromJson<BeatData>(jsonText);
+            if (beatData.tags == null || beatData.tags.Count == 0)
+            {
+                Debug.LogWarning($"No tags found in the beat data for {eventName}.");
+                continue;
+            }
+
             MusicEvent musicEventInstance = new MusicEvent
             {
                 name = eventName,
