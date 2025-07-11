@@ -31,11 +31,21 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        var input = _inputActions.Gameplay;
+
         var characterInput = new CharacterInput
         {
             Move = new Vector2(0, 1),
             Sprint = InputType.On
         };
+
+        var cameraInput = new CameraInput
+        {
+            Look = input.Look.ReadValue<Vector2>(),
+            Position = puppetCharacter.GetPosition()
+        };
+
+        playerCamera.UpdateInput(cameraInput);
 
         puppetCharacter.UpdateInput(characterInput);
     }
@@ -46,7 +56,7 @@ public class Player : MonoBehaviour
         var cameraTarget = puppetCharacter.GetCameraTarget();
         var state = puppetCharacter.GetState();
 
-        playerCamera.UpdatePosition(puppetCharacter.GetPosition());
+        playerCamera.UpdateCamera(deltaTime);
         cameraSpring.UpdateSpring(deltaTime, cameraTarget.up);
         cameraLean.UpdateLean(deltaTime, state.Acceleration, cameraTarget.up);
     }
