@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5867154664409937071}
   - component: {fileID: 4660721686218533610}
   m_Layer: 0
-  m_Name: Test_NoteManagerObject
+  m_Name: NoteManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,11 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _notePrefab: {fileID: 5075752925910040403, guid: 6af0502764aef924c8a30868678a746d, type: 3}
-  _terminalWindowTransform: {fileID: 0}
-  _windowHeight: 0
-  _windowWidth: 0
-  _cameraTransform: {fileID: 0}
-  _acceptanceWindow: 0.2
+  _windowHeight: 10
+  _windowWidth: 10
+  _acceptanceWindow: 0.3
   _leadWindowTime: 2
 --- !u!114 &4660721686218533610
 MonoBehaviour:

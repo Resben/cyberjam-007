@@ -1,12 +1,15 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 public class Note : MonoBehaviour
 {
+    private float _startTime;
+
     // Properties for the note
-    private float _duration = 0.5f;
-    private float _leadWindowTime = 2.0f; // Time before the note occurs
-    private float _acceptanceWindow = 0.2f;
+    private float _duration;
+    private float _leadWindowTime;
+    private float _acceptanceWindow;
     private float _outerRingStartingScale = 5.0f; // Initial scale of the outer ring
 
     // Properties for Note Animation
@@ -18,11 +21,14 @@ public class Note : MonoBehaviour
     [SerializeField] private MeshRenderer _outerRingMeshRenderer;
 
     // Camera reference
-    private Transform _cameraTransform = null;
+    private Transform _cameraTransform;
+
+    [SerializeField] private AudioClip _successSound;
+    [SerializeField] private AudioClip _failSound;
+    private AudioSource _audioSource;
 
     void Awake()
     {
-        // Ensure that the outer ring and its MeshRenderer are set
         if (!_outerRing || !_outerRingMeshRenderer)
         {
             Debug.LogError("Outer ring or MeshRenderer references is not set on the note.");
@@ -30,40 +36,40 @@ public class Note : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (_cameraTransform == null)
+        if (!_cameraTransform)
         {
-            Debug.LogError("Camera Transform is not set. Please initialize the note with a camera transform.");
-            Destroy(gameObject);
+            _cameraTransform = Camera.main.transform;
         }
 
+        _startTime = Time.time;
+
+        _audioSource = GetComponent<AudioSource>();
+        if (!_audioSource || !_successSound || !_failSound)
+        {
+            Debug.LogError("Audio not linked");
+        }
+
+        // animate alpha channels to opaque over note's lifetime
         _outerRingMeshRenderer.material.DOFade(1.0f, _leadWindowTime + _duration * 0.25f)
             .SetEase(Ease.InOutCubic);
 
-        // Start by setting the scale of the outer ring to a larger size
-        // This can be done using DOTween to animate the scale of the outer ring
-        // Lerp Shrink the outer ring of the note for the duration to reset the scale
         _outerRing.localScale = Vector3.one * _outerRingStartingScale;
-        // Animate to original scale over duration, to slightly smaller size
-        _outerRing.DOScale(Vector3.one * 0.8f, _leadWindowTime + _duration)
-            .SetEase(Ease.OutCubic)
-            .OnComplete(() =>
-                {
-                    OnNoteMissed(); // Call OnNoteMissed when the animation completes
-                });
+        _outerRing.DOScale(Vector3.one, _leadWindowTime + _duration + _acceptanceWindow * 0.5f)
+            .SetEase(Ease.OutCirc);
+
+        StartCoroutine(LifespanCoroutine());
     }
 
-    private void OnDestroy()
+    void OnDestroy()
     {
         StopAnimations();
     }
 
     public void InitializeNote(float duration, float leadWindowTime, float acceptanceWindow, Transform cameraTransform)
     {
-        // Initialize the note with the given parameters
-        _duration = duration;
+        _duration = duration == -1.0f ? 0.0f : duration;
         _leadWindowTime = leadWindowTime;
         _acceptanceWindow = acceptanceWindow;
         _cameraTransform = cameraTransform;
@@ -71,76 +77,97 @@ public class Note : MonoBehaviour
 
     void Update()
     {
-        // listen for input events, e.g., mouse clicks or touches
-        // If the note is clicked or tapped, call OnNoteClicked
-        if (Input.GetMouseButtonDown(0))
+        ClickHandler();
+    }
+
+    private void ClickHandler()
+    {
+        if (Input.GetMouseButtonDown(0)) // Left click
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Note clicked: " + hit.transform.name); // Debug log for clicked note
-                if (hit.transform == transform) // Check if the clicked object is this note
+                if (hit.transform == transform)
                 {
-                    OnNoteClicked(); // Call OnNoteClicked to handle the click
+                   OnNoteClicked();
                 }
             }
         }
     }
 
-    // This method is called when the note is clicked
-    public bool OnNoteClicked()
+    private IEnumerator LifespanCoroutine()
     {
-        // Handle the note being clicked, e.g., play a sound based on the hit type (hit, miss, grace hit)
-        // You can also use DOTween to animate the note or its outer ring
-        // If Click occurs within the acceptance window, you can trigger a successful hit
-        // else you can trigger a miss or a grace hit
+        yield return new WaitForSeconds(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
 
-        StopAnimations();
-
-        // @DEBUG: For now, we will assume the note is clicked successfully
-        OnNoteHit(); // Call OnNoteHit to handle the successful hit
-
-        return true; // Return true if the note was successfully clicked
+        OnNoteFail();
     }
 
-    // This method is called when the note is missed
-    public void OnNoteMissed()
+    private void OnNoteClicked()
     {
-        // @TODO: Play a Missed sound
+        StopAnimations();
+        StopAllCoroutines();
 
-        // Subtract from the progress meter or something
+        if (IsNoteClickCorrect())
+        {
+            OnNoteSuccess();
+        }
+        else
+        {
+            OnNoteFail();
+        }
+    }
+
+    private bool IsNoteClickCorrect()
+    {
+        float correctTimeWindowStart = _startTime + _leadWindowTime - _acceptanceWindow;
+        float correctTimeWindowEnd = _startTime + _leadWindowTime + _duration + _acceptanceWindow;
+        float currentTime = Time.time;
+
+        if (currentTime > correctTimeWindowStart && currentTime < correctTimeWindowEnd)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void OnNoteFail()
+    {
+        // @TODO: Subtract from the progress meter or something
+
+        _audioSource.volume = 0.2f;
+        _audioSource.PlayOneShot(_failSound);
 
         transform.DOShakePosition(_shakeDuration, _shakeStrength)
             .OnComplete(() =>
                 {
-                    // After shaking, destroy the note
                     Destroy(gameObject);
                 });
     }
 
-    // This method is called when the note is hit successfully
-    public void OnNoteHit()
+    private void OnNoteSuccess()
     {
-        // @TODO: Play a hit sound
+        // @TODO: Add to progress meter or something
 
-        // Add to progress meter or something
+        _audioSource.volume = 1.0f;
+        _audioSource.PlayOneShot(_successSound);
 
-        // get vector3 between the camera and the note
+        // Punch towards the camera
         Vector3 direction = (_cameraTransform.position - transform.position).normalized;
         transform.DOPunchPosition(direction, _shakeDuration)
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
-                {
-                    // After the punch animation, destroy the note
-                    Destroy(gameObject);
-                });
+            {
+                Destroy(gameObject);
+            });
     }
 
-    void StopAnimations()
+    private void StopAnimations()
     {
-        // Stop any ongoing animations on the note and its outer ring
         transform.DOKill();
         if (_outerRing)
         {
@@ -148,10 +175,5 @@ public class Note : MonoBehaviour
         }
     }
     
-    bool IsNoteClickCorrect(float clickTime)
-    {
-        // Check if the click time is within the acceptance window
-        float noteTime = _leadWindowTime + _duration;
-        return Mathf.Abs(clickTime - noteTime) <= _acceptanceWindow;
-    }
+    
 }

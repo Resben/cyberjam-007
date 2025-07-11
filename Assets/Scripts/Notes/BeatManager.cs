@@ -77,6 +77,16 @@ public class BeatManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        foreach (var eventReference in music)
+        {
+            EventInstance instance = RuntimeManager.CreateInstance(eventReference);
+            instance.start();
+            instance.release();
+        }
+    }
+
     public List<MusicEvent> GetMusicData()
     {
         return musicData;
