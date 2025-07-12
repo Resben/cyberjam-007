@@ -4730,13 +4730,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4146bc2fa6eac994b819a3fa948d496d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraPitch: {fileID: 308135606}
+  CameraYaw: {fileID: 756158024}
   sensitivity: 0.03
   minFalloff: 0.15
   fallOffViewPercentage: 0.7
   maxYaw: 10
   maxPitch: 3
-  CameraPitch: {fileID: 308135606}
-  CameraYaw: {fileID: 756158024}
+  cameraFollowResponse: 5
 --- !u!1 &5048433623367463744
 GameObject:
   m_ObjectHideFlags: 0

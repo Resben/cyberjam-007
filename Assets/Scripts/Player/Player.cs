@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,11 +8,18 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCamera playerCamera;
     [SerializeField] private CameraSpring cameraSpring;
     [SerializeField] private CameraLean cameraLean;
-    
+
     private PlayerInputActions _inputActions;
+    private CharacterInput _characterInput;
 
     void Start()
     {
+        _characterInput = new CharacterInput
+        {
+            Move = new Vector2(0, 1),
+            Sprint = InputType.On
+        };
+
         Cursor.lockState = CursorLockMode.Locked;
 
         _inputActions = new PlayerInputActions();
@@ -22,6 +30,7 @@ public class Player : MonoBehaviour
         playerCamera.Initialize(puppetCharacter.GetPosition());
         cameraSpring.Initialize();
         cameraLean.Initialize();
+        StartCoroutine(KillVelocity());
     }
 
     void OnDestroy()
@@ -33,21 +42,16 @@ public class Player : MonoBehaviour
     {
         var input = _inputActions.Gameplay;
 
-        var characterInput = new CharacterInput
-        {
-            Move = new Vector2(0, 1),
-            Sprint = InputType.On
-        };
-
         var cameraInput = new CameraInput
         {
             Look = input.Look.ReadValue<Vector2>(),
-            Position = puppetCharacter.GetPosition()
+            Position = puppetCharacter.GetPosition(),
+            CharacterState = puppetCharacter.GetState()
         };
 
         playerCamera.UpdateInput(cameraInput);
 
-        puppetCharacter.UpdateInput(characterInput);
+        puppetCharacter.UpdateInput(_characterInput);
     }
 
     void LateUpdate()
@@ -74,5 +78,19 @@ public class Player : MonoBehaviour
     public Stance GetStance()
     {
         return puppetCharacter.GetState().Stance;
+    }
+
+    // Test to kill velocity every 10 seconds
+    // See how the camera behaves
+    private IEnumerator KillVelocity()
+    {
+        while (true)
+        {
+            _characterInput.Move = new Vector2(0, 1);
+            yield return new WaitForSeconds(7.5f);
+
+            _characterInput.Move = Vector2.zero;
+            yield return new WaitForSeconds(2.5f);
+        }
     }
 }
