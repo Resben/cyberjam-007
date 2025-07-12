@@ -45,7 +45,7 @@ public class BeatManager : MonoBehaviour
         if (music == null || music.Count == 0)
         {
             Debug.LogError("No music events assigned in BeatManager.");
-            return;
+            DestroyImmediate(gameObject);
         }
 
         foreach (var musicEvent in music)
@@ -79,12 +79,26 @@ public class BeatManager : MonoBehaviour
 
     void Start()
     {
+        PlayMusic();
+    }
+
+    public void PlayMusic()
+    {
         foreach (var eventReference in music)
         {
             EventInstance instance = RuntimeManager.CreateInstance(eventReference);
             instance.setVolume(0.5f);
             instance.start();
-            instance.release();
+        }
+    }
+
+    public void StopMusic()
+    {
+        foreach (var eventReference in music)
+        {
+            EventInstance instance = RuntimeManager.CreateInstance(eventReference);
+            instance.setVolume(0.5f);
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 

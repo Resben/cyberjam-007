@@ -1,25 +1,31 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-// This class is responsible for managing the notes in the game.
-// It will load note data from a JSON file and spawn notes in the game world.
 public class NoteManager : MonoBehaviour
 {
-    // Note prefab to instantiate
     [SerializeField] private GameObject _notePrefab;
+    [SerializeField] private GameObject _beatManager;
+
+    private Transform _cameraTransform;
 
     // Terminal window properties
     //private Transform _terminalWindowTransform; // more ideal to have a panel transform passed in
     [SerializeField] private float _windowHeight;
     [SerializeField] private float _windowWidth;
 
-    private Transform _cameraTransform;
-
     // Properties for the notes, This should have level difficulty in mind
     [SerializeField] private float _acceptanceWindow; // Time window for accepting a note hit
     [SerializeField] private float _leadWindowTime; // Spawn time before note marker happens
 
-    [SerializeField] private GameObject _beatManager;
+    private float _startTime; // will need this if we decide to use Main Game loop music
+    [SerializeField] private float _gracePeriod; // amount of time before notes can appear
+
+    private float _successPoints = 0;
+    private float _failPoints = 0;
+
+    private List<Vector3> _spawnLocations = new();
+    private float _noteRadius;
 
     void Start()
     {
@@ -35,8 +41,12 @@ public class NoteManager : MonoBehaviour
             {
                 Debug.LogError("Beat Manager not set");
                 Destroy(gameObject);
+                return;
             }
         }
+
+        _startTime = Time.time;
+        _noteRadius = _notePrefab.GetComponent<SphereCollider>().radius;
 
         SpawnNotes();
     }
@@ -67,23 +77,48 @@ public class NoteManager : MonoBehaviour
 
             foreach (BeatNote beatNote in musicEvent.data.tags)
             {
-                StartCoroutine(SpawnNoteCoroutine(beatNote.time, GetRandomPosition(), beatNote.duration, _leadWindowTime, _acceptanceWindow));
+                StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
             }
         }
     }
 
-    private IEnumerator SpawnNoteCoroutine(float spawnTime, Vector3 position, float duration, float leadWindowTime, float acceptanceWindow)
+    /* 
+    * will need this if we decide to use Main Game loop music
+    *
+    private bool ShouldSpawn(float beatTime)
     {
-        yield return new WaitForSecondsRealtime(spawnTime - _leadWindowTime); // Wait for the note's time before spawning
+        float spawnTime = beatTime - _leadWindowTime;
+        if (spawnTime < _startTime + _gracePeriod)
+        {
+            return false; // passed the timing, don't spawn
+        }
+        return true;
+    }
+    */
 
-        GameObject noteObj = Instantiate(_notePrefab, position, Quaternion.identity);
+    private IEnumerator SpawnNoteCoroutine(float beatTime, float duration)
+    {
+        /* 
+        * will need this if we decide to use Main Game loop music
+        *
+        float spawnTime = beatTime - _leadWindowTime;
+        float realTimeToWait = spawnTime - _startTime;
+    
+        yield return new WaitForSecondsRealtime(realTimeToWait); // Wait for the note's time before spawning
+        */
+
+        float realTimeToWait = beatTime - _leadWindowTime;
+
+        // Assuming Music starts the same time NoteManager starts
+        yield return new WaitForSecondsRealtime(realTimeToWait); // Wait for the note's time before spawning
+
+        GameObject noteObj = Instantiate(_notePrefab, GetRandomPosition(), Quaternion.identity);
         if (!noteObj)
         {
             Debug.LogError("Failed to instantiate note prefab.");
             yield break;
         }
 
-        noteObj.transform.position = position;
         Note note = noteObj.GetComponent<Note>();
         if (!note)
         {
@@ -91,15 +126,57 @@ public class NoteManager : MonoBehaviour
             yield break;
         }
 
-        note.InitializeNote(duration, leadWindowTime, acceptanceWindow, _cameraTransform);
+        note.InitializeNote(this, duration, _leadWindowTime, _acceptanceWindow, _cameraTransform);
 
         yield return null;
     }
-    
+
     Vector3 GetRandomPosition()
     {
-        float x = Random.Range(- _windowWidth * 0.5f, _windowWidth * 0.5f);
-        float y = Random.Range(- _windowHeight * 0.5f, _windowHeight * 0.5f);
-        return new Vector3(x, y, -20f); // Fixed Z position for testing
+        float x = Random.Range(-_windowWidth * 0.5f, _windowWidth * 0.5f);
+        float y = Random.Range(-_windowHeight * 0.5f, _windowHeight * 0.5f);
+        Vector3 SpawnLocation = new Vector3(x, y, -20.0f); // Fixed Z position for testing
+
+        bool overlaps = false;
+        foreach (var pos in _spawnLocations)
+        {
+            if (Vector3.Distance(SpawnLocation, pos) < _noteRadius * 2)
+            {
+                overlaps = true;
+            }
+        }
+
+        if (overlaps)
+        {
+            return GetRandomPosition();
+        }
+        else
+        {
+            _spawnLocations.Add(SpawnLocation);
+            return SpawnLocation;
+        }
+    }
+
+    public void AddSuccessPoint()
+    {
+        _successPoints++;
+        PrintPoints();
+    }
+
+    public void AddFailPoint()
+    {
+        _failPoints++;
+        PrintPoints();
+    }
+
+    public void PrintPoints()
+    {
+        Debug.Log($"Success Points: {_successPoints}, Fail Points: {_failPoints}");
+    }
+
+    public float GetScorePercentage()
+    {
+        float TotalPoints = _successPoints + _failPoints;
+        return _successPoints / TotalPoints;
     }
 }
