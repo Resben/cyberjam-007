@@ -3,7 +3,7 @@ using UnityEngine;
 
 // This class is responsible for managing the notes in the game.
 // It will load note data from a JSON file and spawn notes in the game world.
-public class Note_Manager : MonoBehaviour
+public class NoteManager : MonoBehaviour
 {
     // Note prefab to instantiate
     [SerializeField] private GameObject _notePrefab;
@@ -19,16 +19,23 @@ public class Note_Manager : MonoBehaviour
     [SerializeField] private float _acceptanceWindow; // Time window for accepting a note hit
     [SerializeField] private float _leadWindowTime; // Spawn time before note marker happens
 
+    [SerializeField] private GameObject _beatManager;
+
     void Start()
     {
         if (_cameraTransform == null)
         {
             _cameraTransform = Camera.main.transform;
         }
-        else
+
+        if (_beatManager == null)
         {
-            Debug.LogError("Camera Transform is not set");
-            Destroy(gameObject);
+            _beatManager = GameObject.FindGameObjectWithTag("BeatManager");
+            if (_beatManager == null)
+            {
+                Debug.LogError("Beat Manager not set");
+                Destroy(gameObject);
+            }
         }
 
         SpawnNotes();
@@ -38,6 +45,8 @@ public class Note_Manager : MonoBehaviour
     {
         GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
 
+        if (notes.Length == 0) return;
+
         foreach (GameObject note in notes)
         {
             Destroy(note);
@@ -46,14 +55,9 @@ public class Note_Manager : MonoBehaviour
 
     void SpawnNotes()
     {
-        BeatManager beatManager = GetComponent<BeatManager>();
-        if (!beatManager)
-        {
-            Debug.LogError("BeatManager component not found on Note_Manager.");
-            return;
-        }
+        BeatManager beats = _beatManager.GetComponent<BeatManager>();
 
-        foreach (MusicEvent musicEvent in beatManager.GetMusicData())
+        foreach (MusicEvent musicEvent in beats.GetMusicData())
         {
             if (musicEvent.data.tags == null || musicEvent.data.tags.Count == 0)
             {
@@ -70,8 +74,7 @@ public class Note_Manager : MonoBehaviour
 
     private IEnumerator SpawnNoteCoroutine(float spawnTime, Vector3 position, float duration, float leadWindowTime, float acceptanceWindow)
     {
-        yield return new WaitForSeconds(spawnTime - _leadWindowTime); // Wait for the note's time before spawning
-
+        yield return new WaitForSecondsRealtime(spawnTime - _leadWindowTime); // Wait for the note's time before spawning
 
         GameObject noteObj = Instantiate(_notePrefab, position, Quaternion.identity);
         if (!noteObj)

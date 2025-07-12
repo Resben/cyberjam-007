@@ -56,7 +56,7 @@ public class Note : MonoBehaviour
             .SetEase(Ease.InOutCubic);
 
         _outerRing.localScale = Vector3.one * _outerRingStartingScale;
-        _outerRing.DOScale(Vector3.one, _leadWindowTime + _duration + _acceptanceWindow * 0.5f)
+        _outerRing.DOScale(Vector3.one, _leadWindowTime + _duration)
             .SetEase(Ease.OutCirc);
 
         StartCoroutine(LifespanCoroutine());
@@ -99,7 +99,7 @@ public class Note : MonoBehaviour
 
     private IEnumerator LifespanCoroutine()
     {
-        yield return new WaitForSeconds(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
+        yield return new WaitForSecondsRealtime(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
 
         OnNoteFail();
     }

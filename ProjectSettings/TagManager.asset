@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - NoteManager
+  - BeatManager
   - Note
   layers:
   - Default
