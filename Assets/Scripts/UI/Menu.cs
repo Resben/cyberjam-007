@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using FMOD.Studio;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 enum MenuScene
 {
@@ -19,6 +22,11 @@ public class Menu : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private List<TMP_Text> sideWriter;
     [SerializeField] private List<GameObject> virtualCameras;
+    [SerializeField] private Button playButton;
+
+    [Header("Level Window")]
+    [SerializeField] private LevelButton levelPrefab;
+    [SerializeField] private GameObject levelParent;
 
     private Dictionary<string, List<string>> dialogue;
     private EventInstance _typingSound;
@@ -35,6 +43,8 @@ public class Menu : MonoBehaviour
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
 
+    private GameObject lastSelected;
+
     void Start()
     {
         writerSettings = new TypeWriterSettings
@@ -46,11 +56,12 @@ public class Menu : MonoBehaviour
             playSound = false
         };
 
+        playButton.onClick.AddListener(() => currentScene = MenuScene.Start);
+
         writer = TypeWriterManager.Instance;
         _inputActions = GameManager.Instance.inputActions;
         SwitchCamera(currentScene);
         StartCoroutine(BlinkCaret());
-        GameManager.Instance.CurrentLevel = GameManager.Instance.levelDirectory["Level 1"];
         // menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
         // menuBGM.start();
         // typingSound = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.typingSound, false);
@@ -84,8 +95,7 @@ public class Menu : MonoBehaviour
             },
             { "levels", new List<string>()
                 {
-                    "> levels",
-                    "Test"
+                    "> levels    " + (GameManager.Instance.CurrentLevel != null ? "| Current: " + GameManager.Instance.CurrentLevel.id : "")
                 }
             },
             { "nonsense0", new List<string>()
@@ -126,6 +136,12 @@ public class Menu : MonoBehaviour
         }
 
         RunState(currentScene);
+
+        // Ensure our buttons remain selected on empty click
+        if (EventSystem.current.currentSelectedGameObject != null)
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+        else if (lastSelected != null)
+            EventSystem.current.SetSelectedGameObject(lastSelected);
     }
 
     private IEnumerator BlinkCaret()
@@ -142,12 +158,43 @@ public class Menu : MonoBehaviour
         _monitorSceneLoading = true;
         yield return writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["stats"], writerSettings);
         yield return writer.StartTypeWriterEnumerable(sideWriter[1], dialogue["levels"], writerSettings);
+        foreach (var pair in GameManager.Instance.levelDirectory)
+        {
+            LevelButton button = Instantiate(levelPrefab, levelParent.transform);
+            button.transform.localPosition = Vector3.zero;
+            button.Init(pair.Value, 1, OnLevelSelected);
+
+            if (pair.Value == GameManager.Instance.CurrentLevel)
+                EventSystem.current.SetSelectedGameObject(button.gameObject);
+
+            yield return button.StartTypeWriteEffect(writerSettings);
+        }
+
         yield return writer.StartTypeWriterEnumerable(mainWriter, dialogue["start"], writerSettings);
         StartCoroutine(NonsensePanel());
 
-        ExitMenu();
+        foreach (Transform child in levelParent.transform)
+            child.GetComponent<LevelButton>().SetInteraction();
 
         _monitorSceneReady = true;
+    }
+
+    private void OnLevelSelected(Level level)
+    {
+        playButton.gameObject.SetActive(false);
+        GameManager.Instance.CurrentLevel = level;
+        StartCoroutine(LevelSelectedCoroutine());
+    }
+
+    private IEnumerator LevelSelectedCoroutine()
+    {
+        yield return writer.StartTypeWriterEnumerable(sideWriter[1], dialogue["levels"], writerSettings);
+        yield return writer.StartTypeWriterEnumerable(mainWriter, GameManager.Instance.CurrentLevel.description, writerSettings);
+        playButton.gameObject.SetActive(true);
+        playButton.interactable = false;
+        // Yo awesome code
+        yield return writer.StartTypeWriterEnumerable(playButton.gameObject.GetComponentInChildren<TMP_Text>(), new List<string>() { "Play" }, writerSettings);
+        playButton.interactable = true;
     }
 
     private IEnumerator NonsensePanel()
@@ -196,7 +243,6 @@ public class Menu : MonoBehaviour
                 StartCoroutine(DelayedAction(() => _allowedStart = true, 2.5f));
                 break;
             case MenuScene.Monitor:
-                cmdLine.text = @"C:\ > " + (_showCaret ? "|" : "");
                 if (!_monitorSceneReady && !_monitorSceneLoading)
                 {
                     StartCoroutine(StartupAnimation());
@@ -210,6 +256,7 @@ public class Menu : MonoBehaviour
     private void RunState(MenuScene state)
     {
         var input = _inputActions.UI;
+        cmdLine.text = @"C:\ > " + (_showCaret ? "|" : "");
 
         switch (state)
         {

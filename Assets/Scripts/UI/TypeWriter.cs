@@ -45,10 +45,8 @@ public class TypeWriter : MonoBehaviour
     // Warning this does just clear everything
     public IEnumerator StartTypeWriterEnumerable(List<string> texts, TypeWriterSettings settings, Action onFinshed = null)
     {
-        Debug.Log("1");
         ClearTypeWriter();
         currentSets = new TextSet { s_texts = texts, s_onFinshed = onFinshed, s_settings = settings };
-        Debug.Log("two");
         yield return TypeWriteCoroutine();
     }
 
