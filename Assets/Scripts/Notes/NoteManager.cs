@@ -5,7 +5,7 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     [SerializeField] private GameObject _notePrefab;
-    private Hackable _hackableItem;
+    private HackingManager _hackingManager;
     private MusicEvent _musicEvent;
 
     private Transform _cameraTransform;
@@ -22,10 +22,6 @@ public class NoteManager : MonoBehaviour
     private float _startTime; // will need this if we decide to use Main Game loop music
     [SerializeField] private float _gracePeriod; // amount of time before notes can appear
 
-    private int _successPoints = 0;
-    private int _failPoints = 0;
-    private float _totalNoteCount = 0;
-
     private List<Vector3> _spawnLocations = new();
     private float _noteRadius;
 
@@ -36,6 +32,17 @@ public class NoteManager : MonoBehaviour
             _cameraTransform = Camera.main.transform;
         }
 
+        _noteRadius = _notePrefab.GetComponent<SphereCollider>().radius;
+    }
+
+    void OnDestroy()
+    {
+        EndSession();
+    }
+
+    public void StartSession(HackingManager hackingManager, MusicEvent musicEvent)
+    {
+        _musicEvent = musicEvent;
         if (_musicEvent.data.tags.Count < 1)
         {
             Debug.LogError("Music Data is missing");
@@ -43,52 +50,46 @@ public class NoteManager : MonoBehaviour
             return;
         }
 
-        if (!_hackableItem)
+        _hackingManager = hackingManager;
+        if (!_hackingManager)
         {
-            Debug.LogError("Hackable item is not linked");
+            Debug.LogError("Hacking manager is not linked");
             Destroy(gameObject);
             return;
         }
 
         _startTime = Time.time;
-        _noteRadius = _notePrefab.GetComponent<SphereCollider>().radius;
-
-        _totalNoteCount = _musicEvent.data.tags.Count;
 
         SpawnNotes();
 
         StartCoroutine(LifetimeCoroutine());
     }
 
-    void OnDestroy()
+    public void EndSession()
     {
         GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
 
         if (notes.Length > 0)
         {
             foreach (GameObject note in notes)
-                {
-                    Destroy(note);
-                }
+            {
+                Destroy(note);
+            }
         }
 
-        PrintPoints();
-        _hackableItem.EndHack(GetScorePercentage());
+        StopAllCoroutines();
     }
 
     private IEnumerator LifetimeCoroutine()
     {
+        float realTimeToWait = _musicEvent.length / 1000.0f;
+        Debug.Log($"Starting Lifetime: {realTimeToWait}");
         // Destroy itself at the end of the music
-        yield return new WaitForSecondsRealtime(_musicEvent.length / 1000.0f); // length is in milliseconds
+        yield return new WaitForSecondsRealtime(realTimeToWait); // length is in milliseconds
 
-        Destroy(gameObject);
+        Debug.Log("Ending Liftime");
+        _hackingManager.DestroyHackingSession();
         yield return null;
-    }
-
-    public void Initialise(MusicEvent musicEvent, Hackable hackableItem)
-    {
-        _musicEvent = musicEvent;
-        _hackableItem = hackableItem;
     }
     
     void SpawnNotes()
@@ -175,29 +176,13 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    public int getSuccessPoints() => _successPoints;
     public void AddSuccessPoint()
     {
-        _successPoints++;
-
-        // @TODO: add to progress meter?
+        _hackingManager.AddSuccessPoint();
     }
 
-    public int getFailPoints() => _failPoints;
     public void AddFailPoint()
     {
-        _failPoints++;
-    }
-
-    // @DEBUG
-    public void PrintPoints()
-    {
-        Debug.Log($"Success Points: {_successPoints}, Fail Points: {_failPoints}");
-        Debug.Log($"Score Percentage: {GetScorePercentage()}");
-    }
-
-    public float GetScorePercentage()
-    {
-        return _successPoints / _totalNoteCount;
+        _hackingManager.AddFailPoint();
     }
 }

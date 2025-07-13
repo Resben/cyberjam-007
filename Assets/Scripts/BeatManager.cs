@@ -107,16 +107,16 @@ public class BeatManager : MonoBehaviour
     public void PauseMusic(int index) => musicData[index].reference.setPaused(true);
     public void UnPauseMusic(int index) => musicData[index].reference.setPaused(false);
     public void FadeStopMusic(int index) => musicData[index].reference.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    public void ImmediateStopMusic(int index) => musicData[index].reference.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    public void ImmediatelyStopMusic(int index) => musicData[index].reference.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     public void ReleaseMusic(int index) => musicData[index].reference.release();
     public void DestroyMusic(int index)
     {
-        ImmediateStopMusic(index);
+        ImmediatelyStopMusic(index);
         ReleaseMusic(index);
     }
 
-    public List<MusicEvent> GetMusicData()
+    public MusicEvent GetMusicData(int index)
     {
-        return musicData;
+        return musicData[index];
     }
 }

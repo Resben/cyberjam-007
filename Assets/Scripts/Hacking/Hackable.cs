@@ -3,27 +3,30 @@ using UnityEngine;
 
 public abstract class Hackable : MonoBehaviour
 {
-    private NoteManager _noteManager;
-    private BeatManager _beatManager;
-    [SerializeField] private GameObject _noteManagerPrefab;
-    [SerializeField] private GameObject _beatManagerPrefab;
+    [SerializeField] private GameObject _hackingManagerObj;
+    private HackingManager _hackingManager;
     private MeshRenderer _meshRenderer;
     private Color _originalColor;
 
     [SerializeField] private int _trackNumber = -1;
 
-    private bool _inHackPhase = false;
-    private float _score = 0;
     [SerializeField, Range(0, 100)]
     private int _passPercentage = 80;
 
+    private bool _isHacking = false;
+
     protected virtual void Start()
     {
-        if (!_noteManagerPrefab || !_beatManagerPrefab)
+        if (!_hackingManagerObj)
         {
-            Debug.LogError("Note or beat Managers are not set");
+            Debug.LogError("Hacking Manager GameObject not set");
             Destroy(gameObject);
             return;
+        }
+
+        if (!_hackingManager)
+        {
+            _hackingManager = _hackingManagerObj.GetComponent<HackingManager>();
         }
 
         if (_trackNumber == -1)
@@ -59,67 +62,55 @@ public abstract class Hackable : MonoBehaviour
                 }
             }
         }
-
-        // @DEBUG
-        if (Input.GetButtonDown("Jump"))
-        {
-            StopHackPhase();
-        }
     }
 
     protected virtual void OnClicked()
     {
-        if (_inHackPhase)
-        {
-            return;
-        }
-
-        _inHackPhase = true;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-
         StartHackPhase();
     }
 
     protected virtual void StartHackPhase()
     {
-        Vector3 pos = new Vector3(0, 0, 0);
-        _noteManager = Instantiate(_noteManagerPrefab, pos, Quaternion.identity).GetComponent<NoteManager>();
-        _beatManager = Instantiate(_beatManagerPrefab, pos, Quaternion.identity).GetComponent<BeatManager>();
+        if (_isHacking) return;
 
-        if (!_noteManager || !_beatManager)
-        {
-            Debug.LogError("Issues with instantiation of Managers");
-        }
+        _hackingManager.CreateHackingSession(this);
+    }
 
-        MusicEvent musicEvent = _beatManager.GetMusicData()[_trackNumber];
+    protected virtual void StopHackPhase()
+    {
+        if (!_isHacking) return;
 
-        _noteManager.Initialise(musicEvent, this);
-        _beatManager.StartMusic(_trackNumber);
+        _hackingManager.DestroyHackingSession();
+    }
+
+    public virtual void StartHack()
+    {
+        OnStartHackPhase();
+    }
+
+     public void EndHack()
+    {        
+        OnStopHackPhase();
+    }
+
+    protected virtual void OnStartHackPhase()
+    {
+        _isHacking = true;
+        gameObject.GetComponent<Collider>().enabled = false;
 
         // @TODO: Revisit this
         _meshRenderer.material.DOColor(new Color(255.0f, 0.0f, 255.0f), 1.0f)
             .SetEase(Ease.InExpo);
     }
 
-    protected virtual void StopHackPhase()
+    protected virtual void OnStopHackPhase()
     {
-        _inHackPhase = false;
-        gameObject.GetComponent<BoxCollider>().enabled = true; // @DEBUG
-
-        Destroy(_noteManager);
-        Destroy(_beatManager);
+        _isHacking = false;
+        gameObject.GetComponent<Collider>().enabled = true;
 
         // @TODO: Revisit this
         _meshRenderer.material.DOColor(_originalColor, 1.0f)
             .SetEase(Ease.InExpo);
-    }
-
-    public void EndHack(float score)
-    {
-        _score = score;
-        Debug.Log($"Total score = {_score}");
-        StopHackPhase();
-        DetermineSuccess();
     }
 
     public int PassPercentage
@@ -128,20 +119,9 @@ public abstract class Hackable : MonoBehaviour
         set => _passPercentage = Mathf.Clamp(value, 0, 100);
     }
 
-    private void DetermineSuccess()
-    {
-        float passRate = PassPercentage / 100.0f;
-        Debug.Log($"Score: {_score}, PassRate: {passRate}");
-        if (_score < passRate)
-        {
-            onFailedHack();
-        }
-        else
-        {
-            OnSuccessfulHack();
-        }
-    }
-
+    public bool GetIsHacking() => _isHacking;
+    public bool SetIsHacking(bool isHacking) => _isHacking = isHacking;
+    public int GetTrackNumber() => _trackNumber;
     public abstract void OnSuccessfulHack();
-    public abstract void onFailedHack();
+    public abstract void OnFailedHack();
 }
