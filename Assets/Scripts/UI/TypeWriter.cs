@@ -1,46 +1,77 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using FMOD.Studio;
-using FMODUnity;
 using TMPro;
 using UnityEngine;
 
 public class TypeWriter : MonoBehaviour
 {
-    [SerializeField] private TMP_Text textBox;
     public event Action OnTypeWriterCleared;
     public event Action<int> OnLineFinished;
     public event Action OnTypeWriterFinished;
-    public bool PlaySound = false;
-    private Coroutine typewriter;
+
     private int currentStringIndex = 0;
     private int currentLineIndex = 0;
     private string currentString = "";
     private bool skipLine = false;
-    private List<string> currentTexts = new List<string>();
+    private Queue<TextSet> textQueue = new();
+    private TextSet currentSets = new();
+    private TMP_Text textBox;
+
     private bool isTyping = false;
 
-    public void StartTypeWriter(List<string> texts, bool shouldClearOnNewLine, bool clearCurrent, int charactersPerSecond, float delayBetweenLines = -1, Action onFinshed = null)
+    struct TextSet
     {
-        if (clearCurrent)
-            SkipAll();
-
-        WaitForSeconds delay = new WaitForSeconds(1f / charactersPerSecond);
-        WaitForSeconds delayBetweenLinesWait = new(delayBetweenLines);
-        if (delayBetweenLines < 0)
-            delayBetweenLinesWait = delay;
-        
-        currentTexts = texts;
-        var num = TypeWriteCoroutine(shouldClearOnNewLine, delay, delayBetweenLinesWait, onFinshed);
-        typewriter = StartCoroutine(num);
+        public List<string> s_texts;
+        public Action s_onFinshed;
+        public TypeWriterSettings s_settings;
     }
 
-    private IEnumerator TypeWriteCoroutine(bool shouldClear, WaitForSeconds delay, WaitForSeconds delayBetweenLines, Action onFinished = null)
+    public void Init(TMP_Text text)
     {
+        textBox = text;
+    }
+
+    public void StartTypeWriter(List<string> texts, TypeWriterSettings settings, Action onFinshed = null)
+    {
+        textQueue.Enqueue(new TextSet { s_texts = texts, s_onFinshed = onFinshed, s_settings = settings });
+
+        if (isTyping)
+        {
+            LoadNext();
+        }
+    }
+
+    // Warning this does just clear everything
+    public IEnumerator StartTypeWriterEnumerable(List<string> texts, TypeWriterSettings settings, Action onFinshed = null)
+    {
+        Debug.Log("1");
+        ClearTypeWriter();
+        currentSets = new TextSet { s_texts = texts, s_onFinshed = onFinshed, s_settings = settings };
+        Debug.Log("two");
+        yield return TypeWriteCoroutine();
+    }
+
+    private void LoadNext()
+    {
+        if (textQueue.TryDequeue(out currentSets))
+        {
+            var num = TypeWriteCoroutine();
+            StartCoroutine(num);
+        }
+    }
+
+    private IEnumerator TypeWriteCoroutine()
+    {
+        WaitForSeconds delay = new(1f / currentSets.s_settings.charactersPerSecond);
+        WaitForSeconds delayBetweenLines = new(currentSets.s_settings.delayBetweenLines);
+
+        if (currentSets.s_settings.delayBetweenLines < 0)
+            delayBetweenLines = delay;
+
         isTyping = true;
         textBox.text = "";
-        foreach (string line in currentTexts)
+        foreach (string line in currentSets.s_texts)
         {
             currentString = line;
 
@@ -64,7 +95,7 @@ public class TypeWriter : MonoBehaviour
 
             yield return delayBetweenLines;
 
-            if (shouldClear)
+            if (currentSets.s_settings.shouldClearOnNewLine)
                 textBox.text = string.Empty;
             else
                 textBox.text += "\n";
@@ -76,7 +107,9 @@ public class TypeWriter : MonoBehaviour
 
         isTyping = false;
         OnTypeWriterFinished?.Invoke();
-        onFinished?.Invoke();
+        currentSets.s_onFinshed?.Invoke();
+
+        LoadNext();
     }
 
     public bool IsTyping()
@@ -92,21 +125,27 @@ public class TypeWriter : MonoBehaviour
         textBox.text = string.Empty;
 
         StopAllCoroutines();
-        foreach (string line in currentTexts)
+        foreach (string line in currentSets.s_texts)
         {
             textBox.text += line + "\n";
         }
     }
 
-    public void ClearTypeWriter()
+    private void ClearTypeWriter()
     {
         StopAllCoroutines();
         textBox.text = string.Empty;
-        currentTexts.Clear();
+        currentSets.s_texts?.Clear();
+        currentSets.s_onFinshed = null;
         currentString = string.Empty;
         currentStringIndex = 0;
         skipLine = false;
         OnTypeWriterCleared?.Invoke();
         currentLineIndex = 0;
+    }
+
+    public void Clear()
+    {
+        ClearTypeWriter();
     }
 }

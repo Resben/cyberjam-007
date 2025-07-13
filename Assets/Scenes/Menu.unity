@@ -639,7 +639,6 @@ GameObject:
   - component: {fileID: 918992722}
   - component: {fileID: 918992724}
   - component: {fileID: 918992723}
-  - component: {fileID: 918992725}
   m_Layer: 5
   m_Name: SideWindow2
   m_TagString: Untagged
@@ -765,20 +764,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918992721}
   m_CullTransparentMesh: 1
---- !u!114 &918992725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918992721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af822fcff16fefe4b843ec6c3336cb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 918992723}
-  PlaySound: 0
 --- !u!1 &1338869349
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,12 +811,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cmdLine: {fileID: 1905605466}
-  mainWriter: {fileID: 1704439836}
+  mainWriter: {fileID: 1704439834}
   fadeDuration: 0.5
   sideWriter:
-  - {fileID: 1770422746}
-  - {fileID: 918992725}
-  - {fileID: 2012334040}
+  - {fileID: 1770422744}
+  - {fileID: 918992723}
+  - {fileID: 2012334038}
   virtualCameras:
   - {fileID: 810729093}
   - {fileID: 1811429189}
@@ -1170,6 +1155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701099466}
   - component: {fileID: 1701099465}
+  - component: {fileID: 1701099467}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1207,6 +1193,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701099467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701099464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69443c86b48838a4d936a803d7119f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704439832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,7 +1216,6 @@ GameObject:
   - component: {fileID: 1704439833}
   - component: {fileID: 1704439835}
   - component: {fileID: 1704439834}
-  - component: {fileID: 1704439836}
   m_Layer: 5
   m_Name: MainWindow
   m_TagString: Untagged
@@ -1344,20 +1341,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704439832}
   m_CullTransparentMesh: 1
---- !u!114 &1704439836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1704439832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af822fcff16fefe4b843ec6c3336cb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 1704439834}
-  PlaySound: 0
 --- !u!1 &1739107608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,7 +1427,6 @@ GameObject:
   - component: {fileID: 1770422743}
   - component: {fileID: 1770422745}
   - component: {fileID: 1770422744}
-  - component: {fileID: 1770422746}
   m_Layer: 5
   m_Name: SideWindow1
   m_TagString: Untagged
@@ -1570,20 +1552,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1770422742}
   m_CullTransparentMesh: 1
---- !u!114 &1770422746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1770422742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af822fcff16fefe4b843ec6c3336cb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 1770422744}
-  PlaySound: 0
 --- !u!1 &1811429189
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1853,6 @@ GameObject:
   - component: {fileID: 2012334037}
   - component: {fileID: 2012334039}
   - component: {fileID: 2012334038}
-  - component: {fileID: 2012334040}
   m_Layer: 5
   m_Name: SideWindow3
   m_TagString: Untagged
@@ -2011,20 +1978,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012334036}
   m_CullTransparentMesh: 1
---- !u!114 &2012334040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012334036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af822fcff16fefe4b843ec6c3336cb9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textBox: {fileID: 2012334038}
-  PlaySound: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

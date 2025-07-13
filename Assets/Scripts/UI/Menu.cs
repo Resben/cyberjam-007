@@ -15,12 +15,12 @@ enum MenuScene
 public class Menu : MonoBehaviour
 {
     [SerializeField] private TMP_Text cmdLine;
-    [SerializeField] private TypeWriter mainWriter;
+    [SerializeField] private TMP_Text mainWriter;
     [SerializeField] private float fadeDuration = 0.5f;
-    [SerializeField] private List<TypeWriter> sideWriter;
+    [SerializeField] private List<TMP_Text> sideWriter;
     [SerializeField] private List<GameObject> virtualCameras;
 
-    private Dictionary<string, Action<TypeWriter>> cmds;
+    private Dictionary<string, List<string>> dialogue;
     private EventInstance _typingSound;
     private EventInstance _menuBGM;
     private PlayerInputActions _inputActions;
@@ -28,14 +28,25 @@ public class Menu : MonoBehaviour
     private MenuScene currentScene = MenuScene.Default;
     private MenuScene lastScene = MenuScene.Default;
 
+    private TypeWriterManager writer;
+    private TypeWriterSettings writerSettings;
+
     private bool _monitorSceneLoading = false;
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
 
-    private int charactersPerSecond = 200;
-
     void Start()
     {
+        writerSettings = new TypeWriterSettings
+        {
+            shouldClearOnNewLine = false,
+            clearCurrent = true,
+            charactersPerSecond = 200,
+            delayBetweenLines = -1,
+            playSound = false
+        };
+
+        writer = TypeWriterManager.Instance;
         _inputActions = GameManager.Instance.inputActions;
         SwitchCamera(currentScene);
         StartCoroutine(BlinkCaret());
@@ -43,8 +54,8 @@ public class Menu : MonoBehaviour
         // menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
         // menuBGM.start();
         // typingSound = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.typingSound, false);
-        cmds = new Dictionary<string, Action<TypeWriter>> {
-            { "start", writer => writer.StartTypeWriter(new List<string>()
+        dialogue = new Dictionary<string, List<string>> {
+            { "start", new List<string>()
                 {
                     "[DRONE AUTONOMOUS FRAMEWORK]",
                     "Boot Sequence Initiated: 00:00:03.912",
@@ -59,9 +70,9 @@ public class Menu : MonoBehaviour
                     "",
                     "[SUCCESS]",
                     "Swarm online..."
-            }, false, true, charactersPerSecond)
+            }
             },
-            { "stats", writer => writer.StartTypeWriter(new List<string>()
+            { "stats", new List<string>()
                 {
                     "[Stats]",
                     "Perfect Hacks:     " + GameManager.Instance.stats.perfects,
@@ -69,17 +80,33 @@ public class Menu : MonoBehaviour
                     "Ok Hacks:          " + GameManager.Instance.stats.ok,
                     "Failed Hacks:      " + GameManager.Instance.stats.fails,
                     "Levels Complete:   " + GameManager.Instance.stats.levels
-                }, false, true, charactersPerSecond)
+                }
             },
-            { "levels", writer => writer.StartTypeWriter(new List<string>()
+            { "levels", new List<string>()
                 {
                     "> levels",
                     "Test"
-                }, false, true, charactersPerSecond)
+                }
             },
-            { "nonsense", writer =>
+            { "nonsense0", new List<string>()
                 {
-                    StartCoroutine(NonsensePanel(writer));
+                    "Just some nonsense for 0",
+                    "asdasdasd",
+                    "asdasdasdasd"
+                }
+            },
+            { "nonsense1", new List<string>()
+                {
+                    "Just some nonsense for 1",
+                    "asdasdasd",
+                    "asdasdasdasd"
+                }
+            },
+            { "nonsense2", new List<string>()
+                {
+                    "Just some nonsense for 2",
+                    "asdasdasd",
+                    "asdasdasdasd"
                 }
             }
         };
@@ -113,27 +140,35 @@ public class Menu : MonoBehaviour
     private IEnumerator StartupAnimation()
     {
         _monitorSceneLoading = true;
+        yield return writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["stats"], writerSettings);
+        yield return writer.StartTypeWriterEnumerable(sideWriter[1], dialogue["levels"], writerSettings);
+        yield return writer.StartTypeWriterEnumerable(mainWriter, dialogue["start"], writerSettings);
+        StartCoroutine(NonsensePanel());
 
-        cmds["stats"].Invoke(sideWriter[0]);
-        yield return new WaitUntil(() => sideWriter[0].IsTyping() == true);
-        cmds["levels"].Invoke(sideWriter[1]);
-        yield return new WaitUntil(() => sideWriter[1].IsTyping() == true);
-        cmds["nonsense"].Invoke(sideWriter[2]);
-        cmds["start"].Invoke(mainWriter);
-        yield return new WaitUntil(() => mainWriter.IsTyping() == true);
+        ExitMenu();
 
         _monitorSceneReady = true;
     }
 
-    private IEnumerator NonsensePanel(TypeWriter writer)
+    private IEnumerator NonsensePanel()
     {
-        writer.StartTypeWriter(new List<string>()
-        {
-            "> stats",
-            "Test"
-        }, false, true, charactersPerSecond);
+        int currentIndex = 0;
+        int maxIndexes = 3;
 
-        yield return new WaitForSeconds(2.5f);
+        while (true)
+        {
+            yield return writer.StartTypeWriterEnumerable(sideWriter[2], dialogue["nonsense" + currentIndex], writerSettings);
+            currentIndex += 1;
+            if (currentIndex >= maxIndexes)
+                currentIndex = 0;
+            yield return new WaitForSeconds(2.5f);
+        }
+    }
+
+    private void ExitMenu()
+    {
+        StopAllCoroutines();
+        writer.DestroyAll();
     }
 
     private void SwitchCamera(MenuScene camera)
@@ -181,10 +216,8 @@ public class Menu : MonoBehaviour
             case MenuScene.Default:
                 if (_allowedStart)
                 {
-                    Debug.Log("Here");
                     if (input.Click.IsPressed())
                     {
-                        Debug.Log("here");
                         _allowedStart = false;
                         currentScene = MenuScene.Monitor;
                     }
