@@ -19,8 +19,8 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private float _acceptanceWindow; // Time window for accepting a note hit
     [SerializeField] private float _leadWindowTime; // Spawn time before note marker happens
 
-    private float _startTime; // will need this if we decide to use Main Game loop music
-    [SerializeField] private float _gracePeriod; // amount of time before notes can appear
+    //private float _startTime; // will need this if we decide to use Main Game loop music
+    //[SerializeField] private float _gracePeriod; // amount of time before notes can appear
 
     private List<Vector3> _spawnLocations = new();
     private float _noteRadius;
@@ -58,7 +58,7 @@ public class NoteManager : MonoBehaviour
             return;
         }
 
-        _startTime = Time.time;
+        // _startTime = Time.time;
 
         SpawnNotes();
 
@@ -82,12 +82,10 @@ public class NoteManager : MonoBehaviour
 
     private IEnumerator LifetimeCoroutine()
     {
-        float realTimeToWait = _musicEvent.length / 1000.0f;
-        Debug.Log($"Starting Lifetime: {realTimeToWait}");
         // Destroy itself at the end of the music
-        yield return new WaitForSecondsRealtime(realTimeToWait); // length is in milliseconds
+        float realTimeToWait = _musicEvent.length / 1000.0f; // length is in milliseconds
+        yield return new WaitForSecondsRealtime(realTimeToWait); 
 
-        Debug.Log("Ending Liftime");
         _hackingManager.DestroyHackingSession();
         yield return null;
     }
@@ -152,6 +150,7 @@ public class NoteManager : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
+        // @TODO: Rework this to spawn on a HUD on the screen space
         float x = Random.Range(-_windowWidth * 0.5f, _windowWidth * 0.5f);
         float y = Random.Range(-_windowHeight * 0.5f, _windowHeight * 0.5f);
         Vector3 SpawnLocation = new Vector3(x, y, -20.0f); // Fixed Z position for testing

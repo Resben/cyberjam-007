@@ -119,8 +119,6 @@ public abstract class Hackable : MonoBehaviour
         set => _passPercentage = Mathf.Clamp(value, 0, 100);
     }
 
-    public bool GetIsHacking() => _isHacking;
-    public bool SetIsHacking(bool isHacking) => _isHacking = isHacking;
     public int GetTrackNumber() => _trackNumber;
     public abstract void OnSuccessfulHack();
     public abstract void OnFailedHack();

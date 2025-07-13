@@ -65,7 +65,7 @@ public class HackingManager : MonoBehaviour
             Debug.LogError("Music Data is missing");
             return;
         }
-        
+
         _successPoints = 0;
         _failPoints = 0;
         _totalNoteCount = musicEvent.data.tags.Count;
@@ -125,7 +125,7 @@ public class HackingManager : MonoBehaviour
     private void DetermineSuccess(Hackable hackableItem)
     {
         float passRate = _passPercentage / 100.0f;
-        Debug.Log($"Score: {_score}, PassRate: {passRate}");
+        PrintPoints();
         if (_score < passRate)
         {
             hackableItem.OnFailedHack();
