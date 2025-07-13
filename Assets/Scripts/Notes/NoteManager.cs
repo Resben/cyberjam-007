@@ -5,12 +5,13 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     [SerializeField] private GameObject _notePrefab;
-    [SerializeField] private GameObject _beatManager;
+    private Hackable _hackableItem;
+    private MusicEvent _musicEvent;
 
     private Transform _cameraTransform;
 
     // Terminal window properties
-    //private Transform _terminalWindowTransform; // more ideal to have a panel transform passed in
+    private Transform _terminalWindowTransform; // more ideal to have a panel transform passed in
     [SerializeField] private float _windowHeight;
     [SerializeField] private float _windowWidth;
 
@@ -21,8 +22,9 @@ public class NoteManager : MonoBehaviour
     private float _startTime; // will need this if we decide to use Main Game loop music
     [SerializeField] private float _gracePeriod; // amount of time before notes can appear
 
-    private float _successPoints = 0;
-    private float _failPoints = 0;
+    private int _successPoints = 0;
+    private int _failPoints = 0;
+    private float _totalNoteCount = 0;
 
     private List<Vector3> _spawnLocations = new();
     private float _noteRadius;
@@ -34,52 +36,68 @@ public class NoteManager : MonoBehaviour
             _cameraTransform = Camera.main.transform;
         }
 
-        if (_beatManager == null)
+        if (_musicEvent.data.tags.Count < 1)
         {
-            _beatManager = GameObject.FindGameObjectWithTag("BeatManager");
-            if (_beatManager == null)
-            {
-                Debug.LogError("Beat Manager not set");
-                Destroy(gameObject);
-                return;
-            }
+            Debug.LogError("Music Data is missing");
+            Destroy(gameObject);
+            return;
+        }
+
+        if (!_hackableItem)
+        {
+            Debug.LogError("Hackable item is not linked");
+            Destroy(gameObject);
+            return;
         }
 
         _startTime = Time.time;
         _noteRadius = _notePrefab.GetComponent<SphereCollider>().radius;
 
+        _totalNoteCount = _musicEvent.data.tags.Count;
+
         SpawnNotes();
+
+        StartCoroutine(LifetimeCoroutine());
     }
 
     void OnDestroy()
     {
         GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
 
-        if (notes.Length == 0) return;
-
-        foreach (GameObject note in notes)
+        if (notes.Length > 0)
         {
-            Destroy(note);
+            foreach (GameObject note in notes)
+                {
+                    Destroy(note);
+                }
         }
+
+        PrintPoints();
+        _hackableItem.EndHack(GetScorePercentage());
     }
 
+    private IEnumerator LifetimeCoroutine()
+    {
+        // Destroy itself at the end of the music
+        yield return new WaitForSecondsRealtime(_musicEvent.length / 1000.0f); // length is in milliseconds
+
+        Destroy(gameObject);
+        yield return null;
+    }
+
+    public void Initialise(MusicEvent musicEvent, Hackable hackableItem)
+    {
+        _musicEvent = musicEvent;
+        _hackableItem = hackableItem;
+    }
+    
     void SpawnNotes()
     {
-        BeatManager beats = _beatManager.GetComponent<BeatManager>();
-
-        foreach (MusicEvent musicEvent in beats.GetMusicData())
+        foreach (BeatNote beatNote in _musicEvent.data.tags)
         {
-            if (musicEvent.data.tags == null || musicEvent.data.tags.Count == 0)
-            {
-                Debug.LogWarning($"No tags found for music event: {musicEvent.name}");
-                continue;
-            }
-
-            foreach (BeatNote beatNote in musicEvent.data.tags)
-            {
-                StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
-            }
+            StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
         }
+        
     }
 
     /* 
@@ -157,26 +175,29 @@ public class NoteManager : MonoBehaviour
         }
     }
 
+    public int getSuccessPoints() => _successPoints;
     public void AddSuccessPoint()
     {
         _successPoints++;
-        PrintPoints();
+
+        // @TODO: add to progress meter?
     }
 
+    public int getFailPoints() => _failPoints;
     public void AddFailPoint()
     {
         _failPoints++;
-        PrintPoints();
     }
 
+    // @DEBUG
     public void PrintPoints()
     {
         Debug.Log($"Success Points: {_successPoints}, Fail Points: {_failPoints}");
+        Debug.Log($"Score Percentage: {GetScorePercentage()}");
     }
 
     public float GetScorePercentage()
     {
-        float TotalPoints = _successPoints + _failPoints;
-        return _successPoints / TotalPoints;
+        return _successPoints / _totalNoteCount;
     }
 }
