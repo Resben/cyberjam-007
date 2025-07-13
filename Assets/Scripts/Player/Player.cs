@@ -22,20 +22,13 @@ public class Player : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        _inputActions = new PlayerInputActions();
-        _inputActions.Enable();
-
+        _inputActions = GameManager.Instance.inputActions;
         puppetCharacter.Initialize();
 
         playerCamera.Initialize(puppetCharacter.GetPosition());
         cameraSpring.Initialize();
         cameraLean.Initialize();
         StartCoroutine(KillVelocity());
-    }
-
-    void OnDestroy()
-    {
-        _inputActions.Dispose();
     }
 
     void Update()

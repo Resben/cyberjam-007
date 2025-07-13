@@ -39,16 +39,27 @@ public class Level
     }
 }
 
+public struct Stats
+{
+    public int perfects;
+    public int good;
+    public int ok;
+    public int fails;
+    public int levels;
+}
+
 public class GameManager : MonoBehaviour
 {
     // ------------------ SCENE / GAMESTATE MANAGEMENT ------------------ //
 
-    private float volume = 1f;
-    private float sfxVolume = 1f;
     public bool exitedLevel = false;
     public GameState CurrentGameState = GameState.Menu;
+    public Stats stats;
     public Level CurrentLevel;
     public bool isDebugMode = false;
+    public PlayerInputActions inputActions;
+    private float volume = 1f;
+    private float sfxVolume = 1f;
     private static GameManager _instance;
 
     public Dictionary<string, Level> levelDirectory = new Dictionary<string, Level>
@@ -78,6 +89,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        stats = new Stats
+        {
+            perfects = 0,
+            good = 0,
+            ok = 0,
+            fails = 0,
+            levels = 0,
+        };
+
+        inputActions = new PlayerInputActions();
+        inputActions.Enable();
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
@@ -118,7 +141,7 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {}
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) { }
 
     public bool IsGameInPlay()
     {
@@ -154,5 +177,10 @@ public class GameManager : MonoBehaviour
     {
         sfxVolume = Mathf.Clamp01(value);
         AudioManager.Instance.OnSFXVolumeChanged(sfxVolume);
+    }
+
+    void OnDestroy()
+    {
+        inputActions.Dispose();
     }
 }
