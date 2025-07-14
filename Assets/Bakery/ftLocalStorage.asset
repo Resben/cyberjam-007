@@ -14,4 +14,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   modifiedAssetPathList:
   - Assets/Bakery/examples/content/sponza/sponza.FBX
-  modifiedAssetPaddingHash: d6a958ff
+  - Assets/CyberCity/Mesh/streetdoor 1.FBX
+  - Assets/CyberCity/Mesh/wall window 2.FBX
+  - Assets/CyberCity/Mesh/room box.FBX
+  - Assets/CyberCity/Mesh/strlamp.FBX
+  - Assets/CyberCity/Mesh/long lamp 2.FBX
+  - Assets/CyberCity/Mesh/trash bin 1.FBX
+  - Assets/CyberCity/Mesh/conditioning hldr.FBX
+  - Assets/CyberCity/Mesh/conditioning 2.FBX
+  - Assets/CyberCity/Mesh/conditioning 1.FBX
+  - Assets/CyberCity/Mesh/neon sign 20.FBX
+  - Assets/CyberCity/Mesh/column 1.FBX
+  - Assets/CyberCity/Mesh/wall a 2 05.FBX
+  - Assets/CyberCity/Mesh/streetwindow 3.FBX
+  - Assets/CyberCity/Mesh/cable mix F.FBX
+  - Assets/CyberCity/Mesh/cable mix G.FBX
+  - Assets/CyberCity/Mesh/air pipe.FBX
+  - Assets/CyberCity/Mesh/air pipe corn.FBX
+  - Assets/CyberCity/Mesh/street dir A.FBX
+  - Assets/CyberCity/Mesh/plate trian.FBX
+  - Assets/CyberCity/Mesh/wall a 2.FBX
+  - Assets/CyberCity/Mesh/streetwindow 1.FBX
+  - Assets/CyberCity/Mesh/streetgate 1.FBX
+  - Assets/CyberCity/Mesh/streetdoor 2.FBX
+  - Assets/CyberCity/Mesh/sidewalk dir C.FBX
+  - Assets/CyberCity/Mesh/street corn in D.FBX
+  - Assets/CyberCity/Mesh/sidewalk corn B.FBX
+  modifiedAssetPaddingHash: d6a958ff00e2b9b33c4efff0d932adc9f166e2a8f537ed0427dc894b323b80333367e2a83367e2a8d939803308dc894b08dc894b8506f8e6377e9363377e9363fd7d9363f166e2a808dc894bf1f23a06f8398033cb1e618befd3ee00818549c29c09ecc0e55031ee6d67e2a8
