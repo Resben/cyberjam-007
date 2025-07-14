@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 47858f1f25758a042a51ea80cafda55a
+timeCreated: 1630505910
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmSunSuperSampleSH.ptx
+  uploadId: 641446

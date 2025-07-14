@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b587e8104b43940479f216b6dee30a8a
+timeCreated: 1537452995
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/rgba2tga.exe
+  uploadId: 641446

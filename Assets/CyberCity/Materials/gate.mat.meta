@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 29536ed7c89d9ad41991d1260c699445
+timeCreated: 1526851139
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Materials/gate.mat
+  uploadId: 618451

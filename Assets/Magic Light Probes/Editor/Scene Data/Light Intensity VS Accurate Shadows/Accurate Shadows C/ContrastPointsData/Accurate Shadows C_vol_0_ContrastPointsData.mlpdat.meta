@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c89a9e2d6dbc17047b14ee5dbca79ecf
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/Scene Data/Light Intensity VS Accurate
+    Shadows/Accurate Shadows C/ContrastPointsData/Accurate Shadows C_vol_0_ContrastPointsData.mlpdat
+  uploadId: 542118

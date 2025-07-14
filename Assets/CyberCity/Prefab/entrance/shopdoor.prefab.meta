@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5fb91d3adda60104f869bdcee9e18203
+timeCreated: 1526848429
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/entrance/shopdoor.prefab
+  uploadId: 618451

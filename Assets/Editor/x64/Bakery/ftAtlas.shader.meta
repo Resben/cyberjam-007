@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: c8e6177e2fb922145bba01dafd8c653a
+timeCreated: 1496604962
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/ftAtlas.shader
+  uploadId: 641446

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 24c20464d1776064b82711f5f9d9d6ca
+timeCreated: 1583324482
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmBatchPointLightProbeSH.ptx
+  uploadId: 641446

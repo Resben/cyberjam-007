@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d59396145b1b7884da48f1a05ae07517
+timeCreated: 1537523975
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmCubemapLightRNM.ptx
+  uploadId: 641446

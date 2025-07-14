@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6fac4f019fbc6a1479adf2d12c596c5d
+timeCreated: 1558780075
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmConeLightSH.ptx
+  uploadId: 641446

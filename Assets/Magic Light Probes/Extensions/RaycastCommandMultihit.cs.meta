@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 76a9fd4bdbbe35145bab55789f5f45d2
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Extensions/RaycastCommandMultihit.cs
+  uploadId: 542118

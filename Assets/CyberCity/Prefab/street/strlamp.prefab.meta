@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 30abec6967bed2a4d914d2897d811421
+timeCreated: 1524781208
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/strlamp.prefab
+  uploadId: 618451

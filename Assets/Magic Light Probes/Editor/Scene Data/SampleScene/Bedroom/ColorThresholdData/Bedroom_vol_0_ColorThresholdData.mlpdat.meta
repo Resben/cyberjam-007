@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d0f15962dc11e5741a7844f1cb0742c0
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Editor/Scene Data/SampleScene/Bedroom/ColorThresholdData/Bedroom_vol_0_ColorThresholdData.mlpdat
+  uploadId: 542118

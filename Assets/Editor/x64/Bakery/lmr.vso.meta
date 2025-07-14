@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eb53400d0b37d494193ada17212e3266
+timeCreated: 1530089609
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/lmr.vso
+  uploadId: 641446

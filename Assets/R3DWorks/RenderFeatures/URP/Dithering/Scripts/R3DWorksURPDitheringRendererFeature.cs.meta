@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 4f133ed879ab043458d4d441535e5690
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_Material: {instanceID: 0}
+  - m_Shader: {fileID: 4800000, guid: 008e83c6a3f070f45b2fc003fcbf97fe, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 316808
+  packageName: URP Dithering Post Process
+  packageVersion: 1.0
+  assetPath: Assets/R3DWorks/RenderFeatures/URP/Dithering/Scripts/R3DWorksURPDitheringRendererFeature.cs
+  uploadId: 747989

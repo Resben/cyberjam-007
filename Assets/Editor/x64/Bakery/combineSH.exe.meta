@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a1ed4e2c11c7b734f9931898cd8f6751
+timeCreated: 1659189167
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/combineSH.exe
+  uploadId: 641446

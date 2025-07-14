@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: acececba49abba342bb4cabaeaded9af
+timeCreated: 1524937576
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Materials/Neon2_Emission.mat
+  uploadId: 618451

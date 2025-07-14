@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c53c1c79fd22950478ebe4c561e08083
+timeCreated: 1526161016
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/miss.ptx
+  uploadId: 641446

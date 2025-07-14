@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e15a4474deea07545a6e1b58d36c4d71
+timeCreated: 1526331764
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/halffloat2hdr.exe
+  uploadId: 641446

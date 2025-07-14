@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 781f8414037218e46a30ab5577f24a60
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Shaders/MLPVolumeBounds.shader
+  uploadId: 542118

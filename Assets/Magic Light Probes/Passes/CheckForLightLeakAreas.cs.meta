@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fea141ed061ceef419db3521ae51aa5e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 157812
+  packageName: Magic Light Probes
+  packageVersion: 1.96.3
+  assetPath: Assets/Magic Light Probes/Passes/CheckForLightLeakAreas.cs
+  uploadId: 542118

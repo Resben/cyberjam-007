@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 8decd953e91247a4ab47e5df390a258d
+timeCreated: 1585646705
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 164462
+  packageName: Bakery Real-Time Preview
+  packageVersion: 1.196
+  assetPath: Assets/Bakery/docs/Bakery_RTPreview_manual.pdf
+  uploadId: 641449

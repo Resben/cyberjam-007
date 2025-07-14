@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 43b464df539471c47880a0cc39cd4861
+timeCreated: 1525278120
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 122218
+  packageName: Bakery - GPU Lightmapper
+  packageVersion: 1.96
+  assetPath: Assets/Editor/x64/Bakery/scripts/ftSkyLightInspector.cs
+  uploadId: 641446

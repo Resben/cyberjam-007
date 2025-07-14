@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: af5fedef75bf04645a7b067f07a15ad7
+timeCreated: 1527460538
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Prefab/street/pipe/pipe sm half.prefab
+  uploadId: 618451

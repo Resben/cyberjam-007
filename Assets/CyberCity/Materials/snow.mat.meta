@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ac14a1d6e0dfd9840b622d3e219b592b
+timeCreated: 1528157884
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Materials/snow.mat
+  uploadId: 618451

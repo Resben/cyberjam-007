@@ -516,6 +516,13 @@ PlayerSettings:
       m_Height: 720
       m_Kind: 1
       m_SubKind: 
+  - m_BuildTarget: VisionOS
+    m_Icons:
+    - m_Textures: []
+      m_Width: 1024
+      m_Height: 1024
+      m_Kind: 0
+      m_SubKind: 
   m_BuildTargetBatching: []
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
@@ -817,23 +824,24 @@ PlayerSettings:
   webGLCloseOnQuit: 0
   webWasm2023: 0
   scriptingDefineSymbols:
-    Android: DOTWEEN
-    EmbeddedLinux: DOTWEEN
-    GameCoreScarlett: DOTWEEN
-    GameCoreXboxOne: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
-    QNX: DOTWEEN
-    ReservedCFE: DOTWEEN
-    Standalone: DOTWEEN
-    VisionOS: DOTWEEN
-    WebGL: DOTWEEN
-    Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
-    iPhone: DOTWEEN
-    tvOS: DOTWEEN
+  Android: DOTWEEN
+  EmbeddedLinux: DOTWEEN
+  GameCoreScarlett: DOTWEEN
+  GameCoreXboxOne: DOTWEEN
+  LinuxHeadlessSimulation: DOTWEEN
+  Nintendo Switch: DOTWEEN
+  PS4: DOTWEEN
+  PS5: DOTWEEN
+  QNX: DOTWEEN
+  ReservedCFE: DOTWEEN
+  Standalone: DOTWEEN
+  VisionOS: DOTWEEN
+  WebGL: DOTWEEN
+  Windows Store Apps: DOTWEEN
+  XboxOne: DOTWEEN
+  iPhone: DOTWEEN
+  tvOS: DOTWEEN
+  Standalone: TERRAINPACKAGE_EXIST;BAKERY_INCLUDED;BAKERY_NOREIMPORT;BAKERYPACKAGE_EXIST
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -855,7 +863,7 @@ PlayerSettings:
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: cyberjam-007
-  metroPackageVersion: 
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -863,7 +871,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: cyberjam-007
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: cyberjam-007
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
