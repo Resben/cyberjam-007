@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8676347206392084951
+--- !u!1 &6678906508580414584
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8249330896845847155}
-  - component: {fileID: 5867154664409937071}
+  - component: {fileID: 6956299780044165942}
+  - component: {fileID: 7004436765267272538}
   m_Layer: 0
-  m_Name: NoteManager
-  m_TagString: NoteManager
+  m_Name: HackingManager
+  m_TagString: HackingManger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8249330896845847155
+--- !u!4 &6956299780044165942
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676347206392084951}
+  m_GameObject: {fileID: 6678906508580414584}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5763497, y: 0.81350845, z: 3.7784078}
+  m_LocalPosition: {x: -0.84073055, y: 3.8728294, z: -11.87109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5867154664409937071
+--- !u!114 &7004436765267272538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8676347206392084951}
+  m_GameObject: {fileID: 6678906508580414584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ac7b946c4729d488a895416a6284f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 39302c12f5b317d469f5c488646cb1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _notePrefab: {fileID: 5075752925910040403, guid: 6af0502764aef924c8a30868678a746d, type: 3}
-  _windowHeight: 10
-  _windowWidth: 10
-  _acceptanceWindow: 0.4
-  _leadWindowTime: 2
-  _gracePeriod: 2
+  _noteManagerPrefab: {fileID: 8676347206392084951, guid: afb52d4183980264da52a2c11c4f85d3, type: 3}
+  _beatManagerPrefab: {fileID: 6610517402010465160, guid: dfbe823f417cbe543af06fcef99dafdd, type: 3}

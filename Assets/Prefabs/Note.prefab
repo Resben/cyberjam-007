@@ -214,6 +214,10 @@ MonoBehaviour:
   _outerRingMeshRenderer: {fileID: 8532308287498595416}
   _successSound: {fileID: 8300000, guid: a2b9c33930229a6479959b6053a8a86b, type: 3}
   _failSound: {fileID: 8300000, guid: ee40706ff8b9ea04ba35d9def75b317e, type: 3}
+  _outerRingStartingScale: 5
+  _shakeDuration: 0.2
+  _shakeStrength: 0.2
+  _isHandled: 0
 --- !u!82 &9090186346051768535
 AudioSource:
   m_ObjectHideFlags: 0

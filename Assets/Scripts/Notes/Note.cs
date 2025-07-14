@@ -2,23 +2,8 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-[System.Serializable]
-public struct NoteProperties
-{
-    public float startTime;
+    
 
-    // Properties for the note
-    public float duration;
-    public float leadWindowTime;
-    public float acceptanceWindow;
-    public float outerRingStartingScale;
-
-    // Properties for Note Animation
-    public float shakeDuration;
-    public float shakeStrength;
-
-    public bool isHandled;
-}
 
 public class Note : MonoBehaviour
 {
@@ -35,7 +20,19 @@ public class Note : MonoBehaviour
 
     private NoteManager _noteManager;
 
-    private NoteProperties _noteProperties;
+    private float _startTime;
+
+    // Properties for the note
+    private float _duration;
+    private float _leadWindowTime;
+    private float _acceptanceWindow;
+
+    // Properties for Note Animation
+    [SerializeField] private float _outerRingStartingScale;    
+    [SerializeField] private float _shakeDuration;
+    [SerializeField] private float _shakeStrength;
+
+    private bool _isHandled;
 
     void Awake()
     {
@@ -46,10 +43,10 @@ public class Note : MonoBehaviour
             return;
         }
 
-        _noteProperties.outerRingStartingScale = 5.0f; // Initial scale of the outer ring
-        _noteProperties.shakeDuration = 0.2f;
-        _noteProperties.shakeStrength = 0.2f;
-        _noteProperties.isHandled = false;
+        _outerRingStartingScale = 5.0f; // Initial scale of the outer ring
+        _shakeDuration = 0.2f;
+        _shakeStrength = 0.2f;
+        _isHandled = false;
     }
 
     void Start()
@@ -72,14 +69,14 @@ public class Note : MonoBehaviour
             return;
         }
 
-        _noteProperties.startTime = Time.time;
+        _startTime = Time.time;
 
         // animate alpha channels to opaque over note's lifetime
-        _outerRingMeshRenderer.material.DOFade(1.0f, _noteProperties.leadWindowTime + _noteProperties.duration * 0.25f)
+        _outerRingMeshRenderer.material.DOFade(1.0f, _leadWindowTime + _duration * 0.25f)
             .SetEase(Ease.InOutCubic);
 
-        _outerRing.localScale = Vector3.one * _noteProperties.outerRingStartingScale;
-        _outerRing.DOScale(Vector3.one, _noteProperties.leadWindowTime + _noteProperties.duration + 0.25f * _noteProperties.acceptanceWindow)
+        _outerRing.localScale = Vector3.one * _outerRingStartingScale;
+        _outerRing.DOScale(Vector3.one, _leadWindowTime + _duration + 0.25f * _acceptanceWindow)
             .SetEase(Ease.InCubic);
 
         StartCoroutine(LifespanCoroutine());
@@ -92,9 +89,9 @@ public class Note : MonoBehaviour
 
     public void InitializeNote(NoteManager noteManager, float duration, float leadWindowTime, float acceptanceWindow, Transform cameraTransform)
     {
-        _noteProperties.duration = duration == -1.0f ? 0.0f : duration;
-        _noteProperties.leadWindowTime = leadWindowTime;
-        _noteProperties.acceptanceWindow = acceptanceWindow;
+        _duration = duration == -1.0f ? 0.0f : duration;
+        _leadWindowTime = leadWindowTime;
+        _acceptanceWindow = acceptanceWindow;
         _cameraTransform = cameraTransform;
         _noteManager = noteManager;
     }
@@ -123,7 +120,7 @@ public class Note : MonoBehaviour
 
     private IEnumerator LifespanCoroutine()
     {
-        yield return new WaitForSecondsRealtime(_noteProperties.leadWindowTime + _noteProperties.duration + _noteProperties.acceptanceWindow * 0.5f);
+        yield return new WaitForSecondsRealtime(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
 
         OnNoteFail();
     }
@@ -145,8 +142,8 @@ public class Note : MonoBehaviour
 
     private bool IsNoteClickCorrect()
     {
-        float correctTimeWindowStart = _noteProperties.startTime + _noteProperties.leadWindowTime - _noteProperties.acceptanceWindow;
-        float correctTimeWindowEnd = _noteProperties.startTime + _noteProperties.leadWindowTime + _noteProperties.duration + _noteProperties.acceptanceWindow;
+        float correctTimeWindowStart = _startTime + _leadWindowTime - _acceptanceWindow;
+        float correctTimeWindowEnd = _startTime + _leadWindowTime + _duration + _acceptanceWindow;
         float currentTime = Time.time;
 
         if (currentTime > correctTimeWindowStart && currentTime < correctTimeWindowEnd)
@@ -161,33 +158,33 @@ public class Note : MonoBehaviour
 
     private void OnNoteFail()
     {
-        if (_noteProperties.isHandled)
+        if (_isHandled)
         {
             return;
         }
 
-        _noteProperties.isHandled = true;
+        _isHandled = true;
         gameObject.GetComponent<SphereCollider>().enabled = false;
         _noteManager.AddFailPoint();
 
         _audioSource.volume = 0.2f;
         _audioSource.PlayOneShot(_failSound);
 
-        transform.DOShakePosition(_noteProperties.shakeDuration, _noteProperties.shakeStrength)
+        transform.DOShakePosition(_shakeDuration, _shakeStrength)
             .OnComplete(() =>
-                {
-                    Destroy(gameObject);
-                });
+            {
+                Destroy(gameObject);
+            });
     }
 
     private void OnNoteSuccess()
     {
-        if (_noteProperties.isHandled)
+        if (_isHandled)
         {
             return;
         }
 
-        _noteProperties.isHandled = true;
+        _isHandled = true;
         _noteManager.AddSuccessPoint();
 
         _audioSource.volume = 1.0f;
@@ -195,7 +192,7 @@ public class Note : MonoBehaviour
 
         // Punch towards the camera
         Vector3 direction = (_cameraTransform.position - transform.position).normalized;
-        transform.DOPunchPosition(direction, _noteProperties.shakeDuration)
+        transform.DOPunchPosition(direction, _shakeDuration)
             .SetEase(Ease.OutCubic)
             .OnComplete(() =>
             {

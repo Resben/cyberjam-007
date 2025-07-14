@@ -5,12 +5,13 @@ using UnityEngine;
 public class NoteManager : MonoBehaviour
 {
     [SerializeField] private GameObject _notePrefab;
-    [SerializeField] private GameObject _beatManager;
+    private HackingManager _hackingManager;
+    private MusicEvent _musicEvent;
 
     private Transform _cameraTransform;
 
     // Terminal window properties
-    //private Transform _terminalWindowTransform; // more ideal to have a panel transform passed in
+    private Transform _terminalWindowTransform; // more ideal to have a panel transform passed in
     [SerializeField] private float _windowHeight;
     [SerializeField] private float _windowWidth;
 
@@ -18,11 +19,8 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private float _acceptanceWindow; // Time window for accepting a note hit
     [SerializeField] private float _leadWindowTime; // Spawn time before note marker happens
 
-    private float _startTime; // will need this if we decide to use Main Game loop music
-    [SerializeField] private float _gracePeriod; // amount of time before notes can appear
-
-    private float _successPoints = 0;
-    private float _failPoints = 0;
+    //private float _startTime; // will need this if we decide to use Main Game loop music
+    //[SerializeField] private float _gracePeriod; // amount of time before notes can appear
 
     private List<Vector3> _spawnLocations = new();
     private float _noteRadius;
@@ -34,52 +32,71 @@ public class NoteManager : MonoBehaviour
             _cameraTransform = Camera.main.transform;
         }
 
-        if (_beatManager == null)
-        {
-            _beatManager = GameObject.FindGameObjectWithTag("BeatManager");
-            if (_beatManager == null)
-            {
-                Debug.LogError("Beat Manager not set");
-                Destroy(gameObject);
-                return;
-            }
-        }
-
-        _startTime = Time.time;
         _noteRadius = _notePrefab.GetComponent<SphereCollider>().radius;
-
-        SpawnNotes();
     }
 
     void OnDestroy()
     {
-        GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
-
-        if (notes.Length == 0) return;
-
-        foreach (GameObject note in notes)
-        {
-            Destroy(note);
-        }
+        EndSession();
     }
 
-    void SpawnNotes()
+    public void StartSession(HackingManager hackingManager, MusicEvent musicEvent)
     {
-        BeatManager beats = _beatManager.GetComponent<BeatManager>();
-
-        foreach (MusicEvent musicEvent in beats.GetMusicData())
+        _musicEvent = musicEvent;
+        if (_musicEvent.data.tags.Count < 1)
         {
-            if (musicEvent.data.tags == null || musicEvent.data.tags.Count == 0)
-            {
-                Debug.LogWarning($"No tags found for music event: {musicEvent.name}");
-                continue;
-            }
+            Debug.LogError("Music Data is missing");
+            Destroy(gameObject);
+            return;
+        }
 
-            foreach (BeatNote beatNote in musicEvent.data.tags)
+        _hackingManager = hackingManager;
+        if (!_hackingManager)
+        {
+            Debug.LogError("Hacking manager is not linked");
+            Destroy(gameObject);
+            return;
+        }
+
+        // _startTime = Time.time;
+
+        SpawnNotes();
+
+        StartCoroutine(LifetimeCoroutine());
+    }
+
+    public void EndSession()
+    {
+        GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
+
+        if (notes.Length > 0)
+        {
+            foreach (GameObject note in notes)
             {
-                StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
+                Destroy(note);
             }
         }
+
+        StopAllCoroutines();
+    }
+
+    private IEnumerator LifetimeCoroutine()
+    {
+        // Destroy itself at the end of the music
+        float realTimeToWait = _musicEvent.length / 1000.0f; // length is in milliseconds
+        yield return new WaitForSecondsRealtime(realTimeToWait); 
+
+        _hackingManager.DestroyHackingSession();
+        yield return null;
+    }
+    
+    void SpawnNotes()
+    {
+        foreach (BeatNote beatNote in _musicEvent.data.tags)
+        {
+            StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
+        }
+        
     }
 
     /* 
@@ -133,6 +150,7 @@ public class NoteManager : MonoBehaviour
 
     Vector3 GetRandomPosition()
     {
+        // @TODO: Rework this to spawn on a HUD on the screen space
         float x = Random.Range(-_windowWidth * 0.5f, _windowWidth * 0.5f);
         float y = Random.Range(-_windowHeight * 0.5f, _windowHeight * 0.5f);
         Vector3 SpawnLocation = new Vector3(x, y, -20.0f); // Fixed Z position for testing
@@ -159,24 +177,11 @@ public class NoteManager : MonoBehaviour
 
     public void AddSuccessPoint()
     {
-        _successPoints++;
-        PrintPoints();
+        _hackingManager.AddSuccessPoint();
     }
 
     public void AddFailPoint()
     {
-        _failPoints++;
-        PrintPoints();
-    }
-
-    public void PrintPoints()
-    {
-        Debug.Log($"Success Points: {_successPoints}, Fail Points: {_failPoints}");
-    }
-
-    public float GetScorePercentage()
-    {
-        float TotalPoints = _successPoints + _failPoints;
-        return _successPoints / TotalPoints;
+        _hackingManager.AddFailPoint();
     }
 }
