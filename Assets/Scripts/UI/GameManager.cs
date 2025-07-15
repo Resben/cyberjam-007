@@ -12,7 +12,7 @@ public enum GameState
 
 public class Level
 {
-    public Level(string id, string requiredId, bool isUnlocked, bool isComplete, int difficulty, int buildId, bool underDevelopment, List<string> description)
+    public Level(string id, string requiredId, bool isUnlocked, bool isComplete, int difficulty, int buildId, bool underDevelopment, int index, List<string> description)
     {
         this.id = id;
         this.requiredId = requiredId;
@@ -21,6 +21,7 @@ public class Level
         this.difficulty = difficulty;
         this.description = description;
         this.buildId = buildId;
+        this.index = index;
         this.underDevelopment = underDevelopment;
     }
 
@@ -32,6 +33,7 @@ public class Level
     public List<string> description;
     public int buildId;
     public bool underDevelopment;
+    public int index;
 
     public string GetMenuString()
     {
@@ -64,15 +66,15 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, Level> levelDirectory = new()
     {
-        { "L1", new Level("L1", null, true, false, 1, 1, false, new List<string>() { // Note use 2x empty lines so the play button can be easily inserted
+        { "L1", new Level("L1", null, true, false, 1, 1, false, 0, new List<string>() { // Note use 2x empty lines so the play button can be easily inserted
             "Hey so this is level 1",
             "cool",
             "",
             ""
         })},
-        { "L2", new Level("L2", "L1", false, false, 2, 2, true, null)},
-        { "L3", new Level("L3", "L2", false, false, 3, 3, true, null)},
-        { "L4", new Level("L4", "L3", false, false, 4, 4, true, null)},
+        { "L2", new Level("L2", "L1", false, false, 2, 2, true, 1, null)},
+        { "L3", new Level("L3", "L2", false, false, 3, 3, true, 2, null)},
+        { "L4", new Level("L4", "L3", false, false, 4, 4, true, 3, null)},
     };
 
     public static GameManager Instance
