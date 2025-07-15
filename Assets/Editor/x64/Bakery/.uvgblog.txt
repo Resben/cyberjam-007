@@ -13315,3 +13315,15 @@ Done
 Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Level !_LMA1_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Level !_LMA1_final.hdr" 1024
 Initializing D3D...
 Done
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+ality level 127
+Compressing using quality level 127
+Compressing using quality level 127
+Compressing using quality level 127
+Done
+Done
+Done
+Done
