@@ -87,7 +87,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["lamp","walls","roof"],"padding":[100,15,25],"unwrapper":[0,0,0]}'
+    - '#BAKERY{"meshName":["lamp","walls","roof"],"padding":[200,31,51],"unwrapper":[0,0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

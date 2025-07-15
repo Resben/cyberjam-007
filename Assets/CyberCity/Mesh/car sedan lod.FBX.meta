@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: 2273ef06162615f46ac9b2a9ef021a8b
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Mesh/car sedan lod.FBX
+  uploadId: 618451
 ModelImporter:
-  serializedVersion: 22102
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -247,8 +254,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -261,7 +266,10 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["Box061","lamp l","Cylinder001","lamp Main","lamp r","Object","lamp
+      bk r dwn","Object045","lamp bk l up","lamp bk r up","Object007","lamp bk l
+      dwn","Cylinder015","Cylinder014","Cylinder013"],"padding":[130,256,187,256,256,45,256,82,256,256,137,256,187,187,187],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -271,6 +279,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -332,14 +341,8 @@ ModelImporter:
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 267305
-  packageName: cyberpunk - Cyber City (URP)
-  packageVersion: 1.0
-  assetPath: Assets/CyberCity/Mesh/car sedan lod.FBX
-  uploadId: 618451
