@@ -82,6 +82,23 @@ MonoBehaviour:
     executionOrder: 0
     alwaysEnable: 0
     cameraTypes: 5
+--- !u!114 &-7032790753331572734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 400dc2baa0a22054cb259512e4ce8907, type: 3}
+  m_Name: '[SCPE] KuwaharaRenderer'
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    executionOrder: 0
+    alwaysEnable: 0
+    cameraTypes: 5
 --- !u!114 &-5536626002324983611
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -129,6 +146,24 @@ MonoBehaviour:
     executionOrder: 0
     alwaysEnable: 0
     cameraTypes: 5
+--- !u!114 &-5031006214202172832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58c0e0fb1b4c7549b2b50948300b0e5, type: 3}
+  m_Name: '[SCPE] FogRenderer'
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    executionOrder: 0
+    alwaysEnable: 0
+    cameraTypes: 5
+    skipTransparents: 1
 --- !u!114 &-3509360362825537493
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -196,6 +231,8 @@ MonoBehaviour:
   - {fileID: -5238710892121559727}
   - {fileID: -7361583581874105024}
   - {fileID: -7737271006446348374}
+  - {fileID: -7032790753331572734}
+  - {fileID: -5031006214202172832}
   m_RendererFeatureMap: ad6b866f10d7b46c9e2e82e0071a9e82
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
