@@ -17,6 +17,7 @@ public struct TypeWriterSettings
 public class TypeWriterManager : MonoBehaviour
 {
     private readonly Dictionary<TMP_Text, TypeWriter> activeWriters = new();
+    private readonly Dictionary<TMP_Text, float> lastUsed = new();
     private TypeWriterSettings defaultSettings;
     private static TypeWriterManager _instance;
 
