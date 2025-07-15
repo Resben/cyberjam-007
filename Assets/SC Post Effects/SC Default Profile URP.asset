@@ -185,7 +185,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   contrast:
     m_OverrideState: 1
     m_Value: 1.9
@@ -419,14 +419,14 @@ MonoBehaviour:
     m_Value: 0
   levels:
     m_OverrideState: 1
-    m_Value: 16
+    m_Value: 32
   hue:
-    m_OverrideState: 0
-    m_Value: 256
+    m_OverrideState: 1
+    m_Value: 22
   saturation:
-    m_OverrideState: 0
-    m_Value: 256
+    m_OverrideState: 1
+    m_Value: 2
   value:
-    m_OverrideState: 0
-    m_Value: 256
+    m_OverrideState: 1
+    m_Value: 16
   shader: {fileID: 4800000, guid: 40279b644fb7ed248b6b89369b5ae060, type: 3}

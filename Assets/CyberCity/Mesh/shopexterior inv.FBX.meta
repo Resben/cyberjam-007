@@ -1,7 +1,14 @@
 fileFormatVersion: 2
 guid: c3a93371b0e176146a86c3638f647630
+AssetOrigin:
+  serializedVersion: 1
+  productId: 267305
+  packageName: cyberpunk - Cyber City (URP)
+  packageVersion: 1.0
+  assetPath: Assets/CyberCity/Mesh/shopexterior inv.FBX
+  uploadId: 618451
 ModelImporter:
-  serializedVersion: 22102
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -277,8 +284,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -291,7 +296,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["canopy001","door002","Object108","Object109","Cylinder006","lamp010","lamp011","Object107","Box124","Box125","Box123","Box122"],"padding":[46,110,43,182,153,200,200,35,256,256,224,256],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -301,6 +307,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 1
     importVisibility: 0
     importBlendShapes: 1
     importCameras: 0
@@ -362,14 +369,8 @@ ModelImporter:
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 267305
-  packageName: cyberpunk - Cyber City (URP)
-  packageVersion: 1.0
-  assetPath: Assets/CyberCity/Mesh/shopexterior inv.FBX
-  uploadId: 618451

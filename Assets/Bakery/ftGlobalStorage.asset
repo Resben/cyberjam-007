@@ -40,7 +40,92 @@ MonoBehaviour:
   - Assets/CyberCity/Mesh/sidewalk dir C.FBX
   - Assets/CyberCity/Mesh/street corn in D.FBX
   - Assets/CyberCity/Mesh/sidewalk corn B.FBX
-  modifiedAssetPaddingHash: d6a958ff00e2b9b33c4efff0d932adc9f166e2a8f537ed0427dc894b323b80333367e2a83367e2a8d939803308dc894b08dc894b8506f8e6377e9363377e9363fd7d9363f166e2a808dc894bf1f23a06f8398033cb1e618befd3ee00818549c29c09ecc0e55031ee6d67e2a8
+  - Assets/CyberCity/Mesh/dist building_3.FBX
+  - Assets/CyberCity/Mesh/plate 2.FBX
+  - Assets/CyberCity/Mesh/dist building_2.FBX
+  - Assets/CyberCity/Mesh/arc mid.FBX
+  - Assets/CyberCity/Mesh/road prop 04.FBX
+  - Assets/CyberCity/Mesh/antenna 2.FBX
+  - Assets/CyberCity/Mesh/fence tile.FBX
+  - Assets/CyberCity/Mesh/fire ladder.FBX
+  - Assets/CyberCity/Mesh/hotdog stand.FBX
+  - Assets/CyberCity/Mesh/wall a 1 05.FBX
+  - Assets/CyberCity/Mesh/fence tile half.FBX
+  - Assets/CyberCity/Mesh/pipe.FBX
+  - Assets/CyberCity/Mesh/road prop 01.FBX
+  - Assets/CyberCity/Mesh/antenna 1.FBX
+  - Assets/CyberCity/Mesh/car wheel.FBX
+  - Assets/CyberCity/Mesh/road prop 02.FBX
+  - Assets/CyberCity/Mesh/paper 1.FBX
+  - Assets/CyberCity/Mesh/pole 2 piece.FBX
+  - Assets/CyberCity/Mesh/plate 1.FBX
+  - Assets/CyberCity/Mesh/paper 4 crump.FBX
+  - Assets/CyberCity/Mesh/paper 3.FBX
+  - Assets/CyberCity/Mesh/chamfer 05.FBX
+  - Assets/CyberCity/Mesh/chamfer.FBX
+  - Assets/CyberCity/Mesh/bottle tr.FBX
+  - Assets/CyberCity/Mesh/pole.FBX
+  - Assets/CyberCity/Mesh/street end A.FBX
+  - Assets/CyberCity/Mesh/sidewalk dir B.FBX
+  - Assets/CyberCity/Mesh/streetwindow 2.FBX
+  - Assets/CyberCity/Mesh/column 1 thin.FBX
+  - Assets/CyberCity/Mesh/wall a 1.FBX
+  - Assets/CyberCity/Mesh/garbage.FBX
+  - Assets/CyberCity/Mesh/dist building_1.FBX
+  - Assets/CyberCity/Mesh/tv 1.FBX
+  - Assets/CyberCity/Mesh/sewer 3.FBX
+  - Assets/CyberCity/Mesh/shopdoor.FBX
+  - Assets/CyberCity/Mesh/pole 2.FBX
+  - Assets/CyberCity/Mesh/wall window classic 6.FBX
+  - Assets/CyberCity/Mesh/plate 05.FBX
+  - Assets/CyberCity/Mesh/ground flat.FBX
+  - Assets/CyberCity/Mesh/pipe half.FBX
+  - Assets/CyberCity/Mesh/fork.FBX
+  - Assets/CyberCity/Mesh/fence door.FBX
+  - Assets/CyberCity/Mesh/sewer 1.FBX
+  - Assets/CyberCity/Mesh/wall window 5.FBX
+  - Assets/CyberCity/Mesh/room box bow.FBX
+  - Assets/CyberCity/Mesh/hydrant.FBX
+  - Assets/CyberCity/Mesh/bottle B.FBX
+  - Assets/CyberCity/Mesh/cigarette box.FBX
+  - Assets/CyberCity/Mesh/trash bin 3.FBX
+  - Assets/CyberCity/Mesh/pipe sm.FBX
+  - Assets/CyberCity/Mesh/eat stand.FBX
+  - Assets/CyberCity/Mesh/shopexterior inv.FBX
+  - Assets/CyberCity/Mesh/neon sign 18.FBX
+  - Assets/CyberCity/Mesh/cigarette.FBX
+  - Assets/CyberCity/Mesh/neon sign 10.FBX
+  - Assets/CyberCity/Mesh/cigarette b.FBX
+  - Assets/CyberCity/Mesh/rope 2.FBX
+  - Assets/CyberCity/Mesh/wall window 1 corn.FBX
+  - Assets/CyberCity/Mesh/room box corn.FBX
+  - Assets/CyberCity/Mesh/strlamp short.FBX
+  - Assets/CyberCity/Mesh/sewer 2.FBX
+  - Assets/CyberCity/Mesh/streetdoor single.FBX
+  - Assets/CyberCity/Mesh/pipe corn bg 2.FBX
+  - Assets/CyberCity/Mesh/fence pole door.FBX
+  - Assets/CyberCity/Mesh/long lamp 1.FBX
+  - Assets/CyberCity/Mesh/cup.FBX
+  - Assets/CyberCity/Mesh/robo head.FBX
+  - Assets/CyberCity/Mesh/poster 04.FBX
+  - Assets/CyberCity/Mesh/rope 1.FBX
+  - Assets/CyberCity/Mesh/pipe corn sm.FBX
+  - Assets/CyberCity/Mesh/neon sign 22.FBX
+  - Assets/CyberCity/Mesh/cable mix.FBX
+  - Assets/CyberCity/Mesh/traffic light.FBX
+  - Assets/CyberCity/Mesh/pipe corn sm 2.FBX
+  - Assets/CyberCity/Mesh/bottle A.FBX
+  - Assets/CyberCity/Mesh/fence pole.FBX
+  - Assets/CyberCity/Mesh/tv 2.FBX
+  - Assets/CyberCity/Mesh/car seat.FBX
+  - Assets/CyberCity/Mesh/arc side.FBX
+  - Assets/CyberCity/Mesh/rope 3.FBX
+  - Assets/CyberCity/Mesh/c tree.FBX
+  - Assets/CyberCity/Mesh/sidewalk corn C.FBX
+  - Assets/CyberCity/Mesh/car sedan.FBX
+  - Assets/CyberCity/Mesh/car sedan lod.FBX
+  - Assets/CyberCity/Mesh/car sedan lod 2.FBX
+  modifiedAssetPaddingHash: d6a958ff6c43011da35031ee8fe4c28e0ca3dddeecc124916209ecc0c5d15080f827c115f827c11556f23a062009ecc0f537ed047844b40dc668e2a82bf43a06b94608c80da3ddde2009ecc0b7f23a063367e2a8ec603fe32914591b9a8d4b1b7c3980333ec5d890da7d9363353fd3d93ec5d890353fd3d9717f936306a3dddec25302511067e2a843db09c4ec274e972009ecc061dd894bf50aecc0db5634b7eb37ed04d2c12491ad5634b7ecc12491717f9363eddb894becc12491ecc12491c8d15080ee37ed04ecc12491d9398033194efff07c39803337fa3485cfc3a6933367e2a89150cf35343fd3d9ecc12491ecc124917333c2ab9f398033377e93637c3980332009ecc0567e9363ecc12491344ffff09250cf359c09ecc09978d4decbc12491ecc12491ecc12491d464c020d0c12491ecc12491e8d98a1c56f23a06ecc1249156f23a06ecc12491ecc12491f83980332cd227101828c115ecc12491b3819ed109a3ddde0b38ed049050cf35ecc12491ecc1249153020f20ecc1249138c2a6939f398033bd4608c817f288f8ecc12491ecc12491b74608c8e64608c80ba3ddde275031eeecc12491ecc12491da7d93634cbb1de9f0ccb8c43f32005c
   modifiedMeshList: []
   modifiedMeshPaddingList: 
   modifiedAssets:
@@ -426,120 +511,535 @@ MonoBehaviour:
   - meshName:
     - Object073
     - Box115
-    padding: 1a00000042000000
-    unwrapper: 0000000000000000
+    - Line001
+    - Object076
+    padding: 35000000840000000001000000010000
+    unwrapper: 00000000000000000000000000000000
   - meshName:
     - Box016
-    padding: 12000000
+    padding: 25000000
     unwrapper: 00000000
   - meshName:
     - lamp
     - walls
     - roof
-    padding: 640000000f00000019000000
+    padding: c80000001f00000033000000
     unwrapper: 000000000000000000000000
   - meshName:
     - strlamp
-    padding: 47000000
+    padding: 8e000000
     unwrapper: 00000000
   - meshName:
     - Cylinder012
-    padding: 81000000
+    padding: 00010000
     unwrapper: 00000000
   - meshName:
     - Box143
-    padding: 1a000000
+    padding: 34000000
     unwrapper: 00000000
   - meshName:
     - cond hldr
-    padding: 55000000
+    padding: aa000000
     unwrapper: 00000000
   - meshName:
     - Box136
-    padding: 33000000
+    padding: 66000000
     unwrapper: 00000000
   - meshName:
     - Box134
-    padding: 33000000
+    padding: 66000000
     unwrapper: 00000000
   - meshName:
     - Box071
-    padding: 23000000
+    padding: 46000000
     unwrapper: 00000000
   - meshName:
     - Box028
-    padding: 24000000
+    padding: 48000000
     unwrapper: 00000000
   - meshName:
     - Object025
-    padding: 24000000
+    padding: 81000000
     unwrapper: 00000000
   - meshName:
     - Object092
     - Object090
     - Object089
     - lamp007
-    padding: 17000000250000004800000064000000
+    padding: 2e0000004a00000090000000c8000000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - cable mix F
-    padding: 21000000
+    padding: 51000000
     unwrapper: 00000000
   - meshName:
     - cable mix G
-    padding: 21000000
+    padding: 50000000
     unwrapper: 00000000
   - meshName:
     - Box131
-    padding: 35000000
+    padding: 74000000
     unwrapper: 00000000
   - meshName:
     - Box132
-    padding: 47000000
+    padding: 8f000000
     unwrapper: 00000000
   - meshName:
     - Plane006
-    padding: 24000000
+    padding: 48000000
     unwrapper: 00000000
   - meshName:
     - Box037
-    padding: 14000000
+    padding: 28000000
     unwrapper: 00000000
   - meshName:
     - Object024
-    padding: 19000000
+    padding: 33000000
     unwrapper: 00000000
   - meshName:
     - Object093
     - Object087
     - Object085
     - lamp008
-    padding: 19000000780000002300000064000000
+    padding: 32000000f100000047000000c8000000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - Object102
     - Object101
-    padding: 1d00000016000000
+    padding: 3a0000002c000000
     unwrapper: 0000000000000000
   - meshName:
     - Object103
     - Object080
     - Line004
     - Box119
-    padding: 00010000200000000001000042000000
+    padding: 00010000400000000001000084000000
     unwrapper: 00000000000000000000000000000000
   - meshName:
     - Plane009
-    padding: 20000000
+    padding: 41000000
     unwrapper: 00000000
   - meshName:
     - Object028
-    padding: 11000000
+    padding: 22000000
     unwrapper: 00000000
   - meshName:
     - Plane010
-    padding: 1f000000
+    padding: 3f000000
     unwrapper: 00000000
+  - meshName:
+    - Box046
+    padding: 06000000
+    unwrapper: 00000000
+  - meshName:
+    - Box109
+    padding: 22000000
+    unwrapper: 00000000
+  - meshName:
+    - Box044
+    padding: 06000000
+    unwrapper: 00000000
+  - meshName:
+    - Object026
+    padding: 5d000000
+    unwrapper: 00000000
+  - meshName:
+    - Plane163
+    padding: 90000000
+    unwrapper: 00000000
+  - meshName:
+    - Box177
+    - Cylinder052
+    padding: 000100005a000000
+    unwrapper: 0000000000000000
+  - meshName:
+    - Box164
+    padding: 3d000000
+    unwrapper: 00000000
+  - meshName:
+    - balcony
+    - ladder
+    padding: 3100000047000000
+    unwrapper: 0000000000000000
+  - meshName:
+    - hold
+    - mustard
+    - ketchup
+    - sausage
+    - drink
+    padding: 0001000000010000000100000001000000010000
+    unwrapper: 0000000000000000000000000000000000000000
+  - meshName:
+    - Box036
+    padding: 48000000
+    unwrapper: 00000000
+  - meshName:
+    - Box173
+    padding: 56000000
+    unwrapper: 00000000
+  - meshName:
+    - pipe
+    padding: 52000000
+    unwrapper: 00000000
+  - meshName:
+    - Box163
+    padding: ef000000
+    unwrapper: 00000000
+  - meshName:
+    - Box175
+    padding: 7f000000
+    unwrapper: 00000000
+  - meshName:
+    - Cylinder020
+    padding: 99000000
+    unwrapper: 00000000
+  - meshName:
+    - Box160
+    padding: 86000000
+    unwrapper: 00000000
+  - meshName:
+    - paper 1
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box179
+    padding: 5d000000
+    unwrapper: 00000000
+  - meshName:
+    - Box030
+    padding: 2e000000
+    unwrapper: 00000000
+  - meshName:
+    - paper 4 crump
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - paper 3
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box033
+    padding: ad000000
+    unwrapper: 00000000
+  - meshName:
+    - Box032
+    padding: 7a000000
+    unwrapper: 00000000
+  - meshName:
+    - bottle tr
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box088
+    padding: 23000000
+    unwrapper: 00000000
+  - meshName:
+    - Object125
+    padding: 1c000000
+    unwrapper: 00000000
+  - meshName:
+    - Plane139
+    padding: 41000000
+    unwrapper: 00000000
+  - meshName:
+    - lamp009
+    - Object086
+    - Object088
+    - Object096
+    padding: c800000048000000be0000002c000000
+    unwrapper: 00000000000000000000000000000000
+  - meshName:
+    - Box035
+    padding: 63000000
+    unwrapper: 00000000
+  - meshName:
+    - Box001
+    padding: 33000000
+    unwrapper: 00000000
+  - meshName:
+    - garbage
+    padding: c4000000
+    unwrapper: 00000000
+  - meshName:
+    - Box040
+    padding: 07000000
+    unwrapper: 00000000
+  - meshName:
+    - tv1
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box012
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - door001
+    - lamp006
+    - Object067
+    - Object070
+    - Object069
+    padding: 6e000000c8000000780000002e00000057000000
+    unwrapper: 0000000000000000000000000000000000000000
+  - meshName:
+    - Box130
+    padding: 37000000
+    unwrapper: 00000000
+  - meshName:
+    - Box180
+    padding: 21000000
+    unwrapper: 00000000
+  - meshName:
+    - Box031
+    padding: 41000000
+    unwrapper: 00000000
+  - meshName:
+    - Plane003
+    padding: 48000000
+    unwrapper: 00000000
+  - meshName:
+    - pipe half
+    padding: 17000000
+    unwrapper: 00000000
+  - meshName:
+    - fork
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Cylinder048
+    padding: 62000000
+    unwrapper: 00000000
+  - meshName:
+    - Object023
+    padding: c5000000
+    unwrapper: 00000000
+  - meshName:
+    - Box023
+    padding: 20000000
+    unwrapper: 00000000
+  - meshName:
+    - lamp002
+    - roof002
+    - walls002
+    padding: c80000002b0000001d000000
+    unwrapper: 000000000000000000000000
+  - meshName:
+    - Cylinder021
+    padding: 9a000000
+    unwrapper: 00000000
+  - meshName:
+    - bottle B
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - cig box
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Cylinder023
+    - Object120
+    padding: 8700000000010000
+    unwrapper: 0000000000000000
+  - meshName:
+    - pipe sm
+    padding: 97000000
+    unwrapper: 00000000
+  - meshName:
+    - drink
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - canopy001
+    - door002
+    - Object108
+    - Object109
+    - Cylinder006
+    - lamp010
+    - lamp011
+    - Object107
+    - Box124
+    - Box125
+    - Box123
+    - Box122
+    padding: 2e0000006e0000002b000000b600000099000000c8000000c8000000230000000001000000010000e000000000010000
+    unwrapper: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - meshName:
+    - Box069
+    padding: 46000000
+    unwrapper: 00000000
+  - meshName:
+    - cig
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box061
+    padding: 46000000
+    unwrapper: 00000000
+  - meshName:
+    - cig b
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Line009
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box026
+    padding: 19000000
+    unwrapper: 00000000
+  - meshName:
+    - lamp001
+    - roof001
+    - walls001
+    padding: c80000003300000022000000
+    unwrapper: 000000000000000000000000
+  - meshName:
+    - strlamp001
+    padding: c9000000
+    unwrapper: 00000000
+  - meshName:
+    - Box011
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box121
+    - Line006
+    - Object106
+    padding: 840000000001000000010000
+    unwrapper: 000000000000000000000000
+  - meshName:
+    - pipe corn bg 2
+    padding: 93000000
+    unwrapper: 00000000
+  - meshName:
+    - Box168
+    padding: e0000000
+    unwrapper: 00000000
+  - meshName:
+    - Cylinder009
+    padding: c3000000
+    unwrapper: 00000000
+  - meshName:
+    - cup
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Sphere004
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box089
+    - Object037
+    - poster glass003
+    padding: 3d000000e200000073000000
+    unwrapper: 000000000000000000000000
+  - meshName:
+    - Line008
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - pipe corn sm
+    padding: 45000000
+    unwrapper: 00000000
+  - meshName:
+    - Box054
+    padding: 37000000
+    unwrapper: 00000000
+  - meshName:
+    - cable mix
+    padding: 70000000
+    unwrapper: 00000000
+  - meshName:
+    - Box138
+    - Object116
+    - Object117
+    - Object118
+    - Object119
+    padding: 5400000069000000690000006900000069000000
+    unwrapper: 0000000000000000000000000000000000000000
+  - meshName:
+    - pipe corn sm 2
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - bottle A
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Box172
+    padding: 72000000
+    unwrapper: 00000000
+  - meshName:
+    - tv2
+    padding: da000000
+    unwrapper: 00000000
+  - meshName:
+    - Object060
+    padding: 8d000000
+    unwrapper: 00000000
+  - meshName:
+    - Box039
+    padding: 4d000000
+    unwrapper: 00000000
+  - meshName:
+    - Line010
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - tree
+    padding: 00010000
+    unwrapper: 00000000
+  - meshName:
+    - Plane135
+    padding: 3f000000
+    unwrapper: 00000000
+  - meshName:
+    - lamp r001
+    - Object050
+    - Object056
+    - Cylinder009
+    - Cylinder012
+    - Box062
+    - Object052
+    - Object053
+    - Object054
+    - Cylinder011
+    - Object055
+    - lamp bk l dwn001
+    - lamp bk l up001
+    - lamp bk r dwn001
+    - lamp bk r up001
+    - lamp l001
+    - lamp Main001
+    - Object051
+    - Cylinder010
+    padding: 00010000210000000001000099000000990000006300000000010000000100004600000099000000000100000001000000010000000100000001000000010000000100008900000099000000
+    unwrapper: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - meshName:
+    - Box061
+    - lamp l
+    - Cylinder001
+    - lamp Main
+    - lamp r
+    - Object
+    - lamp bk r dwn
+    - Object045
+    - lamp bk l up
+    - lamp bk r up
+    - Object007
+    - lamp bk l dwn
+    - Cylinder015
+    - Cylinder014
+    - Cylinder013
+    padding: 8200000000010000bb00000000010000000100002d000000000100005200000000010000000100008900000000010000bb000000bb000000bb000000
+    unwrapper: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  - meshName:
+    - Cylinder016
+    - Object058
+    - Object059
+    - Object057
+    - Cylinder017
+    padding: d300000095000000800000002f000000d3000000
+    unwrapper: 0000000000000000000000000000000000000000
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
@@ -3179,5 +3679,5 @@ MonoBehaviour:
   renderSettingsRTPVWidth: 640
   renderSettingsRTPVHeight: 360
   tagOverrides: []
-  modifiedMeshPaddingArray: 1f000000
-  modifiedMeshUnwrapperArray: 00000000
+  modifiedMeshPaddingArray: d300000095000000800000002f000000d3000000
+  modifiedMeshUnwrapperArray: 0000000000000000000000000000000000000000

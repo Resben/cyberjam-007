@@ -352,28 +352,28 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   debug:
     m_OverrideState: 1
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.036
   luminanceThreshold:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.682
   direction:
     m_OverrideState: 1
     m_Value: -1
   blur:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 9.52
   iterations:
     m_OverrideState: 1
     m_Value: 2
   downscaling:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 4
   shader: {fileID: 4800000, guid: d444b7563e196ad43a619f5bb395ffdb, type: 3}
 --- !u!114 &-5800501229159693175
 MonoBehaviour:

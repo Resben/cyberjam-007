@@ -51,7 +51,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["Plane009"],"padding":[32],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["Plane009"],"padding":[65],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

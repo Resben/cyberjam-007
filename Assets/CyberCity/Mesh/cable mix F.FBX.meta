@@ -51,7 +51,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["cable mix F"],"padding":[33],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["cable mix F"],"padding":[81],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 1
   meshes:
