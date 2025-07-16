@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class HackableExplosion : Hackable
 {
+    [SerializeField] private Effect effect;
+
     protected override void Start()
     {
         base.Start();
@@ -15,7 +17,7 @@ public class HackableExplosion : Hackable
 
     public override void OnSuccessfulHack()
     {
-        Debug.Log("Successful Hack on Explosion");
+        effect.Play();
     }
 
     public override void OnFailedHack()
