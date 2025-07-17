@@ -11940,3 +11940,21 @@ Done
 Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Level !_LM0_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Level !_LM0_final.hdr" 1024
 Initializing D3D...
 Done
+[15:42:49] INFO: Umbra 3 Optimizer version 3.3.22  (build: 58bc48d2405823a0d92fca7d7a5dac9d02e0a94b)
+[15:42:49] INFO: T: 20 O: 5 H: 0.25 B: 100
+[15:42:49] INFO: Tile grid 96x60x276 (at -76,-8,-184) created for scene: 592 tiles (0 empties not included) in 0.419 seconds
+[15:42:49] INFO: Using 24 threads to compute 592 tiles, cache 4096 MB
+[15:42:52] INFO: Tile processing complete, computed 544 tiles
+[15:42:52] INFO: Strict view volumes: no
+[15:42:52] INFO: Filtered 147/148 inside clusters
+[15:42:52] INFO: Filtered 323/324 global clusters
+[15:42:52] INFO: 1855/2178 cells reachable after global analysis
+[15:42:53] INFO: collapsed leaf tiles 592 => 38
+[15:42:53] INFO: Generating LOD tiles using 24 threads
+[15:42:53] INFO: Connecting LOD tiles
+[15:42:53] INFO: Compressing lists
+[15:42:53] INFO: Average index range size: 174.97
+[15:42:53] INFO: object list: 4 kB 664 B, cluster list: 80 B
+[15:42:53] INFO: created tome with 75 tiles, 1673 targets and 0 gates
+[15:42:53] INFO: Checking cache...
+[15:42:53] INFO: Cache check finished
