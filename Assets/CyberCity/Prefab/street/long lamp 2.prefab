@@ -189,9 +189,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: -1794810007
   color: {r: 0.7311321, g: 0.84542966, b: 1, a: 1}
-  intensity: 20
+  intensity: 10
   texture: {fileID: 0}
-  cutoff: 7.85
+  cutoff: 10.92
   samples: 256
   samples2: 16
   samples2_previous: 16

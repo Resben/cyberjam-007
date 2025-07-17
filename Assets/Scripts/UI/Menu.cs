@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using FMOD.Studio;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 enum MenuScene
 {
@@ -19,6 +21,14 @@ public class Menu : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.5f;
     [SerializeField] private List<TMP_Text> sideWriter;
     [SerializeField] private List<GameObject> virtualCameras;
+    [SerializeField] private SimpleButton playButton;
+
+    [Header("Stat Window")]
+    [SerializeField] private List<SimpleButton> buttonBar;
+
+    [Header("Level Window")]
+    [SerializeField] private SimpleButton levelPrefab;
+    [SerializeField] private GameObject levelParent;
 
     private Dictionary<string, List<string>> dialogue;
     private EventInstance _typingSound;
@@ -30,10 +40,13 @@ public class Menu : MonoBehaviour
 
     private TypeWriterManager writer;
     private TypeWriterSettings writerSettings;
+    private TypeWriterSettings cmdWriterSettings;
 
     private bool _monitorSceneLoading = false;
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
+
+    private GameObject lastSelected;
 
     void Start()
     {
@@ -46,11 +59,19 @@ public class Menu : MonoBehaviour
             playSound = false
         };
 
+        cmdWriterSettings = new TypeWriterSettings
+        {
+            shouldClearOnNewLine = false,
+            clearCurrent = true,
+            charactersPerSecond = 50,
+            delayBetweenLines = -1,
+            playSound = true
+        };
+
         writer = TypeWriterManager.Instance;
         _inputActions = GameManager.Instance.inputActions;
         SwitchCamera(currentScene);
         StartCoroutine(BlinkCaret());
-        GameManager.Instance.CurrentLevel = GameManager.Instance.levelDirectory["Level 1"];
         // menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
         // menuBGM.start();
         // typingSound = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.typingSound, false);
@@ -82,10 +103,25 @@ public class Menu : MonoBehaviour
                     "Levels Complete:   " + GameManager.Instance.stats.levels
                 }
             },
+            {
+                "credits", new List<string>()
+                {
+                    "[Credits]",
+                    "ABC by Resben",
+                    "CDE by yo mumma",
+                    "FGH by aiy",
+                    "IJK by oop"
+                }
+            },
+            {
+                "settings", new List<string>()
+                {
+                    "> Settings"
+                }
+            },
             { "levels", new List<string>()
                 {
-                    "> levels",
-                    "Test"
+                    "> levels    " + (GameManager.Instance.CurrentLevel != null ? "| Current: " + GameManager.Instance.CurrentLevel.id : "")
                 }
             },
             { "nonsense0", new List<string>()
@@ -126,6 +162,12 @@ public class Menu : MonoBehaviour
         }
 
         RunState(currentScene);
+
+        // Ensure our buttons remain selected on empty click
+        if (EventSystem.current.currentSelectedGameObject != null)
+            lastSelected = EventSystem.current.currentSelectedGameObject;
+        else if (lastSelected != null)
+            EventSystem.current.SetSelectedGameObject(lastSelected);
     }
 
     private IEnumerator BlinkCaret()
@@ -139,15 +181,54 @@ public class Menu : MonoBehaviour
 
     private IEnumerator StartupAnimation()
     {
+        yield return new WaitForSeconds(2f);
         _monitorSceneLoading = true;
+
+        SetButtonSelected(0);
+        foreach (SimpleButton button in buttonBar)
+        {
+            yield return button.StartTypeWriteEffect(writerSettings);
+        }
+
         yield return writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["stats"], writerSettings);
         yield return writer.StartTypeWriterEnumerable(sideWriter[1], dialogue["levels"], writerSettings);
+        foreach (var pair in GameManager.Instance.levelDirectory)
+        {
+            SimpleButton button = Instantiate(levelPrefab, levelParent.transform);
+            button.transform.localPosition = Vector3.zero;
+            button.Init(() => OnLevelSelected(pair.Value), pair.Value.GetMenuString(), !pair.Value.isUnlocked);
+
+            if (pair.Value == GameManager.Instance.CurrentLevel)
+                SetLevelSelected(pair.Value.index);
+
+            yield return button.StartTypeWriteEffect(writerSettings);
+        }
+
         yield return writer.StartTypeWriterEnumerable(mainWriter, dialogue["start"], writerSettings);
         StartCoroutine(NonsensePanel());
 
-        ExitMenu();
+        foreach (Transform child in levelParent.transform)
+            child.GetComponent<SimpleButton>().SetInteraction();
 
         _monitorSceneReady = true;
+    }
+
+    private void OnLevelSelected(Level level)
+    {
+        playButton.gameObject.SetActive(false);
+        GameManager.Instance.CurrentLevel = level;
+        SetLevelSelected(level.index);
+        StartCoroutine(LevelSelectedCoroutine());
+    }
+
+    private IEnumerator LevelSelectedCoroutine()
+    {
+        yield return writer.StartTypeWriterEnumerable(sideWriter[1], dialogue["levels"], writerSettings);
+        yield return writer.StartTypeWriterEnumerable(mainWriter, GameManager.Instance.CurrentLevel.description, writerSettings);
+        playButton.gameObject.SetActive(true);
+        yield return new WaitForEndOfFrame();
+        yield return playButton.StartTypeWriteEffect(writerSettings);
+        playButton.SetInteraction();
     }
 
     private IEnumerator NonsensePanel()
@@ -186,7 +267,29 @@ public class Menu : MonoBehaviour
 
     // Menu State Management
 
-    private void ExitState(MenuScene state) {}
+    private IEnumerator GameStartAnimation()
+    {
+        yield return new WaitForSeconds(5f);
+        GameManager.Instance.LoadGame();
+    }
+
+    private void SetButtonSelected(int index)
+    {
+        buttonBar.ForEach(b => b.SetSelection(false));
+        buttonBar[index].SetSelection(true);
+    }
+
+    private void SetLevelSelected(int index)
+    {
+        Debug.Log(index);
+
+        foreach (Transform child in levelParent.transform)
+            child.GetComponent<SimpleButton>().SetSelection(false);
+
+        levelParent.transform.GetChild(index).GetComponent<SimpleButton>().SetSelection(true);
+    }
+
+    private void ExitState(MenuScene state) { }
 
     private void EnterState(MenuScene state)
     {
@@ -196,13 +299,13 @@ public class Menu : MonoBehaviour
                 StartCoroutine(DelayedAction(() => _allowedStart = true, 2.5f));
                 break;
             case MenuScene.Monitor:
-                cmdLine.text = @"C:\ > " + (_showCaret ? "|" : "");
                 if (!_monitorSceneReady && !_monitorSceneLoading)
                 {
                     StartCoroutine(StartupAnimation());
                 }
                 break;
             case MenuScene.Start:
+                StartCoroutine(GameStartAnimation());
                 break;
         }
     }
@@ -210,6 +313,7 @@ public class Menu : MonoBehaviour
     private void RunState(MenuScene state)
     {
         var input = _inputActions.UI;
+        cmdLine.text = @"C:\ > " + (_showCaret ? "|" : "");
 
         switch (state)
         {
@@ -228,5 +332,33 @@ public class Menu : MonoBehaviour
             case MenuScene.Start:
                 break;
         }
+    }
+
+    public void StatsClicked()
+    {
+        SetButtonSelected(0);
+        StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["stats"], writerSettings));
+    }
+
+    public void CreditsClicked()
+    {
+        SetButtonSelected(1);
+        StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["credits"], writerSettings));
+    }
+
+    public void SettingsClicked()
+    {
+        SetButtonSelected(2);
+        StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["settings"], writerSettings));
+    }
+
+    public void PlayClicked()
+    {
+        currentScene = MenuScene.Start;
+    }
+
+    public void ExitClicked()
+    {
+        GameManager.Instance.ExitGame();
     }
 }

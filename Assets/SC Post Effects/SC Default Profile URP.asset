@@ -159,17 +159,141 @@ MonoBehaviour:
     m_Value: 1
   resolution:
     m_OverrideState: 1
-    m_Value: 240
+    m_Value: 720
   resolutionPreset:
     m_OverrideState: 1
-    m_Value: 600
+    m_Value: 1
   preserveAspectRatio:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   centerPixel:
     m_OverrideState: 0
     m_Value: 1
   shader: {fileID: 4800000, guid: 418afc1867615f1408a4c6de9d799560, type: 3}
+--- !u!114 &-5681771332493583220
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74483714bbf784b45b0c9c7c76035dd8, type: 3}
+  m_Name: Fog
+  m_EditorClassIdentifier: 
+  active: 1
+  useSceneSettings:
+    m_OverrideState: 0
+    m_Value: 0
+  fogMode:
+    m_OverrideState: 1
+    m_Value: 2
+  globalDensity:
+    m_OverrideState: 1
+    m_Value: 0.169
+  fogStartDistance:
+    m_OverrideState: 1
+    m_Value: 32.12
+  fogEndDistance:
+    m_OverrideState: 0
+    m_Value: 600
+  colorSource:
+    m_OverrideState: 0
+    m_Value: 0
+  fogColor:
+    m_OverrideState: 1
+    m_Value: {r: 0.1538804, g: 0.3584906, b: 0.23142238, a: 1}
+  fogColorGradient:
+    m_OverrideState: 0
+    m_Value: {fileID: 0}
+    dimension: 1
+  gradientDistance:
+    m_OverrideState: 0
+    m_Value: 1000
+  gradientUseFarClipPlane:
+    m_OverrideState: 0
+    m_Value: 1
+  distanceFog:
+    m_OverrideState: 1
+    m_Value: 1
+  distanceDensity:
+    m_OverrideState: 0
+    m_Value: 1
+  useRadialDistance:
+    m_OverrideState: 1
+    m_Value: 0
+  horizonMinMax:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 1}
+  skyboxInfluence:
+    m_OverrideState: 0
+    m_Value: 1
+  enableDirectionalLight:
+    m_OverrideState: 0
+    m_Value: 0
+  useLightDirection:
+    m_OverrideState: 0
+    m_Value: 1
+  useLightColor:
+    m_OverrideState: 0
+    m_Value: 1
+  useLightIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+  lightColor:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 0.89, b: 0.55, a: 1}
+  lightDirection:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0.5, z: -1}
+  lightIntensity:
+    m_OverrideState: 0
+    m_Value: 1
+  lightExponent:
+    m_OverrideState: 0
+    m_Value: 8
+  heightFog:
+    m_OverrideState: 1
+    m_Value: 1
+  height:
+    m_OverrideState: 1
+    m_Value: 4.18
+  heightDensity:
+    m_OverrideState: 0
+    m_Value: 0.75
+  heightFogNoise:
+    m_OverrideState: 1
+    m_Value: 1
+  heightNoiseTex:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: 82a8d5f38e2ccf44c86362214b2d3e5e, type: 3}
+    dimension: 1
+  heightNoiseSize:
+    m_OverrideState: 1
+    m_Value: 0.364
+  heightNoiseStrength:
+    m_OverrideState: 1
+    m_Value: 1
+  heightNoiseSpeed:
+    m_OverrideState: 1
+    m_Value: 10
+  lightScattering:
+    m_OverrideState: 0
+    m_Value: 0
+  scatterIntensity:
+    m_OverrideState: 0
+    m_Value: 10
+  scatterThreshold:
+    m_OverrideState: 0
+    m_Value: 1
+  scatterDiffusion:
+    m_OverrideState: 0
+    m_Value: 10
+  scatterSoftKnee:
+    m_OverrideState: 0
+    m_Value: 0.5
+  shader: {fileID: 4800000, guid: 8080b34b2281e8945a5ddfe687d717fb, type: 3}
 --- !u!114 &-1871362605885631104
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -185,10 +309,10 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 1.28
   contrast:
     m_OverrideState: 1
-    m_Value: 1.9
+    m_Value: 28.7
   colorFilter:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -197,7 +321,7 @@ MonoBehaviour:
     m_Value: 0
   saturation:
     m_OverrideState: 1
-    m_Value: 12
+    m_Value: 25
 --- !u!114 &-889503152975592371
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -213,11 +337,11 @@ MonoBehaviour:
   active: 1
   lut:
     m_OverrideState: 1
-    m_Value: {fileID: 2800000, guid: 7a95f13299f9b0948aff699c1881bfc6, type: 3}
+    m_Value: {fileID: 2800000, guid: 039004ec2fad19949bfc60fa90b758a6, type: 3}
     dimension: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.755
+    m_Value: 0
   luminanceThreshold:
     m_OverrideState: 1
     m_Value: 0.485
@@ -246,7 +370,7 @@ MonoBehaviour:
     m_Value: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 2
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -295,6 +419,7 @@ MonoBehaviour:
   - {fileID: 106106513589886038}
   - {fileID: -7986837719202215885}
   - {fileID: -6107887252832874772}
+  - {fileID: -5681771332493583220}
 --- !u!114 &106106513589886038
 MonoBehaviour:
   m_ObjectHideFlags: 3

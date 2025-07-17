@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3484457225656915011
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_Asphalt_Line_Yellow
+  m_Shader: {fileID: -6465566751694194690, guid: 298ba3609cb24ca49b6b39932e9cf3d5, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ALPHATEST_ON
+  - _MATERIAL_AFFECTS_ALBEDO
+  - _MATERIAL_AFFECTS_NORMAL
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 1
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 1995
+  stringTagMap:
+    RenderType: TransparentCutout
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BC:
+        m_Texture: {fileID: 2800000, guid: 51d7eb52f317c914ab55ed569ac1bda6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: d0a8168bd1c43c9428523b539fda361a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskNormal:
+        m_Texture: {fileID: 2800000, guid: 37c0be7aa8b0f8b4e88e1c693f1f69dd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: d7541d88bec2e6746a8da9fa807b3151, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ORM:
+        m_Texture: {fileID: 2800000, guid: 0221e71a304945d469650e43a67ed029, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AO_Intensity: 1
+    - _AffectAO: 0
+    - _AffectAlbedo: 1
+    - _AffectEmission: 1
+    - _AffectMetal: 0
+    - _AffectNormal: 1
+    - _AffectSmoothness: 0
+    - _AlphaClip: 1
+    - _BaseColor_Multiply: 0.7
+    - _BaseColor_Tint_Amount: 0.9
+    - _Blend: 0
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DecalAngleFadeSupported: 1
+    - _DecalColorMask0: 15
+    - _DecalColorMask1: 15
+    - _DecalColorMask2: 0
+    - _DecalColorMask3: 0
+    - _DecalMeshBiasType: 0
+    - _DecalMeshDepthBias: 0
+    - _DecalMeshViewBias: 0
+    - _DecalStencilRef: 16
+    - _DecalStencilWriteMask: 16
+    - _DetailNormal: 0
+    - _DetailNormalInt: 1
+    - _DetailScale: 5
+    - _DrawOrder: 0
+    - _DstBlend: 0
+    - _Has_Metallic: 0
+    - _Has_Normal_Map: 0
+    - _Has_Roughness: 1
+    - _Mask_from_BC: 1
+    - _Maskuv: 1
+    - _Metalness: 0
+    - _OffsetU: 0.96
+    - _OffsetV: 0.5
+    - _OpacityInt: 0.5
+    - _QueueControl: 1
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Roughness_Amount: 0.6
+    - _Scale: 0.5
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - _0_0_1: {r: 0, g: 0, b: 1, a: 1}
+    - _Base_Tint: {r: 0.6886792, g: 0.5265767, b: 0.048727296, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &8774493097682129652
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 12
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
