@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Hackable : MonoBehaviour
 {
+    [SerializeField] protected Effect effect;
     [SerializeField] private GameObject _hackingManagerObj;
     private HackingManager _hackingManager;
     private MeshRenderer _meshRenderer;
@@ -47,24 +48,7 @@ public abstract class Hackable : MonoBehaviour
         _originalColor = _meshRenderer.material.color;
     }
 
-    protected virtual void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // Left click
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform == transform)
-                {
-                    OnClicked();
-                }
-            }
-        }
-    }
-
-    protected virtual void OnClicked()
+    public virtual void OnClicked()
     {
         StartHackPhase();
     }

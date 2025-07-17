@@ -16,8 +16,17 @@ public class Mine : Effect
             {
                 Enemy enemy = hit.GetComponent<Enemy>();
                 if (enemy != null)
-                    enemy.BlowUp(explosionForce, transform.position, radius, upwardsModifier);
+                {
+                    enemy.SetRagdoll();
+                    enemy.GetRigidbody().AddExplosionForce(explosionForce, transform.position, radius, upwardsModifier);
+                }
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }

@@ -57,4 +57,9 @@ public class Player : Entity
     {
         return agent.transform.position;
     }
+
+    public Target GetTarget()
+    {
+        return target;
+    }
 }
