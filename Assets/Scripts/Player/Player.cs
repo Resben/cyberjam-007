@@ -1,89 +1,65 @@
-using System.Collections;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     [Header("Components")]
-    [SerializeField] private PuppetCharacterController puppetCharacter;
     [SerializeField] private PlayerCamera playerCamera;
     [SerializeField] private CameraSpring cameraSpring;
     [SerializeField] private CameraLean cameraLean;
+    [SerializeField] private Target target;
 
     private PlayerInputActions _inputActions;
-    private CharacterInput _characterInput;
 
     void Start()
     {
-        _characterInput = new CharacterInput
-        {
-            Move = new Vector2(0, 1),
-            Sprint = InputType.On
-        };
+        agent.OnEndReached.AddListener(() => Debug.Log("YOU WON!"));
 
         Cursor.lockState = CursorLockMode.Locked;
 
         _inputActions = GameManager.Instance.inputActions;
-        puppetCharacter.Initialize();
 
-        playerCamera.Initialize(puppetCharacter.GetPosition());
+        playerCamera.Initialize(agent.transform.position);
         cameraSpring.Initialize();
         cameraLean.Initialize();
-        StartCoroutine(KillVelocity());
     }
 
     void Update()
     {
+        agent.UpdateAgent();
+
         var input = _inputActions.Gameplay;
 
         var cameraInput = new CameraInput
         {
             Look = input.Look.ReadValue<Vector2>(),
-            Position = puppetCharacter.GetPosition(),
-            CharacterState = puppetCharacter.GetState()
+            Position = agent.transform.position,
         };
 
         playerCamera.UpdateInput(cameraInput);
-
-        puppetCharacter.UpdateInput(_characterInput);
     }
 
     void LateUpdate()
     {
         var deltaTime = Time.deltaTime;
-        var cameraTarget = puppetCharacter.GetCameraTarget();
-        var state = puppetCharacter.GetState();
+        // var cameraTarget = agent.transform.position;
 
         playerCamera.UpdateCamera(deltaTime);
-        cameraSpring.UpdateSpring(deltaTime, cameraTarget.up);
-        cameraLean.UpdateLean(deltaTime, state.Acceleration, cameraTarget.up);
+        // cameraSpring.UpdateSpring(deltaTime, cameraTarget.up);
+        // cameraLean.UpdateLean(deltaTime, state.Acceleration, cameraTarget.up);
     }
 
     public void Teleport(Vector3 position)
     {
-        puppetCharacter.SetPosition(position);
+        agent.Warp(position);
     }
 
     public Vector3 GetPosition()
     {
-        return puppetCharacter.GetPosition();
+        return agent.transform.position;
     }
 
-    public Stance GetStance()
+    public Target GetTarget()
     {
-        return puppetCharacter.GetState().Stance;
-    }
-
-    // Test to kill velocity every 10 seconds
-    // See how the camera behaves
-    private IEnumerator KillVelocity()
-    {
-        while (true)
-        {
-            _characterInput.Move = new Vector2(0, 1);
-            yield return new WaitForSeconds(7.5f);
-
-            _characterInput.Move = Vector2.zero;
-            yield return new WaitForSeconds(2.5f);
-        }
+        return target;
     }
 }

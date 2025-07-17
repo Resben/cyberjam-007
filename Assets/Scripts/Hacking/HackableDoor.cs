@@ -7,11 +7,6 @@ public class HackableDoor : Hackable
         base.Start();
     }
 
-    protected override void Update()
-    {
-        base.Update();
-    }
-    
     public override void OnSuccessfulHack()
     {
         Debug.Log("Successful Hack on Door");

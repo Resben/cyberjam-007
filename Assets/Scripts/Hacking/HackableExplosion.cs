@@ -7,15 +7,9 @@ public class HackableExplosion : Hackable
         base.Start();
     }
 
-    // Update is called once per frame
-    protected override void Update()
-    {
-        base.Update();
-    }
-
     public override void OnSuccessfulHack()
     {
-        Debug.Log("Successful Hack on Explosion");
+        effect.Play();
     }
 
     public override void OnFailedHack()

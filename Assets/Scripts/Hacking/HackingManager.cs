@@ -33,6 +33,20 @@ public class HackingManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetMouseButtonDown(0)) // Left click
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider.TryGetComponent<Hackable>(out var hackable))
+                {
+                    hackable.OnClicked();
+                }
+            }
+        }
+
         // @DEBUG
         if (Input.GetButtonDown("Jump"))
         {

@@ -1,11 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public struct CameraInput
 {
     public Vector2 Look;
     public Vector3 Position;
-    public CharacterState CharacterState;
 }
 
 public class PlayerCamera : MonoBehaviour
