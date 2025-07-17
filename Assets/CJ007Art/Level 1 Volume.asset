@@ -420,6 +420,7 @@ MonoBehaviour:
   - {fileID: -7986837719202215885}
   - {fileID: -6107887252832874772}
   - {fileID: -5681771332493583220}
+  - {fileID: 762152285063532875}
 --- !u!114 &106106513589886038
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -458,6 +459,29 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 4
   shader: {fileID: 4800000, guid: d444b7563e196ad43a619f5bb395ffdb, type: 3}
+--- !u!114 &762152285063532875
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae979ba049e535429dde8ab92b28488, type: 3}
+  m_Name: Scanlines
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.664
+  amount:
+    m_OverrideState: 1
+    m_Value: 142
+  speed:
+    m_OverrideState: 1
+    m_Value: 1
+  shader: {fileID: 4800000, guid: 9a37ab67e535e704b8e007d86c2be9ff, type: 3}
 --- !u!114 &3581891975692024863
 MonoBehaviour:
   m_ObjectHideFlags: 3
