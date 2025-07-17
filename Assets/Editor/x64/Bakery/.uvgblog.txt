@@ -11958,3 +11958,19 @@ Done
 [15:42:53] INFO: created tome with 75 tiles, 1673 targets and 0 gates
 [15:42:53] INFO: Checking cache...
 [15:42:53] INFO: Cache check finished
+abort_threads: Failed aborting id: 0000000000008428, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 0000000000008428, mono_thread_manage will ignore it
+
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+Compressing using quality level 127
+Compressing using quality level 127
+Compressing using quality level 127
+Compressing using quality level 127
+Done
+Done
+Done
+Done
