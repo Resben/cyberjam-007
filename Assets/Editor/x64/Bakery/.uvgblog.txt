@@ -12536,3 +12536,104 @@ Done
 Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA5_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA5_final.hdr" 1024
 Initializing D3D...
 Done
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+ssing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Done
+Done
+Done
+Done
