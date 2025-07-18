@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
     // ------------------ SCENE / GAMESTATE MANAGEMENT ------------------ //
 
     public bool exitedLevel = false;
+    public bool didWin = false;
     public GameState CurrentGameState = GameState.Menu;
     public Stats stats;
     public Level CurrentLevel;
@@ -188,6 +189,6 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        inputActions.Dispose();
+        inputActions?.Dispose();
     }
 }

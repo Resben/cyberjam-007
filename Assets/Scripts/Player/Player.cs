@@ -7,6 +7,7 @@ public class Player : Entity
     [SerializeField] private CameraSpring cameraSpring;
     [SerializeField] private CameraLean cameraLean;
     [SerializeField] private Target target;
+    [SerializeField] private Animator animator;
 
     private PlayerInputActions _inputActions;
 
@@ -17,6 +18,8 @@ public class Player : Entity
         Cursor.lockState = CursorLockMode.Locked;
 
         _inputActions = GameManager.Instance.inputActions;
+
+        agent.SetSpeed(speed);
 
         playerCamera.Initialize(agent.transform.position);
         cameraSpring.Initialize();
@@ -61,5 +64,15 @@ public class Player : Entity
     public Target GetTarget()
     {
         return target;
+    }
+
+    public void SetWin()
+    {
+        animator.SetBool("isBoating", true);
+    }
+
+    public void SetDeath()
+    {
+        animator.SetBool("isDead", true);
     }
 }

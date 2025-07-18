@@ -5,8 +5,6 @@ public class Target : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private bool isPlayer = false;
     [SerializeField] private bool isEnd = false;
-
-    [Header("Debug")]
     [SerializeField] private bool _isUnlocked;
 
     public void SetUnlock(bool isUnlocked)

@@ -17,6 +17,7 @@ public class Enemy : Entity
         agent.DisableNavigation();
         _rb = GetComponent<Rigidbody>();
         _rb.isKinematic = true;
+        agent.SetSpeed(speed);
     }
 
     void Update()

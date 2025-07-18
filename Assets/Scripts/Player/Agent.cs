@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Agent : MonoBehaviour
 {
     public UnityEvent OnEndReached;
-    private NavMeshAgent _agent;
+    [SerializeField] private NavMeshAgent _agent;
     private Target _currentTarget;
     private Queue<Target> _targetQueue;
     private float _lastTime;
@@ -25,6 +25,7 @@ public class Agent : MonoBehaviour
         );
 
         _currentTarget = _targetQueue.Dequeue();
+        _agent.SetDestination(_currentTarget.transform.position);
     }
 
     public void SetPriorityTarget(Target priority)
@@ -42,21 +43,24 @@ public class Agent : MonoBehaviour
             _currentTarget = _targetQueue.Dequeue();
         }
 
-        if (_currentTarget.IsEnd() && _agent.remainingDistance < 0.5f)
-        {
-            OnEndReached?.Invoke();
-            disable = true;
-        }
-
         // Update agent pathing every part distance
         if ((Time.time - _lastTime) > _minTime)
         {
             if (TargetPriority())
                 _agent.SetDestination(_priorityTarget.transform.position);
             else
+            {
                 _agent.SetDestination(_currentTarget.transform.position);
-            
+            }
+
             _lastTime = Time.time;
+        }
+
+        if (_currentTarget.IsEnd() && _agent.remainingDistance < 0.5f)
+        {
+            Debug.Log(_agent.remainingDistance);
+            OnEndReached?.Invoke();
+            disable = true;
         }
     }
 
@@ -90,5 +94,10 @@ public class Agent : MonoBehaviour
     public void Warp(Vector3 position)
     {
         _agent.Warp(position);
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _agent.speed = speed;
     }
 }
