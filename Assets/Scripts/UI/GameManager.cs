@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public enum GameState
@@ -54,6 +55,8 @@ public class GameManager : MonoBehaviour
 {
     // ------------------ SCENE / GAMESTATE MANAGEMENT ------------------ //
 
+    public UnityEvent GameResumed;
+    public UnityEvent GamePaused;
     public bool exitedLevel = false;
     public bool didWin = false;
     public GameState CurrentGameState = GameState.Menu;
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
     private float volume = 1f;
     private float sfxVolume = 1f;
     private static GameManager _instance;
+    private GameState _lastState;
 
     public Dictionary<string, Level> levelDirectory = new()
     {
@@ -117,6 +121,19 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void Update()
+    {
+        if (_lastState != CurrentGameState)
+        {
+            if (CurrentGameState == GameState.Playing && _lastState != GameState.Playing)
+                GameResumed?.Invoke();
+            if (CurrentGameState != GameState.Playing && _lastState == GameState.Playing)
+                GamePaused?.Invoke();
+        }
+
+        _lastState = CurrentGameState;
     }
 
     public void OnLevelWon()

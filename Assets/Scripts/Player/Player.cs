@@ -10,6 +10,7 @@ public class Player : Entity
     [SerializeField] private Animator animator;
 
     private PlayerInputActions _inputActions;
+    private bool _allowUpdate = false;
 
     void Start()
     {
@@ -24,6 +25,9 @@ public class Player : Entity
         playerCamera.Initialize(agent.transform.position);
         cameraSpring.Initialize();
         cameraLean.Initialize();
+
+        GameManager.Instance.GameResumed.AddListener(() => GameResumed());
+        GameManager.Instance.GamePaused.AddListener(() => GamePaused());
     }
 
     void Update()
@@ -51,6 +55,16 @@ public class Player : Entity
         // cameraLean.UpdateLean(deltaTime, state.Acceleration, cameraTarget.up);
     }
 
+    private void GameResumed()
+    {
+        _allowUpdate = true;
+    }
+
+    private void GamePaused()
+    {
+        _allowUpdate = false;
+    }
+
     public void Teleport(Vector3 position)
     {
         agent.Warp(position);
@@ -66,13 +80,8 @@ public class Player : Entity
         return target;
     }
 
-    public void SetWin()
+    public void SetAnimationState(string state, bool isOn)
     {
-        animator.SetBool("isBoating", true);
-    }
-
-    public void SetDeath()
-    {
-        animator.SetBool("isDead", true);
+        animator.SetBool(state, isOn);
     }
 }

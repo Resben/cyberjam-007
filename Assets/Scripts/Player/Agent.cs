@@ -35,9 +35,6 @@ public class Agent : MonoBehaviour
 
     public void UpdateAgent()
     {
-        if (disable)
-            return;
-
         if (_currentTarget.IsUnlocked() && !_currentTarget.IsEnd())
         {
             _currentTarget = _targetQueue.Dequeue();
@@ -56,12 +53,16 @@ public class Agent : MonoBehaviour
             _lastTime = Time.time;
         }
 
-        if (_currentTarget.IsEnd() && _agent.remainingDistance < 0.5f)
+        if (_currentTarget.IsEnd() && DidReachTarget())
         {
-            Debug.Log(_agent.remainingDistance);
             OnEndReached?.Invoke();
             disable = true;
         }
+    }
+
+    private bool DidReachTarget()
+    {
+        return (_currentTarget.transform.position.z - transform.position.z) < 0.5f;
     }
 
     private bool TargetPriority()
