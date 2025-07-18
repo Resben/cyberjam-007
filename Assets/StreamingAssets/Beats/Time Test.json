@@ -1,0 +1,39 @@
+{
+  "tempo": {
+    "tempo": 80,
+    "numerator": 4,
+    "denominator": 4
+  },
+  "tags": [
+    {
+      "name": "Marker A",
+      "time": 9.375,
+      "duration": -1
+    },
+    {
+      "name": "Marker B",
+      "time": 10.875,
+      "duration": -1
+    },
+    {
+      "name": "Marker C",
+      "time": 21.375,
+      "duration": -1
+    },
+    {
+      "name": "Marker D",
+      "time": 21.9375,
+      "duration": -1
+    },
+    {
+      "name": "Marker E",
+      "time": 22.875,
+      "duration": -1
+    },
+    {
+      "name": "Marker F",
+      "time": 23.4375,
+      "duration": -1
+    }
+  ]
+}
