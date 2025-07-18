@@ -2,9 +2,6 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections;
 
-    
-
-
 public class Note : MonoBehaviour
 {
     // References to the outer ring and its MeshRenderer
@@ -85,6 +82,7 @@ public class Note : MonoBehaviour
     void OnDestroy()
     {
         StopAnimations();
+        _noteManager.RemoveLocationSpawn(new Vector2(transform.position.x, transform.position.y));
     }
 
     public void InitializeNote(NoteManager noteManager, float duration, float leadWindowTime, float acceptanceWindow, Transform cameraTransform)

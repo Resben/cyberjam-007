@@ -7,9 +7,10 @@ TagManager:
   - NoteManager
   - BeatManager
   - Note
-  - HackingManger
   - Target
   - Enemy
+  - HackingManager
+  - EventSystem
   layers:
   - Default
   - TransparentFX

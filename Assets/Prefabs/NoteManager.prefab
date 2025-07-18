@@ -44,9 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59ac7b946c4729d488a895416a6284f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _notePrefab: {fileID: 5075752925910040403, guid: 6af0502764aef924c8a30868678a746d, type: 3}
-  _windowHeight: 10
-  _windowWidth: 10
+  _notePrefab: {fileID: 7628260774461003091, guid: beedd09413bab5f40a590e418e4eadfd, type: 3}
   _acceptanceWindow: 0.4
   _leadWindowTime: 2
-  _gracePeriod: 2

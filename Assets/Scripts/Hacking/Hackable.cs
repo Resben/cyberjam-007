@@ -20,9 +20,13 @@ public abstract class Hackable : MonoBehaviour
     {
         if (!_hackingManagerObj)
         {
-            Debug.LogError("Hacking Manager GameObject not set");
-            Destroy(gameObject);
-            return;
+            _hackingManagerObj = GameObject.FindGameObjectWithTag("HackingManager");
+            if (!_hackingManagerObj)
+            {
+                Debug.LogError("Hacking Manager GameObject has not been placed");
+                Destroy(gameObject);
+                return;
+            }
         }
 
         if (!_hackingManager)

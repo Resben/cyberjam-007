@@ -14,7 +14,7 @@ public class Player : Entity
     {
         agent.OnEndReached.AddListener(() => Debug.Log("YOU WON!"));
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
 
         _inputActions = GameManager.Instance.inputActions;
 

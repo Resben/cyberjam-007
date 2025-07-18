@@ -4,8 +4,10 @@ public class HackingManager : MonoBehaviour
 {
     private BeatManager _beatManager;
     private NoteManager _noteManager;
+    private Canvas _noteCanvas;
     [SerializeField] private GameObject _beatManagerPrefab;
     [SerializeField] private GameObject _noteManagerPrefab;
+    [SerializeField] private GameObject _noteCanvasPrefab;
 
     private Hackable _currentHackingItem;
 
@@ -19,9 +21,9 @@ public class HackingManager : MonoBehaviour
 
     void Start()
     {
-        if (!_beatManagerPrefab)
+        if (!_beatManagerPrefab || !_noteManagerPrefab || !_noteCanvasPrefab)
         {
-            Debug.LogError("Note or beat prefabs are not set");
+            Debug.LogError("Note or beat or canvas prefabs are not set");
             Destroy(gameObject);
             return;
         }
@@ -29,11 +31,15 @@ public class HackingManager : MonoBehaviour
         Vector3 pos = new Vector3(0, 0, 0);
         _beatManager = Instantiate(_beatManagerPrefab, pos, Quaternion.identity).GetComponent<BeatManager>();
         _noteManager = Instantiate(_noteManagerPrefab, pos, Quaternion.identity).GetComponent<NoteManager>();
+        _noteCanvas = Instantiate(_noteCanvasPrefab).GetComponent<Canvas>();
+        _noteCanvas.worldCamera = Camera.main;
+
+        _noteManager.Init(this, _noteCanvas);
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left click
+        if (Input.GetMouseButtonDown(0) && !_isHacking) // Left click
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -86,7 +92,7 @@ public class HackingManager : MonoBehaviour
         _passPercentage = hackableItem.PassPercentage;
 
         _beatManager.StartMusic(_currentHackingItem.GetTrackNumber());
-        _noteManager.StartSession(this, musicEvent);
+        _noteManager.StartSession(musicEvent);
         _currentHackingItem.StartHack();
     }
 
