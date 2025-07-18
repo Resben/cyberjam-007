@@ -297,7 +297,8 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["canopy001","door002","Object108","Object109","Cylinder006","lamp010","lamp011","Object107","Box124","Box125","Box123","Box122"],"padding":[46,110,43,182,153,200,200,35,256,256,224,256],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0]}'
+    - '#BAKERY{"meshName":["canopy001","door002","Object108","Object109","Cylinder006","lamp010","lamp011","Object107","Box124","Box125","Box123","Box122","yawer
+      light001","pitcher001"],"padding":[46,110,43,182,153,200,200,35,256,256,224,256,256,256],"unwrapper":[0,0,0,0,0,0,0,0,0,0,0,0,0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

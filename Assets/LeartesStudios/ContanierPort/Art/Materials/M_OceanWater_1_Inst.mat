@@ -1,0 +1,276 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5610321140708535712
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da692e001514ec24dbc4cca1949ff7e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 12
+  hdPluginSubTargetMaterialVersions:
+    m_Keys: []
+    m_Values: 
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_OceanWater_1_Inst
+  m_Shader: {fileID: -6465566751694194690, guid: 0faa5255f9b3dd84dbf7b5486b7834de, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+    RenderType: Opaque
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  - TransparentDepthPostpass
+  - TransparentBackface
+  - TransparentDepthPrepass
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_4c7f1411d06644538335e60b92c35fe6_Texture_1:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_4c7f1411d06644538335e60b92c35fe6_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_6101d5b7c3ce4708a02b32831e6b0199_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_66b8747c73f84199a8234b02c092603f_Texture_1:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_66b8747c73f84199a8234b02c092603f_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c37104bd789e4cb7aad371c8d38f6655_Texture_1:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c37104bd789e4cb7aad371c8d38f6655_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e75c2b223bbe46dabda8067d19fd55ba_Texture_1:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_e75c2b223bbe46dabda8067d19fd55ba_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: aa7ccfcd0d67de441873fd8a9610828a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_0dc94aab3f6c40978c15e9cd09692cd3_Out_0:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_0dc94aab3f6c40978c15e9cd09692cd3_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_1b63e811c0f448beb0dd6115b8e394e9_Out_0:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_1b63e811c0f448beb0dd6115b8e394e9_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_3bedf60ed9ca4850ad0f25bf4e8f675b_Out_0:
+        m_Texture: {fileID: 2800000, guid: abc00000000005263327418584652234, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_6f5c6cec27e94cefab1f73c67adfa4c1_Out_0:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_6f5c6cec27e94cefab1f73c67adfa4c1_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 4b95f5ae9feb70140adf75910010bd4c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_c6234bbacb054175b8f201b58718cc8c_Out_0:
+        m_Texture: {fileID: 2800000, guid: abc00000000005263327418584652234, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Boolean_07b2d29983eb463782edc636f61a9ff5: 0
+    - Boolean_15d62e41225547989ca95323b17327f7: 0
+    - Boolean_4ffc1f14c2964956bb4fe3f644b442f7: 1
+    - Boolean_f9d97548615e4a3bbce40265d5a7e209: 0
+    - Vector1_1: 1
+    - Vector1_141121b9abec48fbbe169c1740eefd33: 0
+    - Vector1_174ff7dadf3948a4bbc38af20bd70372: 1
+    - Vector1_1d49f1a2d23a44c2b51dbd499d4dde70: 0
+    - Vector1_2: 1
+    - Vector1_25f93a7cb61448c9a7c107c7e254b0f7: 0.512
+    - Vector1_458c2a38607f49049a0a7d5706073890: 1
+    - Vector1_4a8ab528557846ce964b5d6013113e57: 1
+    - Vector1_4b6359e4138b4938b9a2234a3a431526: 0.005
+    - Vector1_6dea44b64cc2460495fa3ce9d71fd2bb: 50
+    - Vector1_751f2c49ba04411596944f95a965bac9: 0.512
+    - Vector1_77540afbbbf0453681562d5478321802: 2330
+    - Vector1_873cacf0119b4b9db2fc4b524937c07b: 0
+    - Vector1_a5d6aa0be78f46ebad281683a212e4ea: 1
+    - Vector1_a5d6aa0be78f46ebad281683a212e4ea_1: 1
+    - Vector1_ade50e3e2d3b47b8b1c8a7fc444c9ec6: 0.5
+    - Vector1_b3c5828539d54ab7b92e422d21ff7d5f: 0.25
+    - Vector1_b9115520341e462a8318e8622b851afa: 1
+    - Vector1_b9115520341e462a8318e8622b851afa_1: 0
+    - Vector1_b9115520341e462a8318e8622b851afa_2: 0
+    - Vector1_b9115520341e462a8318e8622b851afa_3: 0
+    - Vector1_fc96597b428e46a2bdcf3aa68b48cb8b: 200
+    - _AO: 1
+    - _AddPrecomputedVelocity: 0
+    - _AlphaClip: 0
+    - _AlphaCutoffEnable: 0
+    - _AlphaDstBlend: 0
+    - _AlphaInt: 0.8
+    - _AlphaSrcBlend: 1
+    - _AlphaToMask: 0
+    - _AlphaToMaskInspectorValue: 0
+    - _BUILTIN_AlphaClip: 0
+    - _BUILTIN_Blend: 0
+    - _BUILTIN_CullMode: 2
+    - _BUILTIN_DstBlend: 0
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _BUILTIN_SrcBlend: 1
+    - _BUILTIN_Surface: 0
+    - _BUILTIN_ZTest: 4
+    - _BUILTIN_ZWrite: 1
+    - _BUILTIN_ZWriteControl: 0
+    - _Blend: 0
+    - _BlendMode: 0
+    - _BlendModePreserveSpecular: 0
+    - _CastShadows: 1
+    - _ConservativeDepthOffsetEnable: 0
+    - _Cull: 2
+    - _CullMode: 2
+    - _CullModeForward: 2
+    - _Depth: 6.4
+    - _DepthOffsetEnable: 0
+    - _Depth_Fade: 6.37
+    - _DoubleSidedEnable: 0
+    - _DoubleSidedGIMode: 0
+    - _DoubleSidedNormalMode: 2
+    - _DstBlend: 0
+    - _EnableBlendModePreserveSpecularLighting: 0
+    - _EnableFogOnTransparent: 1
+    - _Metallic: 0
+    - _NormalStrength: 0.166
+    - _OpaqueCullMode: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _RayTracing: 1
+    - _ReceiveShadows: 1
+    - _ReceivesSSR: 1
+    - _ReceivesSSRTransparent: 1
+    - _RefractionModel: 0
+    - _RenderQueueType: 1
+    - _RequireSplitLighting: 0
+    - _Roughness: 0
+    - _Smoothness: 1
+    - _SrcBlend: 1
+    - _StencilRef: 0
+    - _StencilRefDepth: 8
+    - _StencilRefDistortionVec: 4
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 40
+    - _StencilWriteMask: 6
+    - _StencilWriteMaskDepth: 8
+    - _StencilWriteMaskDistortionVec: 4
+    - _StencilWriteMaskGBuffer: 14
+    - _StencilWriteMaskMV: 40
+    - _SupportDecals: 1
+    - _Surface: 0
+    - _SurfaceType: 0
+    - _TransparentBackfaceEnable: 0
+    - _TransparentCullMode: 2
+    - _TransparentDepthPostpassEnable: 0
+    - _TransparentDepthPrepassEnable: 0
+    - _TransparentSortPriority: 0
+    - _TransparentWritingMotionVec: 0
+    - _TransparentZWrite: 0
+    - _UseShadowThreshold: 0
+    - _WaterTransparency: 3
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZTestDepthEqualForOpaque: 3
+    - _ZTestGBuffer: 4
+    - _ZTestTransparent: 4
+    - _ZWrite: 1
+    - _ZWriteControl: 0
+    m_Colors:
+    - Color_1: {r: 0.4263527, g: 0.5482625, b: 0.6320754, a: 0.5019608}
+    - Color_13ec232c958d4c648c90624257c5b37c: {r: 0.31548592, g: 0.3889741, b: 0.3962264, a: 0.4745098}
+    - Color_21fed8c222a347c79b773bdea87c50cb: {r: 0.9198113, g: 0.9900516, b: 1, a: 0}
+    - Color_35a38b55f4c144bd891ce06b7562e933: {r: 0, g: 0.13333324, b: 0.15294108, a: 0.5254902}
+    - Color_3c1be19f13b140bbaad8c2ec9871075b: {r: 0.06274508, g: 0.27058816, b: 0.5137254, a: 1}
+    - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _UV: {r: 10000, g: 10000, b: 10000, a: 1000}
+    - _UV_2: {r: 2, g: 1, b: 1, a: 10}
+    - _WaterSpeed1: {r: 0.02, g: 0.01, b: 0, a: 0}
+    - _WaterSpeed2: {r: 0.01, g: 0.02, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &2890723911188059589
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
+--- !u!114 &4682759767653713456
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9

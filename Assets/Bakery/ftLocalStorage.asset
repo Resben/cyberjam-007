@@ -125,4 +125,47 @@ MonoBehaviour:
   - Assets/CyberCity/Mesh/car sedan.FBX
   - Assets/CyberCity/Mesh/car sedan lod.FBX
   - Assets/CyberCity/Mesh/car sedan lod 2.FBX
-  modifiedAssetPaddingHash: d6a958ff6c43011da35031ee8fe4c28e0ca3dddeecc124916209ecc0c5d15080f827c115f827c11556f23a06717f9363f537ed047844b40dc668e2a82bf43a06b94608c80da3ddde2009ecc0b7f23a063367e2a8ec603fe32914591b9a8d4b1b7c3980333ec5d890da7d9363353fd3d93ec5d890353fd3d9717f936306a3dddec25302517e4dfff043db09c4ec274e972009ecc061dd894bf50aecc0db5634b7eb37ed04d2c12491ad5634b7ecc12491717f9363eddb894becc12491ecc12491c8d15080ee37ed04ecc12491d9398033194efff07c39803337fa3485cfc3a6933367e2a89150cf35343fd3d9ecc12491ecc124917333c2ab9f398033377e93637c3980332009ecc0567e9363ecc12491344ffff09250cf359c09ecc09978d4decbc12491ecc12491ecc12491d464c020d0c12491ecc12491e8d98a1c56f23a06ecc1249156f23a06ecc12491ecc12491f83980332cd227101828c115ecc12491b3819ed109a3ddde0b38ed049050cf35ecc12491ecc1249153020f20ecc1249138c2a6939f398033bd4608c817f288f8ecc12491ecc12491b74608c8e64608c80ba3ddde275031eeecc12491ecc12491da7d93634cbb1de9f0ccb8c43f32005c
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Security/SM_Beton_Barrier_01.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Container_Ship/SM_Watertight_Hatch_low001.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Street_Lights/SM_SteetLights_M_01.fbx
+  - Assets/CyberCity/Mesh/shopexterior.FBX
+  - Assets/CyberCity/Mesh/shop poster 18.FBX
+  - Assets/CyberCity/Mesh/shop poster 17.FBX
+  - Assets/CyberCity/Mesh/shop poster 19.FBX
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Containers/Container_Pack/SM_Container_A.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Container_Ship/SM_Box3029.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Main_Building/SM_Stairs_Entrance.fbx
+  - Assets/CyberCity/Mesh/neon sign 24.FBX
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Straddle_Carrier/SM_Straddle_Carrier.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Security/SM_Security_Building.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Containers/SM_Container_B.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Ship_to_Shore/SM_STS_ElectricBox_002.fbx
+  - Assets/CyberCity/Mesh/neon sign 11.FBX
+  - Assets/CyberCity/Mesh/poster 07.FBX
+  - Assets/CyberCity/Mesh/neon sign 01.FBX
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Container_Ship/SM_Ship_Hull.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Container_Ship/SM_Anchor_Chain.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/ElectricBoxes/SM_Large_ElectricBox_02_Low.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Barrel.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_CementBag.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_WoodCrate.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Antena.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Conus.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Environment_Fill_Assets/SM_Cablespool.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_TrashDumbster.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Counter.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Pallet.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_WoodBox.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_PalleteTruck.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_MetalFlatbed.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Environment_Fill_Assets/SM_DieselGenerator.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_Cardboard.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Environment_Fill_Assets/SM_Electric_utility_01.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Industrial_Props/SM_FenceChain.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Environment_Fill_Assets/SM_Trashcan.fbx
+  - Assets/LeartesStudios/ContanierPort/Art/Meshes/Environment_Fill_Assets/SM_fireextinguisher.fbx
+  - Assets/CyberCity/Mesh/poster 02.FBX
+  - Assets/CyberCity/Mesh/poster 06.FBX
+  - Assets/CyberCity/Mesh/poster 08.FBX
+  - Assets/CJ007Art/Meshes/boat/SpeedBoatOnly.fbx
+  modifiedAssetPaddingHash: d6a958ff6c43011da35031ee8fe4c28e0ca3dddeecc124916209ecc0c5d15080f827c115f827c11556f23a06717f9363f537ed047844b40dc668e2a82bf43a06b94608c80da3ddde2009ecc0b7f23a063367e2a8ec603fe32914591b9a8d4b1b7c3980333ec5d890da7d9363b7f23a063ec5d890b7f23a06717f936306a3dddec25302517e4dfff043db09c4ec274e972009ecc061dd894bf50aecc0db5634b7eb37ed04d2c12491ad5634b7ecc12491717f9363eddb894becc12491ecc12491c8d15080ee37ed04ecc12491d9398033194efff07c39803337fa3485cfc3a6933367e2a89150cf35b7f23a06ecc12491ecc124917333c2ab9f398033377e93637c3980332009ecc0567e9363ecc12491344ffff09250cf359c09ecc09978d4decbc12491ecc12491ecc12491d464c020d0c12491ecc12491e8c5381656f23a06ecc1249156f23a06ecc12491ecc12491f83980332cd22710ecc12491ecc12491b3819ed109a3ddde0b38ed049050cf35ecc12491ecc1249153020f20ecc1249138c2a6939f398033bd4608c817f288f8ecc12491ecc12491b74608c8e64608c80ba3ddde275031eeecc12491ecc12491da7d93634cbb1de9f0ccb8c43f32005c38c2a693eec3a69307a3ddde8f50cf35d84608c89650cf35d84608c8bb09ecc000b309ce08dc894b465031ee323fd3d95dc5d890b4c2a693ecc1249156f23a06df2bcaa8be39803314f33a066209ecc0c25031ee0e168ed6cebc9d0ea0160c0a4807ab22ec274e9753cc7850d848497bbb16032225f21a5944f2c4d4133fa4762aee0b85c100978f13818408238358266d3310e9ff2dfc8e53f426d291b174f9df2bcaa847720fd6f1f23a06
