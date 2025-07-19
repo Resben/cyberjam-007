@@ -94,4 +94,9 @@ public class Player : Entity
                 break;
         }
     }
+
+    public override void Hit()
+    {
+        GameManager.Instance.currentLevelManager.LoseCondition();
+    }
 }

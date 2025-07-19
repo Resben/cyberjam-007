@@ -13,6 +13,7 @@ public enum AgentState
 
 public class Agent : MonoBehaviour
 {
+    public UnityEvent OnHit;
     public UnityEvent OnPriorityReached;
     public UnityEvent OnEndReached;
     [SerializeField] private NavMeshAgent _agent;
@@ -71,7 +72,7 @@ public class Agent : MonoBehaviour
         {
             if (TargetPriority())
             {
-                _agent.SetDestination(_priorityTarget.transform.position);
+                _agent.SetDestination(GetPriorityPosition());
 
                 if (DidReachPriorityTarget())
                 {
@@ -105,7 +106,15 @@ public class Agent : MonoBehaviour
 
     private bool TargetPriority()
     {
-        return _priorityTarget ? _priorityTarget.transform.position.z > _currentTarget.transform.position.z : false;
+        // return _priorityTarget ? _priorityTarget.transform.position.z > _currentTarget.transform.position.z : false;
+        return _priorityTarget != null;
+    }
+
+    private Vector3 GetPriorityPosition()
+    {
+        Vector3 pos = _priorityTarget.transform.position;
+        pos.z -= 2.5f; // Little offset off the character
+        return pos;
     }
 
     public bool CanProceed()
@@ -138,5 +147,10 @@ public class Agent : MonoBehaviour
     public void SetSpeed(float speed)
     {
         _agent.speed = speed;
+    }
+
+    public void Hit()
+    {
+        OnHit?.Invoke();
     }
 }
