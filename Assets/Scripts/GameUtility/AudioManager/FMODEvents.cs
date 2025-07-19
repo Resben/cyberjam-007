@@ -6,12 +6,17 @@ using UnityEngine;
 public class FMODEvents : MonoBehaviour
 {
     [Header("Music")]
+    [SerializeField] public EventReference menuBGM;
 
     [Header("Menu SFX")]
+    [SerializeField] public EventReference terminalSFX;
 
-    [Header("General SFX")]
+    [Header("Game SFX")]
+    [SerializeField] public EventReference doorSFX;
+    [SerializeField] public EventReference droneSFX;
+    [SerializeField] public EventReference explosionSFX;
+    [SerializeField] public EventReference mineSFX;
 
-    [Header("Player SFX")]
 
     private static FMODEvents _instance;
 

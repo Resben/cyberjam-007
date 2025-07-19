@@ -38,7 +38,7 @@ public class Level
 
     public string GetMenuString()
     {
-        return id + "   Drone Status:" + (underDevelopment ? "| ERROR" : (isUnlocked ? "| Active" : "| InActive"));
+        return id + "   Drone Status: " + (underDevelopment ? "ERROR" : (isUnlocked ? "Active" : "InActive"));
     }
 }
 
@@ -64,8 +64,8 @@ public class GameManager : MonoBehaviour
     public Level CurrentLevel;
     public bool isDebugMode = false;
     public PlayerInputActions inputActions;
-    private float volume = 1f;
-    private float sfxVolume = 1f;
+    private float volume = 0.3f;
+    private float sfxVolume = 0.3f;
     private static GameManager _instance;
     private GameState _lastState;
 
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        volume = Mathf.Clamp01(value);
+        volume = value;
         AudioManager.Instance.OnVolumeChanged(volume);
     }
 
@@ -200,7 +200,7 @@ public class GameManager : MonoBehaviour
 
     public void SetSFXVolume(float value)
     {
-        sfxVolume = Mathf.Clamp01(value);
+        sfxVolume = value;
         AudioManager.Instance.OnSFXVolumeChanged(sfxVolume);
     }
 

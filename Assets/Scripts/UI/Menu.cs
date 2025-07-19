@@ -30,9 +30,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private SimpleButton levelPrefab;
     [SerializeField] private GameObject levelParent;
 
+    [SerializeField] private SettingsUI settingsUI;
+
     private Dictionary<string, List<string>> dialogue;
-    private EventInstance _typingSound;
-    private EventInstance _menuBGM;
     private PlayerInputActions _inputActions;
     private bool _showCaret = false;
     private MenuScene currentScene = MenuScene.Default;
@@ -42,6 +42,11 @@ public class Menu : MonoBehaviour
     private TypeWriterSettings writerSettings;
     private TypeWriterSettings cmdWriterSettings;
 
+    private EventInstance _menuBGM;
+    private EventInstance _terminalIdleSFX;
+    private EventInstance _terminalBootSFX;
+    private EventInstance _typingSoundSFX;
+
     private bool _monitorSceneLoading = false;
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
@@ -50,6 +55,12 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
+        _menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
+        _menuBGM.start();
+        // _terminalIdleSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalIdleSFX, false);
+        // _terminalBootSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalBootSFX, false);
+        // _typingSoundSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalSFX, false);
+
         writerSettings = new TypeWriterSettings
         {
             shouldClearOnNewLine = false,
@@ -65,6 +76,7 @@ public class Menu : MonoBehaviour
             clearCurrent = true,
             charactersPerSecond = 50,
             delayBetweenLines = -1,
+            // sound = _typingSoundSFX,
             playSound = true
         };
 
@@ -72,9 +84,6 @@ public class Menu : MonoBehaviour
         _inputActions = GameManager.Instance.inputActions;
         SwitchCamera(currentScene);
         StartCoroutine(BlinkCaret());
-        // menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
-        // menuBGM.start();
-        // typingSound = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.typingSound, false);
         dialogue = new Dictionary<string, List<string>> {
             { "start", new List<string>()
                 {
@@ -182,6 +191,10 @@ public class Menu : MonoBehaviour
     private IEnumerator StartupAnimation()
     {
         yield return new WaitForSeconds(2f);
+        // Show CMD command then play SFX
+        // _terminalBootSFX.play();
+        // _terminalIdleSFX.play();
+        yield return new WaitForSeconds(1.0f);
         _monitorSceneLoading = true;
 
         SetButtonSelected(0);
@@ -297,6 +310,7 @@ public class Menu : MonoBehaviour
         switch (state)
         {
             case MenuScene.Default:
+                // _terminalIdleSFX.fadeorwhatever();
                 StartCoroutine(DelayedAction(() => _allowedStart = true, 2.5f));
                 break;
             case MenuScene.Monitor:
@@ -306,6 +320,7 @@ public class Menu : MonoBehaviour
                 }
                 break;
             case MenuScene.Start:
+                // _terminalIdleSFX.fadeorwhatever();
                 StartCoroutine(GameStartAnimation());
                 break;
         }
@@ -337,20 +352,24 @@ public class Menu : MonoBehaviour
 
     public void StatsClicked()
     {
+        settingsUI.Reset();
         SetButtonSelected(0);
         StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["stats"], writerSettings));
     }
 
     public void CreditsClicked()
     {
+        settingsUI.Reset();
         SetButtonSelected(1);
         StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["credits"], writerSettings));
     }
 
     public void SettingsClicked()
     {
+        sideWriter[0].text = string.Empty;
+        settingsUI.Reset();
         SetButtonSelected(2);
-        StartCoroutine(writer.StartTypeWriterEnumerable(sideWriter[0], dialogue["settings"], writerSettings));
+        StartCoroutine(settingsUI.StartSettingsAnimation());
     }
 
     public void PlayClicked()

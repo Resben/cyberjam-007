@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class SimpleButton : MonoBehaviour
     [SerializeField] private Button button;
     [SerializeField] private TMP_Text textBox;
     [SerializeField] private Color toggledColour;
+    private EventInstance _buttonClickSFX;
     private Color _saveNormalColor;
     private Action _callback;
     private bool _forceDisable = false;
@@ -17,6 +19,7 @@ public class SimpleButton : MonoBehaviour
 
     public void Start()
     {
+        // _buttonClickSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.buttonClickSFX, false);
         textBox.text = string.Empty;
         _saveNormalColor = button.colors.normalColor;
     }
@@ -72,6 +75,7 @@ public class SimpleButton : MonoBehaviour
 
     public void OnClick()
     {
+        // _buttonClickSFX.Play();
         _callback?.Invoke();
     }
 }
