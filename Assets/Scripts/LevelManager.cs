@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Renderer cameraOverlay;
     [SerializeField] private Renderer hackOverlay;
     [SerializeField] private Renderer hoverOverlay;
+    [SerializeField] private Animator doorAnimator;
 
     [SerializeField] private CinemachineCamera playerCamera;
     [SerializeField] private CinemachineCamera openCutsceneCamera;
@@ -72,6 +73,7 @@ public class LevelManager : MonoBehaviour
         _player = playerObject != null ? playerObject.GetComponent<Player>() : null;
 
         gm = GameManager.Instance;
+        gm.currentLevelManager = this;
         StartCoroutine(Cutscene());
     }
 
@@ -150,11 +152,6 @@ public class LevelManager : MonoBehaviour
         // Have the character vibing
         yield return new WaitForSeconds(1.0f);
         hoverOverlay.material.DOFade(1.0f, 0.5f);
-        yield return new WaitForSeconds(2.0f);
-        _player.SetAnimationState("isVibing", false);
-        yield return new WaitForSeconds(0.1f);
-        _player.agent.state = AgentState.Tracking;
-        startTarget.SetUnlock(true);
     }
 
     IEnumerator OnLoss()
@@ -177,6 +174,21 @@ public class LevelManager : MonoBehaviour
         yield return fade.DOFade(1.0f, 2.0f).WaitForCompletion();
         yield return videoImage.DOFade(1.0f, 1.0f).WaitForCompletion();
         canLeave = true;
+    }
+
+    public void BlowDoorUp()
+    {
+        StartCoroutine(DoorExplosion());
+    }
+
+    private IEnumerator DoorExplosion()
+    {
+        doorAnimator.SetBool("boom", true);
+        yield return new WaitForSeconds(1.0f);
+        _player.SetAnimationState("isVibing", false);
+        yield return new WaitForSeconds(0.1f);
+        _player.agent.state = AgentState.Tracking;
+        startTarget.SetUnlock(true);
     }
 
     public void SlowDown(Action callback = null)

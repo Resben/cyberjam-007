@@ -10,6 +10,8 @@ public class Mine : Effect
     [SerializeField] private ParticleSystem explosionEffect;
     [SerializeField] private EventReference _mineNoise;
 
+    [SerializeField] private bool isStartBomb = false;
+
     protected override void Start()
     {
         base.Start();
@@ -25,6 +27,11 @@ public class Mine : Effect
     public override void Play()
     {
         explosionEffect.Play();
+
+        if (isStartBomb)
+        {
+            GameManager.Instance.currentLevelManager.BlowDoorUp();
+        }
 
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
         foreach (var hit in hits)
