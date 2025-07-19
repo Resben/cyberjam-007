@@ -151,8 +151,9 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         hoverOverlay.material.DOFade(1.0f, 0.5f);
         yield return new WaitForSeconds(2.0f);
-        _player.agent.state = AgentState.Tracking;
         _player.SetAnimationState("isVibing", false);
+        yield return new WaitForSeconds(0.1f);
+        _player.agent.state = AgentState.Tracking;
         startTarget.SetUnlock(true);
     }
 
