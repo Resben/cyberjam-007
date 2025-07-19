@@ -78,9 +78,9 @@ public class Menu : MonoBehaviour
         _menuBGM.setVolume(0);
         _menuBGM.start();
         AudioManager.Instance.FadeInstance(_menuBGM, true, false, 2.0f);
-        _terminalIdleSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalIdleSFX, false);
-        _terminalBootSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalBootSFX, false);
-        _typingSoundSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalSFX, false);
+        // _terminalIdleSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalIdleSFX, false);
+        // _terminalBootSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalBootSFX, false);
+        // _typingSoundSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalSFX, false);
 
         writerSettings = new TypeWriterSettings
         {
