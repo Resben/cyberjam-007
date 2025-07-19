@@ -33,8 +33,7 @@ public class Mine : Effect
         if (isStartBomb)
         {
             GameManager.Instance.currentLevelManager.BlowDoorUp();
-            // manager.shouldBeAmbient = false;
-            Debug.Log("defused");
+            manager.shouldBeAmbient = false;
         }
 
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
