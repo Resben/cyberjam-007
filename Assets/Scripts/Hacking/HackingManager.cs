@@ -79,54 +79,54 @@ public class HackingManager : MonoBehaviour, ITrigger
         }
 
         // @DEBUG
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.PageDown))
         {
             DestroyHackingSession();
         }
 
-        // @DEBUG MUSIC
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _beatManager.PlayMXState(_mainMusicIndex, 0f);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _beatManager.PlayMXState(_mainMusicIndex, _ambientReturn);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _beatManager.PlayMXState(_mainMusicIndex, _combatInit);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            _beatManager.PlayMXState(_mainMusicIndex, _combatReturn);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
-        }
+        // // @DEBUG MUSIC
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     _beatManager.PlayMXState(_mainMusicIndex, 0f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     _beatManager.PlayMXState(_mainMusicIndex, _ambientReturn);
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha3))
+        // {
+        //     _beatManager.PlayMXState(_mainMusicIndex, _combatInit);
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha4))
+        // {
+        //     _beatManager.PlayMXState(_mainMusicIndex, _combatReturn);
+        // }
+        // if (Input.GetKeyDown(KeyCode.Alpha5))
+        // {
+        //     _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
+        // }
 
-        // @DEBUG MUSIC
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            _beatManager.PlayHackingBeat(_mainMusicIndex, 0f);
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            _beatManager.PlayHackingBeat(_mainMusicIndex, 1f);
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            _beatManager.PlayHackingBeat(_mainMusicIndex, 2f);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _beatManager.PlayHackingBeat(_mainMusicIndex, 3f);
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            _beatManager.PlayHackingBeat(_mainMusicIndex, 4f);
-        }
+        // // @DEBUG MUSIC
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     _beatManager.PlayHackingBeat(_mainMusicIndex, 0f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     _beatManager.PlayHackingBeat(_mainMusicIndex, 1f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.E))
+        // {
+        //     _beatManager.PlayHackingBeat(_mainMusicIndex, 2f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.R))
+        // {
+        //     _beatManager.PlayHackingBeat(_mainMusicIndex, 3f);
+        // }
+        // if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     _beatManager.PlayHackingBeat(_mainMusicIndex, 4f);
+        // }
     }
 
     void OnDestroy()
