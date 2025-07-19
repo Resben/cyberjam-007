@@ -11974,3 +11974,666 @@ Done
 Done
 Done
 Done
+2025-7-18
+Rendering UV GBuffer for Menu_LM0 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA1 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA2 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA3 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA4 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA1.lz4" 2 0 1 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LM0.lz4" 2 0 0 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA3.lz4" 2 0 3 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA2.lz4" 2 0 2 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA4.lz4" 2 0 4 0
+Running ftraceRTX texarealightprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_5" 1924 0 5 lights0.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_5_0_1" 1924 0 5 batchpointlight_5_0_1.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_5_2_2" 1924 0 5 batchpointlight_5_2_2.bin
+Running ftraceRTX skyprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_5" 1924 0 5 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "probes" 4 0 5 comp_5.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_1" 4 0 1 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_0_1" 4 0 1 batchpointlight_1_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_2_2" 4 0 1 batchpointlight_1_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_1" 4 0 1 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1" 4 0 1 comp_1.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_0" 4 0 0 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_0_1" 4 0 0 batchpointlight_0_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_2_2" 4 0 0 batchpointlight_0_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_0" 4 0 0 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_3" 4 0 3 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_0_1" 4 0 3 batchpointlight_3_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_2_2" 4 0 3 batchpointlight_3_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_3" 4 0 3 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3" 4 0 3 comp_3.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_2" 4 0 2 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_0_1" 4 0 2 batchpointlight_2_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_2_2" 4 0 2 batchpointlight_2_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_2" 4 0 2 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2" 4 0 2 comp_2.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_4" 4 0 4 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_0_1" 4 0 4 batchpointlight_4_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_2_2" 4 0 4 batchpointlight_4_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_4" 4 0 4 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4" 4 0 4 comp_4.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA10.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM00.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA30.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA20.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA40.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA11.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM01.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA31.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA21.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA41.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA12.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM02.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA32.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA22.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA42.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA13.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM03.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA33.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA23.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA43.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final" 1924 16 5 "gi_probes4.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_final" 4 16 1 "gi_Menu_LMA14.bin" "Menu_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_final" 4 16 0 "gi_Menu_LM04.bin" "Menu_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_final" 4 16 3 "gi_Menu_LMA34.bin" "Menu_LMA3_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_final" 4 16 2 "gi_Menu_LMA24.bin" "Menu_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_final" 4 16 4 "gi_Menu_LMA44.bin" "Menu_LMA4_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final_" 4 0 5 shcomp_5.bin
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" 256 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "1" "Menu_LMA1_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 2546
+Collecting edges...
+5349 edges
+Sorting...
+Finding seams...X
+246 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" 512 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "0" "Menu_LM0_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 37774
+Collecting edges...
+56979 edges
+Sorting...
+Finding seams...X
+746 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" 128 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "3" "Menu_LMA3_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 80
+Collecting edges...
+240 edges
+Sorting...
+Finding seams...X
+0 seams
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" 128 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "2" "Menu_LMA2_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 68
+Collecting edges...
+96 edges
+Sorting...
+Finding seams...X
+0 seams
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" 64 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "4" "Menu_LMA4_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 1032
+Collecting edges...
+3096 edges
+Sorting...
+Finding seams...X
+80 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA1_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LM0_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA3_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA2_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA4_final.hdr" 1024
+Initializing D3D...
+Done
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+Rendering UV GBuffer for Menu_LM0 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA1 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA2 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA3 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LM0.lz4" 2 0 0 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA1.lz4" 2 0 1 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA3.lz4" 2 0 3 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA2.lz4" 2 0 2 0
+Running ftraceRTX texarealightprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_4" 1924 0 4 lights0.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_0_1" 1924 0 4 batchpointlight_4_0_1.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_2_2" 1924 0 4 batchpointlight_4_2_2.bin
+Running ftraceRTX skyprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_4" 1924 0 4 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "probes" 4 0 4 comp_4.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_0" 4 0 0 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_0_1" 4 0 0 batchpointlight_0_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_2_2" 4 0 0 batchpointlight_0_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_0" 4 0 0 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_1" 4 0 1 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_0_1" 4 0 1 batchpointlight_1_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_2_2" 4 0 1 batchpointlight_1_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_1" 4 0 1 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1" 4 0 1 comp_1.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_3" 4 0 3 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_0_1" 4 0 3 batchpointlight_3_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_2_2" 4 0 3 batchpointlight_3_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_3" 4 0 3 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3" 4 0 3 comp_3.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_2" 4 0 2 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_0_1" 4 0 2 batchpointlight_2_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_2_2" 4 0 2 batchpointlight_2_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_2" 4 0 2 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2" 4 0 2 comp_2.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM00.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA10.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA30.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA20.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM01.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA11.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA31.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA21.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM02.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA12.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA32.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA22.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM03.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA13.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA33.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA23.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final" 1924 16 4 "gi_probes4.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_final" 4 16 0 "gi_Menu_LM04.bin" "Menu_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_final" 4 16 1 "gi_Menu_LMA14.bin" "Menu_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_final" 4 16 3 "gi_Menu_LMA34.bin" "Menu_LMA3_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_final" 4 16 2 "gi_Menu_LMA24.bin" "Menu_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final_" 4 0 4 shcomp_4.bin
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" 512 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "0" "Menu_LM0_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 37313
+Collecting edges...
+55746 edges
+Sorting...
+Finding seams...X
+696 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" 256 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "1" "Menu_LMA1_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 1613
+Collecting edges...
+4689 edges
+Sorting...
+Finding seams...X
+130 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" 128 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "3" "Menu_LMA3_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 68
+Collecting edges...
+96 edges
+Sorting...
+Finding seams...X
+0 seams
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" 256 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "2" "Menu_LMA2_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 2506
+Collecting edges...
+5229 edges
+Sorting...
+Finding seams...X
+246 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LM0_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA1_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA3_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA2_final.hdr" 1024
+Initializing D3D...
+Done
+Done
+Done
+Done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Done
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+Rendering UV GBuffer for Menu_LM0 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA1 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA2 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA3 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA4 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Menu_LMA5 50
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for probes 256
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LM0.lz4" 2 0 0 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA4.lz4" 2 0 4 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA1.lz4" 2 0 1 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA3.lz4" 2 0 3 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA2.lz4" 2 0 2 0
+Running ftraceRTX fixpos12 "C:\Users\Gergely\AppData\Local\Temp\frender" "uvpos_Menu_LMA5.lz4" 2 0 5 0
+Running ftraceRTX texarealightprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_6" 1924 0 6 lights0.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_6_0_1" 1924 0 6 batchpointlight_6_0_1.bin
+Running ftraceRTX batchpointlightprobeshlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_6_2_2" 1924 0 6 batchpointlight_6_2_2.bin
+Running ftraceRTX skyprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_6" 1924 0 6 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "probes" 4 0 6 comp_6.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_0" 4 0 0 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_0_1" 4 0 0 batchpointlight_0_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_0_2_2" 4 0 0 batchpointlight_0_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_0" 4 0 0 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_4" 4 0 4 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_0_1" 4 0 4 batchpointlight_4_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_4_2_2" 4 0 4 batchpointlight_4_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_4" 4 0 4 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4" 4 0 4 comp_4.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_1" 4 0 1 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_0_1" 4 0 1 batchpointlight_1_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_1_2_2" 4 0 1 batchpointlight_1_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_1" 4 0 1 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1" 4 0 1 comp_1.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_3" 4 0 3 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_0_1" 4 0 3 batchpointlight_3_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_3_2_2" 4 0 3 batchpointlight_3_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_3" 4 0 3 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3" 4 0 3 comp_3.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_2" 4 0 2 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_0_1" 4 0 2 batchpointlight_2_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_2_2_2" 4 0 2 batchpointlight_2_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_2" 4 0 2 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2" 4 0 2 comp_2.bin
+Running ftraceRTX texarealight "C:\Users\Gergely\AppData\Local\Temp\frender" "light_1_5" 4 0 5 lights0.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_5_0_1" 4 0 5 batchpointlight_5_0_1.bin
+Running ftraceRTX batchpointlightlegacy "C:\Users\Gergely\AppData\Local\Temp\frender" "PointBatch_5_2_2" 4 0 5 batchpointlight_5_2_2.bin
+Running ftraceRTX sky "C:\Users\Gergely\AppData\Local\Temp\frender" "light_2_5" 4 0 5 sky0.bin
+Running ftraceRTX addmul "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5" 4 0 5 comp_5.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM00.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA40.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA10.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA30.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA20.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5_diffuse" 4 16 5 "gi_Menu_LMA50.bin" "Menu_LMA5_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM01.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA41.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA11.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA31.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA21.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5_diffuse" 4 16 5 "gi_Menu_LMA51.bin" "Menu_LMA5_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM02.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA42.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA12.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA32.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA22.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5_diffuse" 4 16 5 "gi_Menu_LMA52.bin" "Menu_LMA5_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_diffuse" 4 16 0 "gi_Menu_LM03.bin" "Menu_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_diffuse" 4 16 4 "gi_Menu_LMA43.bin" "Menu_LMA4_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_diffuse" 4 16 1 "gi_Menu_LMA13.bin" "Menu_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_diffuse" 4 16 3 "gi_Menu_LMA33.bin" "Menu_LMA3_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_diffuse" 4 16 2 "gi_Menu_LMA23.bin" "Menu_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5_diffuse" 4 16 5 "gi_Menu_LMA53.bin" "Menu_LMA5_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgiprobesh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final" 1924 16 6 "gi_probes4.bin" "probes_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LM0_final" 4 16 0 "gi_Menu_LM04.bin" "Menu_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA4_final" 4 16 4 "gi_Menu_LMA44.bin" "Menu_LMA4_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA1_final" 4 16 1 "gi_Menu_LMA14.bin" "Menu_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA3_final" 4 16 3 "gi_Menu_LMA34.bin" "Menu_LMA3_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA2_final" 4 16 2 "gi_Menu_LMA24.bin" "Menu_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\Gergely\AppData\Local\Temp\frender" "Menu_LMA5_final" 4 16 5 "gi_Menu_LMA54.bin" "Menu_LMA5_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX addsh "C:\Users\Gergely\AppData\Local\Temp\frender" "probes_final_" 4 0 6 shcomp_6.bin
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" 512 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "0" "Menu_LM0_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 37313
+Collecting edges...
+55746 edges
+Sorting...
+Finding seams...X
+696 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" 128 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "4" "Menu_LMA4_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 80
+Collecting edges...
+240 edges
+Sorting...
+Finding seams...X
+0 seams
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" 256 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "1" "Menu_LMA1_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 1077
+Collecting edges...
+3081 edges
+Sorting...
+Finding seams...X
+98 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" 128 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "3" "Menu_LMA3_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 68
+Collecting edges...
+96 edges
+Sorting...
+Finding seams...X
+0 seams
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" 256 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "2" "Menu_LMA2_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 2506
+Collecting edges...
+5229 edges
+Sorting...
+Finding seams...X
+246 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running denoiserOIDN2 c "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA5_final_HDR.lz4" "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA5_final_HDR.lz4" 32 0
+Running seamfixer "C:\Users\Gergely\AppData\Local\Temp\frender" "5" "Menu_LMA5_final_HDR.lz4"
+Loading geometry...
+Tris filtered by LMID: was 166008, left 456
+Collecting edges...
+1368 edges
+Sorting...
+Finding seams...X
+32 seams
+Generating mesh...
+Initializing D3D...
+Selected device: NVIDIA GeForce RTX 3090
+Loaded vertex shader: seamfix.vso
+Loaded pixel shader: debugLines.pso
+Loading half-float lightmap...
+Rendering...
+Saving...
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LM0_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LM0_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA4_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA4_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA1_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA1_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA3_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA3_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA2_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA2_final.hdr" 1024
+Initializing D3D...
+Done
+Running halffloat2hdr "C:\Users\Gergely\AppData\Local\Temp\frender/Menu_LMA5_final_HDR.lz4" "C:/Users/Gergely/Desktop/CyberJam_007/cyberjam-007/Assets/BakeryLightmaps/Menu_LMA5_final.hdr" 1024
+Initializing D3D...
+Done
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+ssing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Compressing using quality level 0
+Done
+Done
+Done
+Done
