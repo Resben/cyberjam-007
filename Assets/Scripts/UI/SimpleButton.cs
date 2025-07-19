@@ -19,7 +19,7 @@ public class SimpleButton : MonoBehaviour
 
     public void Start()
     {
-        // _buttonClickSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.buttonClickSFX, false);
+        _buttonClickSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.buttonClickSFX, false);
         textBox.text = string.Empty;
         _saveNormalColor = button.colors.normalColor;
     }
@@ -75,7 +75,7 @@ public class SimpleButton : MonoBehaviour
 
     public void OnClick()
     {
-        // _buttonClickSFX.Play();
+        _buttonClickSFX.start();
         _callback?.Invoke();
     }
 }

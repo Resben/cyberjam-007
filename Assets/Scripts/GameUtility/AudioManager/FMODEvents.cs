@@ -10,12 +10,16 @@ public class FMODEvents : MonoBehaviour
 
     [Header("Menu SFX")]
     [SerializeField] public EventReference terminalSFX;
+    [SerializeField] public EventReference terminalIdleSFX;
+    [SerializeField] public EventReference terminalBootSFX;
+    [SerializeField] public EventReference buttonClickSFX;
 
     [Header("Game SFX")]
     [SerializeField] public EventReference doorSFX;
     [SerializeField] public EventReference droneSFX;
     [SerializeField] public EventReference explosionSFX;
     [SerializeField] public EventReference mineSFX;
+
 
 
     private static FMODEvents _instance;
