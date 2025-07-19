@@ -9,6 +9,7 @@ TagManager:
   - Note
   - Target
   - Enemy
+  - PlayerBody
   - HackingManager
   - EventSystem
   layers:

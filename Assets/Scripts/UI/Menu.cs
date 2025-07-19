@@ -270,6 +270,7 @@ public class Menu : MonoBehaviour
     private IEnumerator GameStartAnimation()
     {
         yield return new WaitForSeconds(5f);
+        GameManager.Instance.CurrentGameState = GameState.Cutscene;
         GameManager.Instance.LoadGame();
     }
 

@@ -32,12 +32,15 @@ public class PlayerCamera : MonoBehaviour
     private float _pitch;
     private Vector3 _offset;
     private Vector3 _cameraVelocity;
+    private float _originalSenstivity;
 
     void Start()
     {
         Vector3 angles = transform.eulerAngles;
         _yaw = angles.y;
         _pitch = angles.x;
+        _originalSenstivity = sensitivity;
+        _cameraVelocity = Vector3.zero;
     }
 
     public void Initialize(Vector3 puppetPosition)

@@ -7,8 +7,10 @@ public class Player : Entity
     [SerializeField] private CameraSpring cameraSpring;
     [SerializeField] private CameraLean cameraLean;
     [SerializeField] private Target target;
+    [SerializeField] private Animator animator;
 
     private PlayerInputActions _inputActions;
+    private bool _allowUpdate = false;
 
     void Start()
     {
@@ -18,9 +20,14 @@ public class Player : Entity
 
         _inputActions = GameManager.Instance.inputActions;
 
+        agent.SetSpeed(walkSpeed);
+
         playerCamera.Initialize(agent.transform.position);
         cameraSpring.Initialize();
         cameraLean.Initialize();
+
+        GameManager.Instance.GameResumed.AddListener(() => GameResumed());
+        GameManager.Instance.GamePaused.AddListener(() => GamePaused());
     }
 
     void Update()
@@ -48,6 +55,16 @@ public class Player : Entity
         // cameraLean.UpdateLean(deltaTime, state.Acceleration, cameraTarget.up);
     }
 
+    private void GameResumed()
+    {
+        _allowUpdate = true;
+    }
+
+    private void GamePaused()
+    {
+        _allowUpdate = false;
+    }
+
     public void Teleport(Vector3 position)
     {
         agent.Warp(position);
@@ -61,5 +78,20 @@ public class Player : Entity
     public Target GetTarget()
     {
         return target;
+    }
+
+    public void SetAnimationState(string state, bool isOn)
+    {
+        animator.SetBool(state, isOn);
+    }
+
+    public override void Trigger(string type)
+    {
+        switch (type)
+        {
+            case "start":
+                agent.SetSpeed(sprintSpeed);
+                break;
+        }
     }
 }
