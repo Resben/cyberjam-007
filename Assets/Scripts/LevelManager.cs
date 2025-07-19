@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
     void Update()
     {
         if (canLeave)
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.anyKeyDown)
                     StartCoroutine(FadeToMenu());
     }
 
