@@ -207,6 +207,6 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
-        inputActions?.Dispose();
+        // inputActions?.Dispose();
     }
 }
