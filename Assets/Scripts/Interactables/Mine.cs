@@ -8,14 +8,6 @@ public class Mine : Effect
 
     [SerializeField] private ParticleSystem explosionEffect;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            Play();
-        }
-    }
-
     public override void Play()
     {
         explosionEffect.Play();
@@ -25,11 +17,12 @@ public class Mine : Effect
         {
             if (hit.CompareTag("Enemy"))
             {
-                Enemy enemy = hit.GetComponent<Enemy>();
+                Debug.Log("Hit a drone");
+                DroneEnemy enemy = hit.GetComponent<DroneEnemy>();
                 if (enemy != null)
                 {
-                    enemy.SetRagdoll();
-                    enemy.GetRigidbody().AddExplosionForce(explosionForce, transform.position, radius, upwardsModifier);
+                    Debug.Log("Drone mine hit");
+                    enemy.MineHit();
                 }
             }
         }

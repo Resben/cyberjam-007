@@ -1,13 +1,12 @@
 using System.Linq;
 using UnityEngine;
 
-public class Enemy : Entity
+public abstract class Enemy : Entity
 {
-    
     private Player _player;
-    private Rigidbody _rb;
+    protected Rigidbody _rb;
 
-    void Start()
+    protected virtual void Start()
     {
         var playerObject = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault();
         _player = playerObject != null ? playerObject.GetComponent<Player>() : null;
@@ -21,7 +20,7 @@ public class Enemy : Entity
         agent.state = AgentState.Idle;
     }
 
-    void Update()
+    protected virtual void Update()
     {
         agent.UpdateAgent();
     }
@@ -31,13 +30,15 @@ public class Enemy : Entity
         return _rb;
     }
 
-    public void SetRagdoll()
-    {
-        agent.state = AgentState.Idle;
-        _rb.isKinematic = false;
-        _rb.freezeRotation = false;
-        _rb.constraints = RigidbodyConstraints.None;
-    }
+    public abstract void MineHit();
+
+    // private void SetRagdoll()
+    // {
+    //     agent.state = AgentState.Idle;
+    //     _rb.isKinematic = false;
+    //     _rb.freezeRotation = false;
+    //     _rb.constraints = RigidbodyConstraints.None;
+    // }
 
     public override void Trigger(string type)
     {

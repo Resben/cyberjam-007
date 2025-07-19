@@ -56,7 +56,10 @@ public class Agent : MonoBehaviour
         _lastState = state;
 
         if (state == AgentState.Idle)
+        {
+            _agent.ResetPath();
             return;
+        }
 
         if (_currentTarget.IsUnlocked() && !_currentTarget.IsEnd())
         {
