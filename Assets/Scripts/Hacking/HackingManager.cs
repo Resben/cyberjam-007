@@ -6,9 +6,11 @@ public class HackingManager : MonoBehaviour
     private BeatManager _beatManager;
     private NoteManager _noteManager;
     private Canvas _noteCanvas;
+    private LevelManager _levelManager;
     [SerializeField] private GameObject _beatManagerPrefab;
     [SerializeField] private GameObject _noteManagerPrefab;
     [SerializeField] private GameObject _noteCanvasPrefab;
+    [SerializeField] private GameObject _levelManagerObj;
     private Hackable _currentHackingItem;
 
     private bool _isHacking = false;
@@ -36,6 +38,14 @@ public class HackingManager : MonoBehaviour
             return;
         }
 
+        if (!_levelManagerObj)
+        {
+            Debug.LogError("Level Manager obj is not linked");
+            Destroy(gameObject);
+            return;
+        }
+        _levelManager = _levelManagerObj.GetComponent<LevelManager>();
+
         Vector3 pos = new Vector3(0, 0, 0);
         _beatManager = Instantiate(_beatManagerPrefab, pos, Quaternion.identity).GetComponent<BeatManager>();
         _noteManager = Instantiate(_noteManagerPrefab, pos, Quaternion.identity).GetComponent<NoteManager>();
@@ -51,19 +61,21 @@ public class HackingManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !_isHacking) // Left click
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            int hackableLayerMask = LayerMask.GetMask("Hackable");
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 10000f, hackableLayerMask))
             {
+                Debug.Log($"Hit name: {hit.collider.gameObject.name}");
                 if (hit.collider.TryGetComponent<Hackable>(out var hackable))
                 {
+                    Debug.Log("CLicked on Hackable");
                     hackable.OnClicked();
                 }
             }
         }
 
         // @DEBUG
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             DestroyHackingSession();
         }
@@ -129,6 +141,7 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(true);
 
+        _levelManager.SlowDown();
         StartCoroutine(StartSessionCoroutine(hackableItem));
     }
 
@@ -163,6 +176,7 @@ public class HackingManager : MonoBehaviour
 
         Debug.LogWarning("Hacking Stopped");
 
+        _levelManager.SpeedUp();
         DestroySession();
     }
 
