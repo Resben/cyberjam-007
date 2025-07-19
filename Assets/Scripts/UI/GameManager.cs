@@ -74,8 +74,19 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, Level> levelDirectory = new()
     {
         { "L1", new Level("L1", null, true, false, 1, 1, false, 0, new List<string>() { // Note use 2x empty lines so the play button can be easily inserted
-            "Hey so this is level 1",
-            "cool",
+            "   [CITY ESCAPE PROTOCOL]     ",
+            "Route Tracking Enabled: ACTIVE",
+            "> Threat Level: ELEVATED       ",
+            "> Patrol Signals: INTERCEPTED ",
+            "> Combat Avoidance: PRIORITY  ",
+            "> Counter-Hack Tools: ONLINE  ",
+            "> Clearance ID: FAKE/VALID?   ",
+            "> Surveillance: BYPASSED      ",
+            "> Harbor Contact: VERIFIED    ",
+            "> Evac Node: BOAT-117         ",
+            "",
+            "[MISSION]",
+            "Board before 04:00 or vanish.",
             "",
             ""
         })},

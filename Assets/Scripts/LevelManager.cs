@@ -17,8 +17,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private RawImage videoImage;
     [SerializeField] private TMP_Text bootText;
     [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private VideoClip winClip;
-    [SerializeField] private VideoClip loseClip;
+    [SerializeField] private string winClip;
+    [SerializeField] private string loseClip;
     [SerializeField] private Renderer cameraOverlay;
     [SerializeField] private Renderer hackOverlay;
     [SerializeField] private Renderer hoverOverlay;
@@ -91,7 +91,7 @@ public class LevelManager : MonoBehaviour
         gm.didWin = false;
         gm.exitedLevel = true;
         videoPlayer.Stop();
-        videoPlayer.clip = loseClip;
+        videoPlayer.url = loseClip;
         videoPlayer.Play();
         StartCoroutine(OnLoss());
     }
@@ -102,7 +102,7 @@ public class LevelManager : MonoBehaviour
         gm.didWin = true;
         gm.exitedLevel = true;
         videoPlayer.Stop();
-        videoPlayer.clip = winClip;
+        videoPlayer.url = winClip;
         videoPlayer.Play();
         StartCoroutine(OnWin());
     }

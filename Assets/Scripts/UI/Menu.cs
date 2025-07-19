@@ -165,7 +165,7 @@ public class Menu : MonoBehaviour
             },
             { "nonsense1", new List<string>()
                 {
-                    "[Drone Inc] installing dependencies",
+                    "[Drone Inc] installing dependency",
                     "[Error] Unauthorised user detected",
                     "[Security] Locating user location",
                     "[Security] Overriden",

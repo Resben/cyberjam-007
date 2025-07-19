@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 1959701038}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4980,6 +4980,27 @@ MonoBehaviour:
       Data3: -862700617
       Data4: 431584059
     Path: event:/AX/Item Sounds/Terminal
+  terminalIdleSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  terminalBootSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  buttonClickSFX:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   doorSFX:
     Guid:
       Data1: -798955980

@@ -13,7 +13,6 @@ public class DroneDeath : Effect
 
     public override void Play()
     {
-
         var gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         var volume = gameManager.GetVolume();
         var instance = RuntimeManager.CreateInstance(_soundExplosion);
