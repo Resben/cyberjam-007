@@ -6,9 +6,21 @@ public class Mine : Effect
     [SerializeField] private float explosionForce = 800f;
     [SerializeField] private float upwardsModifier = 1f;
 
+    [SerializeField] private ParticleSystem explosionEffect;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Play();
+        }
+    }
+
     public override void Play()
     {
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
+
+        explosionEffect.Play();
 
         foreach (var hit in hits)
         {
