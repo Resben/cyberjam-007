@@ -68,7 +68,7 @@ public class HackingManager : MonoBehaviour
             DestroyHackingSession();
         }
 
-        // @DEBUG
+        // @DEBUG MUSIC
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _beatManager.PlayMXState(_mainMusicIndex, 0f);
@@ -90,6 +90,7 @@ public class HackingManager : MonoBehaviour
             _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
         }
 
+        // @DEBUG MUSIC
         if (Input.GetKeyDown(KeyCode.Q))
         {
             _beatManager.PlayHackingBeat(_mainMusicIndex, 0f);

@@ -47,7 +47,7 @@ public class BeatManager : MonoBehaviour
 
     private readonly List<MusicEvent> musicData = new();
 
-    [SerializeField] private float musicVolume = 0.2f;
+    [SerializeField] private float musicVolume = 0.5f;
 
     private List<List<BeatNote>> _beats = new();
 
@@ -162,28 +162,28 @@ public class BeatManager : MonoBehaviour
 
         foreach (var beatNote in musicData[1].data.tags)
         {
-            if (beatNote.name == "Beat 1 ")
+            if (beatNote.name == "Beat 1")
                 beat1.Add(new BeatNote
                 {
                     name = beatNote.name,
                     time = beatNote.time - beat1Start.time,
                     duration = beatNote.duration
                 });
-            else if (beatNote.name == "Beat 2 Start")
+            else if (beatNote.name == "Beat 2")
                 beat2.Add(new BeatNote
                 {
                     name = beatNote.name,
                     time = beatNote.time - beat2Start.time,
                     duration = beatNote.duration
                 });
-            else if (beatNote.name == "Beat 3 Start")
+            else if (beatNote.name == "Beat 3")
                 beat3.Add(new BeatNote
                 {
                     name = beatNote.name,
                     time = beatNote.time - beat3Start.time,
                     duration = beatNote.duration
                 });
-            else if (beatNote.name == "Beat 4 Start")
+            else if (beatNote.name == "Beat 4")
                 beat4.Add(new BeatNote
                 {
                     name = beatNote.name,
