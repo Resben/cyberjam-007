@@ -29,7 +29,7 @@ public class NoteManager : MonoBehaviour
     private List<Vector2> _spawnLocations = new();
     private Vector2 _noteRadius;
 
-    private float _beatDuration = 20.75f; // hard coded length of each beat track
+    private float _beatDuration = 10.87825f; // hard coded length of each beat track
 
     void Start()
     {

@@ -19,7 +19,7 @@ public class HackingManager : MonoBehaviour, ITrigger
 
     private int _successPoints = 0;
     private int _failPoints = 0;
-    private int _totalNoteCount = 0;
+    private float _totalNoteCount = 0f;
     private int _passPercentage = 100;
     private float _score = 0.0f;
 
@@ -154,7 +154,7 @@ public class HackingManager : MonoBehaviour, ITrigger
         _currentHackingItem = hackableItem;
 
         var hackingBeat = _beatManager.GetRandomBeat();
-        // Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
+        Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
 
         _successPoints = 0;
         _failPoints = 0;
@@ -164,8 +164,8 @@ public class HackingManager : MonoBehaviour, ITrigger
         _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
         yield return new WaitForSecondsRealtime(1.0f); // sort wait intro music into the Beat
 
-        _beatManager.PlayHackingBeat(_mainMusicIndex, hackingBeat.trackNumber);
         _noteManager.StartSession(hackingBeat.beatNotes);
+        _beatManager.PlayHackingBeat(_mainMusicIndex, hackingBeat.trackNumber);
         _currentHackingItem.StartHack();
         yield return null;
     }
@@ -216,6 +216,7 @@ public class HackingManager : MonoBehaviour, ITrigger
     public void PrintPoints()
     {
         Debug.Log($"Success Points: {_successPoints}, Fail Points: {_failPoints}");
+        Debug.Log($"Total Note Count: {_totalNoteCount}");
         Debug.Log($"Score Percentage: {GetScorePercentage()}");
     }
 
@@ -227,7 +228,8 @@ public class HackingManager : MonoBehaviour, ITrigger
     private void DetermineSuccess(Hackable hackableItem)
     {
         float passRate = _passPercentage / 100.0f;
-        //PrintPoints();
+        _score = GetScorePercentage();
+        // PrintPoints();
         if (_score < passRate)
         {
             hackableItem.OnFailedHack();

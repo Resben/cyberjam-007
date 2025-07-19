@@ -34,7 +34,6 @@ public class ParticleNote : MonoBehaviour
         var main = _particleSystem.main;
         main.duration = _leadWindowTime + _acceptanceWindow;
         main.startLifetime = _leadWindowTime;
-        
     }
 
     void Start()
@@ -50,7 +49,7 @@ public class ParticleNote : MonoBehaviour
             Debug.LogError("Note Manager not linked");
         }
 
-        _startTime = Time.time;
+        _startTime = Time.unscaledTime;
 
         _particleSystem.Play();
         StartCoroutine(LifespanCoroutine());
@@ -71,7 +70,11 @@ public class ParticleNote : MonoBehaviour
 
     private IEnumerator LifespanCoroutine()
     {
-        yield return new WaitForSecondsRealtime(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
+        yield return new WaitForSecondsRealtime(_leadWindowTime + _duration);
+        // Debug.Log("PRESSNOW");
+        yield return new WaitForSecondsRealtime(_acceptanceWindow * 0.5f);
+
+        // yield return new WaitForSecondsRealtime(_leadWindowTime + _duration + _acceptanceWindow * 0.5f);
 
         StartCoroutine(OnNoteFailCoroutine());
     }
@@ -81,7 +84,7 @@ public class ParticleNote : MonoBehaviour
         if (_isHandled) return;
 
         StopAllCoroutines();
-
+        
         if (IsNoteClickCorrect())
         {
             StartCoroutine(OnNoteSuccessCoroutine());
@@ -96,7 +99,7 @@ public class ParticleNote : MonoBehaviour
     {
         float correctTimeWindowStart = _startTime + _leadWindowTime - _acceptanceWindow;
         float correctTimeWindowEnd = _startTime + _leadWindowTime + _duration + _acceptanceWindow;
-        float currentTime = Time.time;
+        float currentTime = Time.unscaledTime;
 
         if (currentTime > correctTimeWindowStart && currentTime < correctTimeWindowEnd)
         {

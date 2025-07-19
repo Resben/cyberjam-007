@@ -203,7 +203,7 @@ public class BeatManager : MonoBehaviour
 
     public HackingBeat GetRandomBeat()
     {
-        int index = Random.Range(1, 4);
+        int index = Random.Range(0, 3);
         HackingBeat HackingBeat = new HackingBeat{ trackNumber = index, beatNotes = _beats[index]};
         return HackingBeat;
     }
