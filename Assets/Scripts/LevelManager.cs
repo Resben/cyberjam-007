@@ -68,11 +68,11 @@ public class LevelManager : MonoBehaviour
             playSound = false
         };
         fade.alpha = 1.0f;
-        StartCoroutine(Cutscene());
         var playerObject = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault();
         _player = playerObject != null ? playerObject.GetComponent<Player>() : null;
 
         gm = GameManager.Instance;
+        StartCoroutine(Cutscene());
     }
 
     void Update()
@@ -124,6 +124,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator Cutscene()
     {
+        _player.SetAnimationState("isVibing", true);
         yield return new WaitForSeconds(1.0f);
         yield return TypeWriterManager.Instance.StartTypeWriterEnumerable(bootText, new List<string>()
         {
@@ -138,12 +139,12 @@ public class LevelManager : MonoBehaviour
         yield return bootText.DOFade(0f, 1.0f).WaitForCompletion();
 
         yield return DOTween.Sequence()
-            .Join(cameraOverlay.material.DOFade(1.0f, 0.3f))
-            .Join(cameraOverlay.material.DOFade(0.0f, 0.2f))
-            .Join(cameraOverlay.material.DOFade(0.5f, 0.1f))
-            .Join(cameraOverlay.material.DOFade(1.0f, 0.3f))
-            .Join(cameraOverlay.material.DOFade(0.4f, 0.2f))
-            .Join(cameraOverlay.material.DOFade(1.0f, 0.3f)).WaitForCompletion();
+            .Append(cameraOverlay.material.DOFade(1.0f, 0.3f))
+            .Append(cameraOverlay.material.DOFade(0.0f, 0.2f))
+            .Append(cameraOverlay.material.DOFade(0.5f, 0.1f))
+            .Append(cameraOverlay.material.DOFade(1.0f, 0.3f))
+            .Append(cameraOverlay.material.DOFade(0.4f, 0.2f))
+            .Append(cameraOverlay.material.DOFade(1.0f, 0.3f)).WaitForCompletion();
 
         yield return new WaitForSeconds(0.3f);
         playerCamera.enabled = true;
@@ -151,10 +152,10 @@ public class LevelManager : MonoBehaviour
         yield return fade.DOFade(0f, 1.0f).WaitForCompletion();
         gm.CurrentGameState = GameState.Playing;
         // Have the character vibing
-        _player.SetAnimationState("isVibing", true);
         yield return new WaitForSeconds(1.0f);
         hoverOverlay.material.DOFade(1.0f, 0.5f);
         yield return new WaitForSeconds(2.0f);
+        _player.agent.state = AgentState.Tracking;
         _player.SetAnimationState("isVibing", false);
         startTarget.SetUnlock(true);
     }

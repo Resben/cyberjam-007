@@ -4,37 +4,60 @@ using UnityEngine.AI;
 using System.Linq;
 using UnityEngine.Events;
 
+public enum AgentState
+{
+    Idle,
+    Tracking,
+    Disabled
+}
+
 public class Agent : MonoBehaviour
 {
+    public UnityEvent OnPriorityReached;
     public UnityEvent OnEndReached;
     [SerializeField] private NavMeshAgent _agent;
     private Target _currentTarget;
     private Queue<Target> _targetQueue;
     private float _lastTime;
     private float _minTime = 0.1f;
-    private bool disable = false;
     private Target _priorityTarget;
+    private float _distanceToPriority;
+
+    public AgentState state = AgentState.Idle;
+    private AgentState _lastState = AgentState.Idle;
 
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _targetQueue = new Queue<Target>(GameObject.FindGameObjectsWithTag("Target")
-            .Select(go => go.GetComponent<Target>())
-            .Where(t => t != null && !t.IsPlayer() && (t.transform.position.z - transform.position.z) > 0)
-            .OrderBy(t => Vector3.Distance(t.transform.position, transform.position))
-        );
-
-        _currentTarget = _targetQueue.Dequeue();
-        _agent.SetDestination(_currentTarget.transform.position);
     }
 
-    public void SetPriorityTarget(Target priority)
+    public void SetPriorityTarget(Target priority, float distanceRequired)
     {
         _priorityTarget = priority;
+        _distanceToPriority = distanceRequired;
     }
 
     public void UpdateAgent()
     {
+        if (state == AgentState.Tracking && _lastState == AgentState.Idle)
+        {
+            _targetQueue?.Clear();
+
+            _targetQueue = new Queue<Target>(GameObject.FindGameObjectsWithTag("Target")
+                .Select(go => go.GetComponent<Target>())
+                .Where(t => t != null && !t.IsPlayer() && (t.transform.position.z - transform.position.z) > 0)
+                .OrderBy(t => Vector3.Distance(t.transform.position, transform.position))
+            );
+
+            _currentTarget = _targetQueue.Dequeue();
+            _agent.SetDestination(_currentTarget.transform.position);
+        }
+
+        _lastState = state;
+
+        if (state == AgentState.Idle)
+            return;
+
         if (_currentTarget.IsUnlocked() && !_currentTarget.IsEnd())
         {
             _currentTarget = _targetQueue.Dequeue();
@@ -44,25 +67,37 @@ public class Agent : MonoBehaviour
         if ((Time.time - _lastTime) > _minTime)
         {
             if (TargetPriority())
+            {
                 _agent.SetDestination(_priorityTarget.transform.position);
+
+                if (DidReachPriorityTarget())
+                {
+                    OnPriorityReached?.Invoke();
+                }
+            }
             else
             {
                 _agent.SetDestination(_currentTarget.transform.position);
+
+                if (_currentTarget.IsEnd() && DidReachTarget())
+                {
+                    OnEndReached?.Invoke();
+                    state = AgentState.Disabled;
+                }
             }
 
             _lastTime = Time.time;
-        }
-
-        if (_currentTarget.IsEnd() && DidReachTarget())
-        {
-            OnEndReached?.Invoke();
-            disable = true;
         }
     }
 
     private bool DidReachTarget()
     {
         return (_currentTarget.transform.position.z - transform.position.z) < 0.5f;
+    }
+
+    private bool DidReachPriorityTarget()
+    {
+        return _priorityTarget ? (_priorityTarget.transform.position.z - _priorityTarget.transform.position.z) < _distanceToPriority : false;
     }
 
     private bool TargetPriority()
@@ -83,13 +118,13 @@ public class Agent : MonoBehaviour
     public void DisableNavigation()
     {
         _agent.enabled = false;
-        disable = true;
+        state = AgentState.Disabled;
     }
 
     public void EnableNavigation()
     {
         _agent.enabled = true;
-        disable = false;
+        state = AgentState.Disabled;
     }
 
     public void Warp(Vector3 position)

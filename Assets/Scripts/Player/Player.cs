@@ -20,7 +20,7 @@ public class Player : Entity
 
         _inputActions = GameManager.Instance.inputActions;
 
-        agent.SetSpeed(speed);
+        agent.SetSpeed(walkSpeed);
 
         playerCamera.Initialize(agent.transform.position);
         cameraSpring.Initialize();
@@ -83,5 +83,15 @@ public class Player : Entity
     public void SetAnimationState(string state, bool isOn)
     {
         animator.SetBool(state, isOn);
+    }
+
+    public override void Trigger(string type)
+    {
+        switch (type)
+        {
+            case "start":
+                agent.SetSpeed(sprintSpeed);
+                break;
+        }
     }
 }

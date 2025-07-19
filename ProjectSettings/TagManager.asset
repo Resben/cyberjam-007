@@ -10,6 +10,7 @@ TagManager:
   - HackingManger
   - Target
   - Enemy
+  - PlayerBody
   layers:
   - Default
   - TransparentFX
