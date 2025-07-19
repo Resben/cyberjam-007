@@ -14834,7 +14834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.04238853
+      value: 0.095
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14885,8 +14885,38 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 994494946578979241}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1821373054479684705}
   m_SourcePrefab: {fileID: 100100000, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
+--- !u!1 &8624453631050055505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}
+  m_PrefabInstance: {fileID: 8894995415718281728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1821373054479684705
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8624453631050055505}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 165dd5ce1adc04e4bbe8bc7a8064c744, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &9006045104923780587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a69d66c3caf18b48a81fd72b07b3a1f, type: 3}

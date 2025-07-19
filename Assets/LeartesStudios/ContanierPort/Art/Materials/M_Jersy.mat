@@ -173,7 +173,7 @@ Material:
     m_Colors:
     - _AO_Dirt_Color: {r: 0.2862745, g: 0.254902, b: 0.2078432, a: 1}
     - _AO_Dirt_Controls: {r: 0.5, g: 1, b: 1, a: 1}
-    - _Base_Color_Tint: {r: 0.49056602, g: 0.43385777, b: 0.3956924, a: 1}
+    - _Base_Color_Tint: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color_Tint_02: {r: 1, g: 1, b: 1, a: 1}
     - _Base_Color_Tint_03: {r: 1, g: 1, b: 1, a: 1}
     - _BlendDirtORM: {r: 1, g: 0.8, b: 0.1, a: 0}
