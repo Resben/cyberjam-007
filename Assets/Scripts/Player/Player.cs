@@ -14,7 +14,7 @@ public class Player : Entity
 
     void Start()
     {
-        agent.OnEndReached.AddListener(() => Debug.Log("YOU WON!"));
+        //agent.OnEndReached.AddListener(() => Debug.Log("YOU WON!"));
 
         Cursor.lockState = CursorLockMode.None;
 

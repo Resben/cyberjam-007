@@ -50,8 +50,8 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
-  useUnscaledTime: 0
+  playOnAwake: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -4941,8 +4941,8 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
-  useUnscaledTime: 0
+  playOnAwake: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -9834,8 +9834,8 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
-  useUnscaledTime: 0
+  playOnAwake: 0
+  useUnscaledTime: 1
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
@@ -14748,6 +14748,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _successSound: {fileID: 8300000, guid: a2b9c33930229a6479959b6053a8a86b, type: 3}
   _failSound: {fileID: 8300000, guid: ee40706ff8b9ea04ba35d9def75b317e, type: 3}
+  _particleSystem: {fileID: 1646751495715540595}
   _handleDuration: 0.2
 --- !u!82 &-2149025313242499824
 AudioSource:

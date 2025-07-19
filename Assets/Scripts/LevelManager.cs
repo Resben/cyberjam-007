@@ -114,6 +114,7 @@ public class LevelManager : MonoBehaviour
             .Join(hoverOverlay.material.DOFade(0f, 1.0f)).WaitForCompletion();
 
         yield return new WaitForSeconds(1.0f);
+        GameObject.FindGameObjectWithTag("BeatManager").GetComponent<BeatManager>().FadeStopMusic(1); // @TODO: put into audio manager
         gm.LoadMainMenu();
     }
 
@@ -166,6 +167,9 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator OnWin()
     {
+        // play ambient return music
+        GameObject.FindGameObjectWithTag("BeatManager").GetComponent<BeatManager>().PlayMXState(1, 1f); // @TODO: put into audio manager
+
         _player.SetAnimationState("isBoating", true);
         yield return new WaitForSeconds(2.5f);
         yield return fade.DOFade(1.0f, 2.0f).WaitForCompletion();
@@ -175,7 +179,7 @@ public class LevelManager : MonoBehaviour
 
     public void SlowDown(Action callback = null)
     {
-        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.01f, 2.0f).OnComplete(() =>
+        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 0.01f, 1.0f).OnComplete(() =>
         {
             OnTimeSlowed?.Invoke();
             callback?.Invoke();
@@ -184,7 +188,7 @@ public class LevelManager : MonoBehaviour
 
     public void SpeedUp(Action callback = null)
     {
-        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 2.0f).OnComplete(() =>
+        DOTween.To(() => Time.timeScale, x => Time.timeScale = x, 1.0f, 1.0f).OnComplete(() =>
         {
             OnTimeResumed?.Invoke();
             callback?.Invoke();

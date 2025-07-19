@@ -1,14 +1,18 @@
 using UnityEngine;
 using System.Collections;
 
-public class HackingManager : MonoBehaviour
+public class HackingManager : MonoBehaviour, ITrigger
 {
     private BeatManager _beatManager;
     private NoteManager _noteManager;
     private Canvas _noteCanvas;
+    private LevelManager _levelManager;
+    private GameManager _gameManager;
     [SerializeField] private GameObject _beatManagerPrefab;
     [SerializeField] private GameObject _noteManagerPrefab;
     [SerializeField] private GameObject _noteCanvasPrefab;
+    [SerializeField] private GameObject _levelManagerObj;
+    [SerializeField] private GameObject _gameManagerObj;
     private Hackable _currentHackingItem;
 
     private bool _isHacking = false;
@@ -36,13 +40,25 @@ public class HackingManager : MonoBehaviour
             return;
         }
 
+        if (!_levelManagerObj)
+            Debug.LogError("Level Manager obj is not linked");
+        else
+            _levelManager = _levelManagerObj.GetComponent<LevelManager>();
+
+        if (!_gameManagerObj)
+            Debug.LogError("Game Manager obj is not linked");
+        else
+        {
+            _gameManager = _gameManagerObj.GetComponent<GameManager>();        
+        }
+
         Vector3 pos = new Vector3(0, 0, 0);
         _beatManager = Instantiate(_beatManagerPrefab, pos, Quaternion.identity).GetComponent<BeatManager>();
         _noteManager = Instantiate(_noteManagerPrefab, pos, Quaternion.identity).GetComponent<NoteManager>();
         _noteCanvas = Instantiate(_noteCanvasPrefab).GetComponent<Canvas>();
         _noteCanvas.worldCamera = Camera.main;
 
-        _noteManager.Init(this, _noteCanvas);
+        _noteManager.Init(this, _gameManager, _noteCanvas);
         _beatManager.StartMusic(_mainMusicIndex);
     }
 
@@ -51,9 +67,9 @@ public class HackingManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !_isHacking) // Left click
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            int hackableLayerMask = LayerMask.GetMask("Hackable");
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit, 10000f, hackableLayerMask))
             {
                 if (hit.collider.TryGetComponent<Hackable>(out var hackable))
                 {
@@ -63,7 +79,7 @@ public class HackingManager : MonoBehaviour
         }
 
         // @DEBUG
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             DestroyHackingSession();
         }
@@ -129,6 +145,7 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(true);
 
+        if (_levelManager) _levelManager.SlowDown();
         StartCoroutine(StartSessionCoroutine(hackableItem));
     }
 
@@ -137,7 +154,7 @@ public class HackingManager : MonoBehaviour
         _currentHackingItem = hackableItem;
 
         var hackingBeat = _beatManager.GetRandomBeat();
-        Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
+        // Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
 
         _successPoints = 0;
         _failPoints = 0;
@@ -161,8 +178,9 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(false);
 
-        Debug.LogWarning("Hacking Stopped");
+        // Debug.LogWarning("Hacking Stopped");
 
+        if (_levelManager) _levelManager.SpeedUp();
         DestroySession();
     }
 
@@ -217,6 +235,16 @@ public class HackingManager : MonoBehaviour
         else
         {
             hackableItem.OnSuccessfulHack();
+        }
+    }
+
+    public void Trigger(string type)
+    {
+        switch (type)
+        {
+            case "combatInit":
+                _beatManager.PlayMXState(_mainMusicIndex, _combatInit);
+                break;
         }
     }
 }

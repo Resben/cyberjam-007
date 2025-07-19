@@ -18,10 +18,9 @@ public class Mine : Effect
 
     public override void Play()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, radius);
-
         explosionEffect.Play();
-
+        
+        Collider[] hits = Physics.OverlapSphere(transform.position, radius);
         foreach (var hit in hits)
         {
             if (hit.CompareTag("Enemy"))

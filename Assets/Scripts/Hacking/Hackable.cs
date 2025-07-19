@@ -6,10 +6,6 @@ public abstract class Hackable : MonoBehaviour
     [SerializeField] protected Effect effect;
     private GameObject _hackingManagerObj;
     private HackingManager _hackingManager;
-    private MeshRenderer _meshRenderer;
-    private Color _originalColor;
-
-    [SerializeField] private int _trackNumber = -1;
 
     [SerializeField, Range(0, 100)]
     private int _passPercentage = 80;
@@ -33,23 +29,6 @@ public abstract class Hackable : MonoBehaviour
         {
             _hackingManager = _hackingManagerObj.GetComponent<HackingManager>();
         }
-
-        if (_trackNumber == -1)
-        {
-            Debug.LogError("Music Track is not selected!!");
-            Destroy(gameObject);
-            return;
-        }
-
-        _meshRenderer = GetComponent<MeshRenderer>();
-        if (!_meshRenderer)
-        {
-            Debug.LogError("Error getting mesh renderer");
-            Destroy(gameObject);
-            return;
-        }
-
-        _originalColor = _meshRenderer.material.color;
     }
 
     public virtual void OnClicked()
@@ -87,8 +66,8 @@ public abstract class Hackable : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = false;
 
         // @TODO: Revisit this
-        _meshRenderer.material.DOColor(new Color(255.0f, 0.0f, 255.0f), 1.0f)
-            .SetEase(Ease.InExpo);
+        // _meshRenderer.material.DOColor(new Color(255.0f, 0.0f, 255.0f), 1.0f)
+        //     .SetEase(Ease.InExpo);
     }
 
     protected virtual void OnStopHackPhase()
@@ -97,8 +76,8 @@ public abstract class Hackable : MonoBehaviour
         gameObject.GetComponent<Collider>().enabled = true;
 
         // @TODO: Revisit this
-        _meshRenderer.material.DOColor(_originalColor, 1.0f)
-            .SetEase(Ease.InExpo);
+        // _meshRenderer.material.DOColor(_originalColor, 1.0f)
+        //     .SetEase(Ease.InExpo);
     }
 
     public int PassPercentage
@@ -107,7 +86,6 @@ public abstract class Hackable : MonoBehaviour
         set => _passPercentage = Mathf.Clamp(value, 0, 100);
     }
 
-    public int GetTrackNumber() => _trackNumber;
     public abstract void OnSuccessfulHack();
     public abstract void OnFailedHack();
 }
