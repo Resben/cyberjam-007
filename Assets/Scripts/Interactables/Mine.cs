@@ -12,6 +12,8 @@ public class Mine : Effect
 
     [SerializeField] private bool isStartBomb = false;
 
+    [SerializeField] private HackingManager manager;
+
     protected override void Start()
     {
         base.Start();
@@ -31,6 +33,8 @@ public class Mine : Effect
         if (isStartBomb)
         {
             GameManager.Instance.currentLevelManager.BlowDoorUp();
+            // manager.shouldBeAmbient = false;
+            Debug.Log("defused");
         }
 
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);

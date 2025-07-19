@@ -9,12 +9,9 @@ public class HackableExplosion : Hackable
 
     public override void OnSuccessfulHack()
     {
+        Debug.Log("Success");
         effect.Play();
     }
 
-    public override void OnFailedHack()
-    {
-        Debug.Log("Failed Hack on Explosion");
-        effect.Play(); // @Debug
-    }
+    public override void OnFailedHack() {}
 }

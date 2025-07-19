@@ -15,6 +15,7 @@ public class HackingManager : MonoBehaviour, ITrigger
     [SerializeField] private GameObject _gameManagerObj;
     private Hackable _currentHackingItem;
 
+    public bool shouldBeAmbient = true;
     private bool _isHacking = false;
 
     private int _successPoints = 0;
@@ -33,6 +34,7 @@ public class HackingManager : MonoBehaviour, ITrigger
 
     void Start()
     {
+        shouldBeAmbient = true;
         if (!_beatManagerPrefab || !_noteManagerPrefab || !_noteCanvasPrefab)
         {
             Debug.LogError("Note or beat or canvas prefabs are not set");
@@ -186,8 +188,9 @@ public class HackingManager : MonoBehaviour, ITrigger
 
     private void DestroySession()
     {
+        Debug.Log("Played ambient: " + shouldBeAmbient);
         _beatManager.PlayHackingBeat(_mainMusicIndex, _hackingEnd);
-        _beatManager.PlayMXState(_mainMusicIndex, _combatReturn);
+        _beatManager.PlayMXState(_mainMusicIndex, shouldBeAmbient ? _ambientReturn : _combatReturn);
         _noteManager.EndSession();
         _currentHackingItem.EndHack();
         DetermineSuccess(_currentHackingItem);
