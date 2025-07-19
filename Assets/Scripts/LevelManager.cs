@@ -135,7 +135,6 @@ public class LevelManager : MonoBehaviour
         }, writerSettings);
 
         yield return bootText.DOFade(0f, 1.0f).WaitForCompletion();
-
         yield return DOTween.Sequence()
             .Append(cameraOverlay.material.DOFade(1.0f, 0.3f))
             .Append(cameraOverlay.material.DOFade(0.0f, 0.2f))
