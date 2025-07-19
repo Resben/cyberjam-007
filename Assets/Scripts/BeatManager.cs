@@ -63,14 +63,7 @@ public class BeatManager : MonoBehaviour
 
         foreach (var musicEvent in musicFile)
         {
-            string jsonText = File.ReadAllText(GetJson());
-            if (string.IsNullOrEmpty(jsonText))
-            {
-                Debug.LogError($"No JSON data found");
-                continue;
-            }
-
-            BeatData beatData = JsonUtility.FromJson<BeatData>(jsonText);
+            BeatData beatData = JsonUtility.FromJson<BeatData>(GetJson());
             if (beatData.tags == null || beatData.tags.Count == 0)
             {
                 Debug.LogWarning($"No tags found in the beat data");
@@ -218,7 +211,7 @@ public class BeatManager : MonoBehaviour
             ""tags"": [
                 {
                 ""name"": ""Beat 1 Start"",
-                ""time"": 201.09,
+                ""time"": 204.972959,
                 ""duration"": -1
                 },
                 {
@@ -243,7 +236,7 @@ public class BeatManager : MonoBehaviour
                 },
                 {
                 ""name"": ""Beat 2 Start"",
-                ""time"": 211.4659,
+                ""time"": 215.32392331,
                 ""duration"": -1
                 },
                 {
@@ -268,7 +261,7 @@ public class BeatManager : MonoBehaviour
                 },
                 {
                 ""name"": ""Beat 3 Start"",
-                ""time"": 224.11377,
+                ""time"": 228.0093524359867,
                 ""duration"": -1
                 },
                 {
@@ -293,7 +286,7 @@ public class BeatManager : MonoBehaviour
                 },
                 {
                 ""name"": ""Beat 4 Start"",
-                ""time"": 234.170768,
+                ""time"": 238.05855682008877,
                 ""duration"": -1
                 },
                 {
