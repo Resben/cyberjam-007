@@ -39,12 +39,9 @@ public class HackingManager : MonoBehaviour
         }
 
         if (!_levelManagerObj)
-        {
             Debug.LogError("Level Manager obj is not linked");
-            Destroy(gameObject);
-            return;
-        }
-        _levelManager = _levelManagerObj.GetComponent<LevelManager>();
+        else
+            _levelManager = _levelManagerObj.GetComponent<LevelManager>();
 
         Vector3 pos = new Vector3(0, 0, 0);
         _beatManager = Instantiate(_beatManagerPrefab, pos, Quaternion.identity).GetComponent<BeatManager>();
@@ -65,10 +62,8 @@ public class HackingManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, 10000f, hackableLayerMask))
             {
-                Debug.Log($"Hit name: {hit.collider.gameObject.name}");
                 if (hit.collider.TryGetComponent<Hackable>(out var hackable))
                 {
-                    Debug.Log("CLicked on Hackable");
                     hackable.OnClicked();
                 }
             }
@@ -141,7 +136,7 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(true);
 
-        _levelManager.SlowDown();
+        if (_levelManager) _levelManager.SlowDown();
         StartCoroutine(StartSessionCoroutine(hackableItem));
     }
 
@@ -150,7 +145,7 @@ public class HackingManager : MonoBehaviour
         _currentHackingItem = hackableItem;
 
         var hackingBeat = _beatManager.GetRandomBeat();
-        Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
+        // Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
 
         _successPoints = 0;
         _failPoints = 0;
@@ -174,9 +169,9 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(false);
 
-        Debug.LogWarning("Hacking Stopped");
+        // Debug.LogWarning("Hacking Stopped");
 
-        _levelManager.SpeedUp();
+        if (_levelManager) _levelManager.SpeedUp();
         DestroySession();
     }
 

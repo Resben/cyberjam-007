@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2383371850921768313}
   - component: {fileID: 3406754201033868244}
   - component: {fileID: 6852504531028032183}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HackableExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9358ad065a01cab419133f62f7aae899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trackNumber: 0
+  effect: {fileID: 0}
   _passPercentage: 80

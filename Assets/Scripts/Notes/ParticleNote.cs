@@ -6,17 +6,17 @@ public class ParticleNote : MonoBehaviour
 {
     [SerializeField] private AudioClip _successSound;
     [SerializeField] private AudioClip _failSound;
+    [SerializeField] private ParticleSystem _particleSystem;
     private AudioSource _audioSource;
-    private ParticleSystem _particleSystem;
 
     private NoteManager _noteManager;
 
     private float _startTime;
 
     // Properties for the note
-    private float _duration;
-    private float _leadWindowTime;
-    private float _acceptanceWindow;
+    private float _duration = 0;
+    private float _leadWindowTime = 2f;
+    private float _acceptanceWindow = 0.4f;
 
     // Properties for Note Animation
     [SerializeField] private float _handleDuration = 0.2f;
@@ -25,16 +25,15 @@ public class ParticleNote : MonoBehaviour
 
     void Awake()
     {
-        // _particleSystem = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
-        // if (!_particleSystem)
-        // {
-        //     Debug.LogError("Cannot find particle System");
-        //     Destroy(gameObject);
-        //     return;
-        // }
-        // var main = _particleSystem.main;
-        // main.duration = _leadWindowTime + _acceptanceWindow;
-        // main.startLifetime = _leadWindowTime;
+        if (!_particleSystem)
+        {
+            Debug.LogError("Cannot find particle System");
+            Destroy(gameObject);
+            return;
+        }
+        var main = _particleSystem.main;
+        main.duration = _leadWindowTime + _acceptanceWindow;
+        main.startLifetime = _leadWindowTime;
         
     }
 
@@ -48,15 +47,13 @@ public class ParticleNote : MonoBehaviour
 
         if (!_noteManager)
         {
-            Debug.LogError("Cannot find Note Manager");
-            Destroy(gameObject);
-            return;
+            Debug.LogError("Note Manager not linked");
         }
 
         _startTime = Time.time;
 
+        _particleSystem.Play();
         StartCoroutine(LifespanCoroutine());
-        // _particleSystem.Play();
     }
 
     void OnDestroy()

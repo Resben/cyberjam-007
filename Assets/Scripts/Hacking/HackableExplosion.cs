@@ -15,5 +15,6 @@ public class HackableExplosion : Hackable
     public override void OnFailedHack()
     {
         Debug.Log("Failed Hack on Explosion");
+        effect.Play(); // @Debug
     }
 }
