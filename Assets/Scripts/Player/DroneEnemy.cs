@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DroneEnemy : Enemy
 {
-    
     protected override void Start()
     {
         base.Start();

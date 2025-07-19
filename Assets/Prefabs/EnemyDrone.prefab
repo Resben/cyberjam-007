@@ -142,6 +142,13 @@ MonoBehaviour:
   shootRange: 3
   trailConfig: {fileID: 11400000, guid: b1a91fcdcc12c5844ad48df2cd33441e, type: 2}
   shootStart: {fileID: 645505297982585457}
+  _droneNoise:
+    Guid:
+      Data1: 921951886
+      Data2: 1237015067
+      Data3: -2111423613
+      Data4: -1262070873
+    Path: event:/AX/Item Sounds/Drone
 --- !u!114 &5178269912160980232
 MonoBehaviour:
   m_ObjectHideFlags: 0

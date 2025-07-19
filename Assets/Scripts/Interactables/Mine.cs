@@ -1,4 +1,5 @@
 using UnityEngine;
+using FMODUnity;
 
 public class Mine : Effect
 {
@@ -7,11 +8,24 @@ public class Mine : Effect
     [SerializeField] private float upwardsModifier = 1f;
 
     [SerializeField] private ParticleSystem explosionEffect;
+    [SerializeField] private EventReference _mineNoise;
+
+    protected override void Start()
+    {
+        base.Start();
+
+        var gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        var volume = gameManager.GetVolume();
+        var instance = RuntimeManager.CreateInstance(_mineNoise);
+        instance.setVolume(volume);
+        RuntimeManager.AttachInstanceToGameObject(instance, gameObject, GetComponent<Rigidbody>());
+        instance.start();
+    }
 
     public override void Play()
     {
         explosionEffect.Play();
-        
+
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
         foreach (var hit in hits)
         {

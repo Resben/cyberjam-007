@@ -47,7 +47,7 @@ public class BeatManager : MonoBehaviour
 
     private readonly List<MusicEvent> musicData = new();
 
-    [SerializeField] private float musicVolume;
+    private float musicVolume;
 
     private List<List<BeatNote>> _beats = new();
 
@@ -105,6 +105,7 @@ public class BeatManager : MonoBehaviour
     void Start()
     {
         StartMusic(1);
+        // ImmediatelyStopMusic(1);
     }
 
     void OnDestroy()

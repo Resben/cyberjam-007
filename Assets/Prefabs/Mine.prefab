@@ -51,6 +51,13 @@ MonoBehaviour:
   explosionForce: 800
   upwardsModifier: 1
   explosionEffect: {fileID: 1877385891501042258}
+  _mineNoise:
+    Guid:
+      Data1: -1202920656
+      Data2: 1233550704
+      Data3: -71727450
+      Data4: 1906877433
+    Path: event:/AX/Item Sounds/Mine
 --- !u!114 &1467241296669338533
 MonoBehaviour:
   m_ObjectHideFlags: 0
