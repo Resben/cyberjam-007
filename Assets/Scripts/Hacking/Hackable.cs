@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Hackable : MonoBehaviour
 {
     [SerializeField] protected Effect effect;
-    [SerializeField] private GameObject _hackingManagerObj;
+    private GameObject _hackingManagerObj;
     private HackingManager _hackingManager;
     private MeshRenderer _meshRenderer;
     private Color _originalColor;

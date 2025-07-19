@@ -8,7 +8,6 @@ public class NoteManager : MonoBehaviour
 {
     [SerializeField] private GameObject _notePrefab;
     private HackingManager _hackingManager;
-    private MusicEvent _musicEvent;
     private Canvas _noteCanvas;
     private EventSystem _eventSystem;
     private GraphicRaycaster _GraphicRaycaster;
@@ -28,6 +27,8 @@ public class NoteManager : MonoBehaviour
 
     private List<Vector2> _spawnLocations = new();
     private Vector2 _noteRadius;
+
+    private float _beatDuration = 20.75f; // hard coded length of each beat track
 
     void Start()
     {
@@ -114,19 +115,16 @@ public class NoteManager : MonoBehaviour
         _canvasRectTransform = _noteCanvas.GetComponent<RectTransform>();
     }
 
-    public void StartSession( MusicEvent musicEvent)
+    public void StartSession(List<BeatNote> beatNotes)
     {
-        _musicEvent = musicEvent;
-        if (_musicEvent.data.tags.Count < 1)
+        if (beatNotes.Count < 1)
         {
             Debug.LogError("Music Data is missing");
             Destroy(gameObject);
             return;
         }
 
-        // _startTime = Time.time;
-
-        SpawnNotes();
+        SpawnNotes(beatNotes);
 
         StartCoroutine(LifetimeCoroutine());
     }
@@ -149,20 +147,22 @@ public class NoteManager : MonoBehaviour
     private IEnumerator LifetimeCoroutine()
     {
         // Destroy itself at the end of the music
-        float realTimeToWait = _musicEvent.length / 1000.0f; // length is in milliseconds
-        yield return new WaitForSecondsRealtime(realTimeToWait); 
+        // float realTimeToWait = _musicEvent.length / 1000.0f; // length is in milliseconds
+        // yield return new WaitForSecondsRealtime(realTimeToWait); 
+
+        yield return new WaitForSecondsRealtime(_beatDuration); // got lazy, cannot get time from section currently
 
         _hackingManager.DestroyHackingSession();
         yield return null;
     }
     
-    void SpawnNotes()
+    void SpawnNotes(List<BeatNote> Beat)
     {
-        foreach (BeatNote beatNote in _musicEvent.data.tags)
+        Debug.Log($"Spawncount = {Beat.Count}");
+        foreach (BeatNote beatNote in Beat)
         {
             StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
         }
-        
     }
 
     /* 
