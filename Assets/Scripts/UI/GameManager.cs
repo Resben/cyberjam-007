@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private GameState _lastState;
 
+    public LevelManager currentLevelManager;
+
     public Dictionary<string, Level> levelDirectory = new()
     {
         { "L1", new Level("L1", null, true, false, 1, 1, false, 0, new List<string>() { // Note use 2x empty lines so the play button can be easily inserted
@@ -98,7 +100,6 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null)
         {
-            Destroy(gameObject);
             return;
         }
 

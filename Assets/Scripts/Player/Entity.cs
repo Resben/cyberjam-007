@@ -10,4 +10,6 @@ public abstract class Entity : MonoBehaviour, ITrigger
     public Agent agent;
 
     public abstract void Trigger(string type);
+
+    public abstract void Hit();
 }
