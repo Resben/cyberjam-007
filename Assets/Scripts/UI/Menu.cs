@@ -56,9 +56,11 @@ public class Menu : MonoBehaviour
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
 
+    private bool _banksLoaded = false;
+
     private GameObject lastSelected;
 
-    void Start()
+    void Init()
     {
         // When we want to have a different outcome after a win/loss game
         // if (GameManager.Instance.exitedLevel)
@@ -189,6 +191,19 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
+        // WebGL compatability
+        if (FMODUnity.RuntimeManager.HasBankLoaded("Master") && !_banksLoaded)
+        {
+            Debug.Log("Master Bank Loaded");
+            _banksLoaded = true;
+            Init();
+        }
+        else if (!FMODUnity.RuntimeManager.HasBankLoaded("Master"))
+        {
+            return;
+        }
+
+
         if (lastScene != currentScene)
         {
             ExitState(lastScene);

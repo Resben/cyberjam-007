@@ -63,19 +63,10 @@ public class BeatManager : MonoBehaviour
 
         foreach (var musicEvent in musicFile)
         {
-            string eventName = musicEvent.Path[(musicEvent.Path.LastIndexOf('/') + 1)..];
-            string path = Path.Combine(Application.streamingAssetsPath, "Beats/" + eventName + ".json");
-            string jsonText = File.ReadAllText(path);
-            if (string.IsNullOrEmpty(jsonText))
-            {
-                Debug.LogError($"No JSON data found for {eventName} at {path}");
-                continue;
-            }
-
-            BeatData beatData = JsonUtility.FromJson<BeatData>(jsonText);
+            BeatData beatData = JsonUtility.FromJson<BeatData>(GetJson());
             if (beatData.tags == null || beatData.tags.Count == 0)
             {
-                Debug.LogWarning($"No tags found in the beat data for {eventName}.");
+                Debug.LogWarning($"No tags found in the beat data");
                 continue;
             }
 
@@ -87,7 +78,7 @@ public class BeatManager : MonoBehaviour
 
             MusicEvent musicEventInstance = new MusicEvent
             {
-                name = eventName,
+                name = "Main MX",
                 reference = instance,
                 data = beatData,
                 length = size
@@ -98,7 +89,7 @@ public class BeatManager : MonoBehaviour
             musicData.Add(musicEventInstance);
 
         }
-        
+
         ReadBeats();
     }
 
@@ -204,7 +195,122 @@ public class BeatManager : MonoBehaviour
     public HackingBeat GetRandomBeat()
     {
         int index = Random.Range(0, 3);
-        HackingBeat HackingBeat = new HackingBeat{ trackNumber = index, beatNotes = _beats[index]};
+        HackingBeat HackingBeat = new HackingBeat { trackNumber = index, beatNotes = _beats[index] };
         return HackingBeat;
+    }
+
+    public string GetJson()
+    {
+        return @"
+        {
+            ""tempo"": {
+                ""tempo"": 185,
+                ""numerator"": 4,
+                ""denominator"": 4
+            },
+            ""tags"": [
+                {
+                ""name"": ""Beat 1 Start"",
+                ""time"": 204.972959,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 1"",
+                ""time"": 207.5675625,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 1"",
+                ""time"": 210.16216666666668,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 1"",
+                ""time"": 212.75675,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 1"",
+                ""time"": 215.35008333333334,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 2 Start"",
+                ""time"": 215.32392331,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 2"",
+                ""time"": 217.9459375,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 2"",
+                ""time"": 220.56795169059322,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 2"",
+                ""time"": 223.12508049571534,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 2"",
+                ""time"": 225.72972916666666,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 3 Start"",
+                ""time"": 228.0093524359867,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 3"",
+                ""time"": 230.5937676765293,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 3"",
+                ""time"": 233.1781829170719,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 3"",
+                ""time"": 235.7859865308321,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 3"",
+                ""time"": 238.38599402018642,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 4 Start"",
+                ""time"": 238.05855682008877,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 4"",
+                ""time"": 240.65076816008877,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 4"",
+                ""time"": 243.24297952503724,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 4"",
+                ""time"": 245.83783333333332,
+                ""duration"": -1
+                },
+                {
+                ""name"": ""Beat 4"",
+                ""time"": 248.4324375,
+                ""duration"": -1
+                }
+            ]
+            } 
+        ";
     }
 }

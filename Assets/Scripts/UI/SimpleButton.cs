@@ -75,7 +75,7 @@ public class SimpleButton : MonoBehaviour
 
     public void OnClick()
     {
-        // _buttonClickSFX.Play();
+        // _buttonClickSFX.start();
         _callback?.Invoke();
     }
 }
