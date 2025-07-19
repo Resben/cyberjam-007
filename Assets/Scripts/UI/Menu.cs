@@ -1,17 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using FMOD.Studio;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 enum MenuScene
 {
     Default,
     Monitor,
     Start,
+    LeftScene
 }
 
 public class Menu : MonoBehaviour
@@ -22,6 +23,9 @@ public class Menu : MonoBehaviour
     [SerializeField] private List<TMP_Text> sideWriter;
     [SerializeField] private List<GameObject> virtualCameras;
     [SerializeField] private SimpleButton playButton;
+    [SerializeField] private CanvasGroup fade;
+    [SerializeField] private CanvasGroup pressTextFade;
+    [SerializeField] private TMP_Text pressText;
 
     [Header("Stat Window")]
     [SerializeField] private List<SimpleButton> buttonBar;
@@ -29,7 +33,6 @@ public class Menu : MonoBehaviour
     [Header("Level Window")]
     [SerializeField] private SimpleButton levelPrefab;
     [SerializeField] private GameObject levelParent;
-
     [SerializeField] private SettingsUI settingsUI;
 
     private Dictionary<string, List<string>> dialogue;
@@ -47,6 +50,8 @@ public class Menu : MonoBehaviour
     private EventInstance _terminalBootSFX;
     private EventInstance _typingSoundSFX;
 
+    private Tween textTween;
+
     private bool _monitorSceneLoading = false;
     private bool _monitorSceneReady = false;
     private bool _allowedStart = false;
@@ -55,8 +60,22 @@ public class Menu : MonoBehaviour
 
     void Start()
     {
+        // When we want to have a different outcome after a win/loss game
+        // if (GameManager.Instance.exitedLevel)
+        // {
+        //     currentScene = MenuScene.LeftScene;
+        // }
+        // else
+        // {
+        //     currentScene = MenuScene.Default;
+        // }
+
+        pressTextFade.alpha = 1;
+        fade.alpha = 1;
         _menuBGM = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.menuBGM, true);
+        _menuBGM.setVolume(0);
         _menuBGM.start();
+        AudioManager.Instance.FadeInstance(_menuBGM, true, false, 2.0f);
         // _terminalIdleSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalIdleSFX, false);
         // _terminalBootSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalBootSFX, false);
         // _typingSoundSFX = AudioManager.Instance.CreateEventInstance(FMODEvents.Instance.terminalSFX, false);
@@ -82,6 +101,7 @@ public class Menu : MonoBehaviour
 
         writer = TypeWriterManager.Instance;
         _inputActions = GameManager.Instance.inputActions;
+        
         SwitchCamera(currentScene);
         StartCoroutine(BlinkCaret());
         dialogue = new Dictionary<string, List<string>> {
@@ -116,10 +136,11 @@ public class Menu : MonoBehaviour
                 "credits", new List<string>()
                 {
                     "[Credits]",
-                    "ABC by Resben",
-                    "CDE by yo mumma",
-                    "FGH by aiy",
-                    "IJK by oop"
+                    "Resben: Programmer",
+                    "Idralisk: Programmer",
+                    "Tokki: Artist",
+                    "Papi: Artist",
+                    "Josh Bakaimis: Composer"
                 }
             },
             {
@@ -135,29 +156,35 @@ public class Menu : MonoBehaviour
             },
             { "nonsense0", new List<string>()
                 {
-                    "Just some nonsense for 0",
-                    "asdasdasd",
-                    "asdasdasdasd"
+                    "> [Action] SYNCHRONIZING ...",
+                    "> [SIG/SEGV] Recovering data",
+                    "> [99ff::bead] Ghost thread online"
                 }
             },
             { "nonsense1", new List<string>()
                 {
-                    "Just some nonsense for 1",
-                    "asdasdasd",
-                    "asdasdasdasd"
+                    "[Drone Inc] installing dependencies",
+                    "[Error] Unauthorised user detected",
+                    "[Security] Locating user location",
+                    "[Security] Overriden",
+                    "[Build] Continuing installation"
                 }
             },
             { "nonsense2", new List<string>()
                 {
-                    "Just some nonsense for 2",
-                    "asdasdasd",
-                    "asdasdasdasd"
+                    "Loading: [░░░░░░░░░░] 0%",
+                    "Loading: [█░░░░░░░░░] 10%",
+                    "Loading: [██░░░░░░░░] 20%",
+                    "Loading: [███░░░░░░░] 35%",
+                    "Loading: [██████░░░░] 60%",
+                    "Loading: [███████░░░] 75%",
+                    "Loading: [██████████] 100%",
                 }
             }
         };
 
         // Probably want to do some sort of intro the whole thing
-        EnterState(MenuScene.Default);
+        EnterState(currentScene);
     }
 
     void Update()
@@ -259,7 +286,7 @@ public class Menu : MonoBehaviour
         }
     }
 
-    private void ExitMenu()
+    private void CleanMenu()
     {
         StopAllCoroutines();
         writer.DestroyAll();
@@ -267,6 +294,7 @@ public class Menu : MonoBehaviour
 
     private void SwitchCamera(MenuScene camera)
     {
+        camera = camera == MenuScene.LeftScene ? MenuScene.Monitor : camera;
         virtualCameras.ForEach(e => e.SetActive(false));
         virtualCameras[(int)camera].SetActive(true);
     }
@@ -282,9 +310,22 @@ public class Menu : MonoBehaviour
 
     private IEnumerator GameStartAnimation()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.5f);
+        fade.DOFade(1.0f, 1.0f).WaitForCompletion();
+        yield return AudioManager.Instance.FadeInstanceEnumerator(_menuBGM, true, true, 1.0f);
+        CleanMenu();
         GameManager.Instance.CurrentGameState = GameState.Cutscene;
         GameManager.Instance.LoadGame();
+    }
+
+    private IEnumerator FirstIntro()
+    {
+        yield return new WaitForSeconds(1.0f);
+        yield return fade.DOFade(0, 1.5f);
+        yield return new WaitForSeconds(0.75f);
+        _allowedStart = true;
+        yield return writer.StartTypeWriterEnumerable(pressText, new List<string>() { "Press any button to start" }, writerSettings);
+        textTween = pressText.DOFade(0.3f, 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void SetButtonSelected(int index)
@@ -310,8 +351,7 @@ public class Menu : MonoBehaviour
         switch (state)
         {
             case MenuScene.Default:
-                // _terminalIdleSFX.fadeorwhatever();
-                StartCoroutine(DelayedAction(() => _allowedStart = true, 2.5f));
+                StartCoroutine(FirstIntro());
                 break;
             case MenuScene.Monitor:
                 if (!_monitorSceneReady && !_monitorSceneLoading)
@@ -322,6 +362,9 @@ public class Menu : MonoBehaviour
             case MenuScene.Start:
                 // _terminalIdleSFX.fadeorwhatever();
                 StartCoroutine(GameStartAnimation());
+                break;
+            case MenuScene.LeftScene:
+                pressTextFade.alpha = 0;
                 break;
         }
     }
@@ -338,6 +381,8 @@ public class Menu : MonoBehaviour
                 {
                     if (input.Click.IsPressed())
                     {
+                        textTween.Kill();
+                        pressTextFade.DOFade(0, 1.0f);
                         _allowedStart = false;
                         currentScene = MenuScene.Monitor;
                     }

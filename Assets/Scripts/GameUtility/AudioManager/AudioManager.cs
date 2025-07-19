@@ -2,6 +2,9 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
+using DG.Tweening;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -110,5 +113,27 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         CleanUp();
+    }
+
+    public IEnumerator FadeInstanceEnumerator(EventInstance instance, bool isBGM, bool fadeOut, float duration)
+    {
+        float volume = isBGM ? GameManager.Instance.GetVolume() : GameManager.Instance.GetSFXVolume();
+        yield return DOTween.To(() =>
+        {
+            instance.getVolume(out float v);
+            return v;
+        },
+        x => instance.setVolume(x), fadeOut ? 0 : volume, duration).WaitForCompletion();
+    }
+
+    public void FadeInstance(EventInstance instance, bool isBGM, bool fadeOut, float duration)
+    {
+        float volume = isBGM ? GameManager.Instance.GetVolume() : GameManager.Instance.GetSFXVolume();
+        DOTween.To(() =>
+        {
+            instance.getVolume(out float v);
+            return v;
+        },
+        x => instance.setVolume(x), fadeOut ? 0 : volume, duration).WaitForCompletion();
     }
 }
