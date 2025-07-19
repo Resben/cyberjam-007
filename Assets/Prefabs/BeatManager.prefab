@@ -51,4 +51,10 @@ MonoBehaviour:
       Data3: -635135816
       Data4: 1615649222
     Path: event:/Time Test
+  - Guid:
+      Data1: -81074531
+      Data2: 1263217677
+      Data3: 615579060
+      Data4: 53220527
+    Path: event:/MX/Main MX
   musicVolume: 0.2

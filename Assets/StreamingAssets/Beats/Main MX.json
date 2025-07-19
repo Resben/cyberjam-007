@@ -6,41 +6,14 @@
   },
   "tags": [
     {
-      "time": 0,
-      "duration": 62.270270833333335
-    },
-    {
-      "time": 0,
-      "duration": 62.270270833333335
-    },
-    {
-      "time": 0,
-      "duration": 62.270270833333335
-    },
-    {
-      "time": 83.02702083333334,
-      "duration": 103.78379166666667
-    },
-    {
-      "time": 83.02702083333334,
-      "duration": 103.78379166666664
-    },
-    {
-      "time": 83.02702083333334,
-      "duration": 103.78379166666664
+      "name": "Beat 1 Start",
+      "time": 201.09,
+      "duration": -1
     },
     {
       "name": "Beat 1",
       "time": 207.5675625,
       "duration": -1
-    },
-    {
-      "time": 207.5675625,
-      "duration": 41.51350000000001
-    },
-    {
-      "time": 207.5675625,
-      "duration": 10.378374999999991
     },
     {
       "name": "Beat 1",
@@ -58,13 +31,14 @@
       "duration": -1
     },
     {
-      "name": "Beat 2",
-      "time": 217.9459375,
+      "name": "Beat 2 Start",
+      "time": 211.4659,
       "duration": -1
     },
     {
+      "name": "Beat 2",
       "time": 217.9459375,
-      "duration": 10.378374999999991
+      "duration": -1
     },
     {
       "name": "Beat 2",
@@ -82,8 +56,9 @@
       "duration": -1
     },
     {
-      "time": 228.32431250000002,
-      "duration": 10.378374999999991
+      "name": "Beat 3 Start",
+      "time": 224.11377,
+      "duration": -1
     },
     {
       "name": "Beat 3",
@@ -106,8 +81,9 @@
       "duration": -1
     },
     {
-      "time": 238.70268750000002,
-      "duration": 10.378374999999991
+      "name": "Beat 4 Start",
+      "time": 234.170768,
+      "duration": -1
     },
     {
       "name": "Beat 4",
@@ -130,8 +106,4 @@
       "duration": -1
     }
   ]
-} 248.4324375,
-      "duration": -1
-    }
-  ]
-}
+} 

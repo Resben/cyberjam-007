@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class HackingManager : MonoBehaviour
 {
@@ -8,7 +9,6 @@ public class HackingManager : MonoBehaviour
     [SerializeField] private GameObject _beatManagerPrefab;
     [SerializeField] private GameObject _noteManagerPrefab;
     [SerializeField] private GameObject _noteCanvasPrefab;
-
     private Hackable _currentHackingItem;
 
     private bool _isHacking = false;
@@ -18,6 +18,14 @@ public class HackingManager : MonoBehaviour
     private int _totalNoteCount = 0;
     private int _passPercentage = 100;
     private float _score = 0.0f;
+
+    // music state index
+    private int _mainMusicIndex = 1;
+    private float _ambientReturn = 1f;
+    private float _combatInit = 2f;
+    private float _combatReturn = 3f;
+    private float _hackingStart = 4f;
+    private float _hackingEnd = 5f;
 
     void Start()
     {
@@ -35,6 +43,7 @@ public class HackingManager : MonoBehaviour
         _noteCanvas.worldCamera = Camera.main;
 
         _noteManager.Init(this, _noteCanvas);
+        _beatManager.StartMusic(_mainMusicIndex);
     }
 
     void Update()
@@ -58,6 +67,49 @@ public class HackingManager : MonoBehaviour
         {
             DestroyHackingSession();
         }
+
+        // @DEBUG
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            _beatManager.PlayMXState(_mainMusicIndex, 0f);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _beatManager.PlayMXState(_mainMusicIndex, _ambientReturn);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _beatManager.PlayMXState(_mainMusicIndex, _combatInit);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            _beatManager.PlayMXState(_mainMusicIndex, _combatReturn);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _beatManager.PlayHackingBeat(_mainMusicIndex, 0f);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            _beatManager.PlayHackingBeat(_mainMusicIndex, 1f);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            _beatManager.PlayHackingBeat(_mainMusicIndex, 2f);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            _beatManager.PlayHackingBeat(_mainMusicIndex, 3f);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            _beatManager.PlayHackingBeat(_mainMusicIndex, 4f);
+        }
     }
 
     void OnDestroy()
@@ -76,24 +128,28 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(true);
 
+        StartCoroutine(StartSessionCoroutine(hackableItem));
+    }
+
+    private IEnumerator StartSessionCoroutine(Hackable hackableItem)
+    {
         _currentHackingItem = hackableItem;
 
-        MusicEvent musicEvent = _beatManager.GetMusicData(_currentHackingItem.GetTrackNumber());
-        
-        if (musicEvent.data.tags.Count < 1)
-        {
-            Debug.LogError("Music Data is missing");
-            return;
-        }
+        var hackingBeat = _beatManager.GetRandomBeat();
+        Debug.Log($"Beat# = {hackingBeat.trackNumber} with beatCount = {hackingBeat.beatNotes.Count}");
 
         _successPoints = 0;
         _failPoints = 0;
-        _totalNoteCount = musicEvent.data.tags.Count;
+        _totalNoteCount = hackingBeat.beatNotes.Count;
         _passPercentage = hackableItem.PassPercentage;
 
-        _beatManager.StartMusic(_currentHackingItem.GetTrackNumber());
-        _noteManager.StartSession(musicEvent);
+        _beatManager.PlayMXState(_mainMusicIndex, _hackingStart);
+        yield return new WaitForSecondsRealtime(1.0f); // sort wait intro music into the Beat
+
+        _beatManager.PlayHackingBeat(_mainMusicIndex, hackingBeat.trackNumber);
+        _noteManager.StartSession(hackingBeat.beatNotes);
         _currentHackingItem.StartHack();
+        yield return null;
     }
 
     public void DestroyHackingSession()
@@ -104,9 +160,16 @@ public class HackingManager : MonoBehaviour
         }
         SetIsHacking(false);
 
-        _beatManager.ImmediatelyStopMusic(_currentHackingItem.GetTrackNumber());
+        Debug.LogWarning("Hacking Stopped");
+
+        DestroySession();
+    }
+
+    private void DestroySession()
+    {
+        _beatManager.PlayHackingBeat(_mainMusicIndex, _hackingEnd);
+        _beatManager.PlayMXState(_mainMusicIndex, _combatReturn);
         _noteManager.EndSession();
-        Debug.Log($"Total score = {_score}");
         _currentHackingItem.EndHack();
         DetermineSuccess(_currentHackingItem);
         _currentHackingItem = null;
@@ -126,7 +189,7 @@ public class HackingManager : MonoBehaviour
         if (!IsHacking()) return;
 
         _failPoints++;
-        
+
         //@TODO: get if hackable item instantly fails
     }
 
@@ -141,11 +204,11 @@ public class HackingManager : MonoBehaviour
     {
         return _successPoints / _totalNoteCount;
     }
-    
+
     private void DetermineSuccess(Hackable hackableItem)
     {
         float passRate = _passPercentage / 100.0f;
-        PrintPoints();
+        //PrintPoints();
         if (_score < passRate)
         {
             hackableItem.OnFailedHack();

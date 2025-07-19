@@ -35,13 +35,21 @@ public struct MusicEvent
     public int length;
 }
 
+public struct HackingBeat
+{
+    public int trackNumber;
+    public List<BeatNote> beatNotes;
+}
+
 public class BeatManager : MonoBehaviour
 {
     [SerializeField] private List<EventReference> musicFile;
 
     private readonly List<MusicEvent> musicData = new();
 
-    [SerializeField] private float musicVolume = 1.0f;
+    [SerializeField] private float musicVolume = 0.2f;
+
+    private List<List<BeatNote>> _beats = new();
 
     void Awake()
     {
@@ -54,7 +62,7 @@ public class BeatManager : MonoBehaviour
         foreach (var musicEvent in musicFile)
         {
             string eventName = musicEvent.Path[(musicEvent.Path.LastIndexOf('/') + 1)..];
-            string path = Path.Combine(Application.streamingAssetsPath, eventName + ".json");
+            string path = Path.Combine(Application.streamingAssetsPath, "Beats/" + eventName + ".json");
             string jsonText = File.ReadAllText(path);
             if (string.IsNullOrEmpty(jsonText))
             {
@@ -82,17 +90,19 @@ public class BeatManager : MonoBehaviour
                 data = beatData,
                 length = size
             };
-            
 
             musicEventInstance.reference.setVolume(musicVolume);
 
             musicData.Add(musicEventInstance);
+
         }
+        
+        ReadBeats();
     }
 
     void Start()
     {
-
+        StartMusic(1);
     }
 
     void OnDestroy()
@@ -104,6 +114,8 @@ public class BeatManager : MonoBehaviour
     }
 
     public void StartMusic(int index) => musicData[index].reference.start();
+    public void SetParameterByName(int index, string name, float value) => musicData[index].reference.setParameterByName(name, value);
+    public void SetParameterByNameWithLabel(int index, string name, string value) => musicData[index].reference.setParameterByNameWithLabel(name, value);
     public void PauseMusic(int index) => musicData[index].reference.setPaused(true);
     public void UnPauseMusic(int index) => musicData[index].reference.setPaused(false);
     public void FadeStopMusic(int index) => musicData[index].reference.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
@@ -111,12 +123,85 @@ public class BeatManager : MonoBehaviour
     public void ReleaseMusic(int index) => musicData[index].reference.release();
     public void DestroyMusic(int index)
     {
-        ImmediatelyStopMusic(index);
+        //ImmediatelyStopMusic(index);
         ReleaseMusic(index);
     }
 
-    public MusicEvent GetMusicData(int index)
+    public void PlayMXState(int index, float state) => SetParameterByName(index, "MX State", state);
+    public void PlayHackingBeat(int index, float state) => SetParameterByName(index, "Hacking Beat", state);
+
+    private void ReadBeats()
     {
-        return musicData[index];
+        // @TODO: make a better parser
+        // running out of time and I cbf <3
+        // ps i hate myself for this, don't look at it pleeeassseee
+        BeatNote beat1Start = new();
+        BeatNote beat2Start = new();
+        BeatNote beat3Start = new();
+        BeatNote beat4Start = new();
+
+        List<BeatNote> beat1 = new();
+        List<BeatNote> beat2 = new();
+        List<BeatNote> beat3 = new();
+        List<BeatNote> beat4 = new();
+
+        foreach (var beatNote in musicData[1].data.tags)
+        {
+            if (beatNote.name == "Beat 1 Start")
+                beat1Start = beatNote;
+            else if (beatNote.name == "Beat 2 Start")
+                beat2Start = beatNote;
+            else if (beatNote.name == "Beat 3 Start")
+                beat3Start = beatNote;
+            else if (beatNote.name == "Beat 4 Start")
+            {
+                beat4Start = beatNote;
+                break;
+            }
+        }
+
+        foreach (var beatNote in musicData[1].data.tags)
+        {
+            if (beatNote.name == "Beat 1 ")
+                beat1.Add(new BeatNote
+                {
+                    name = beatNote.name,
+                    time = beatNote.time - beat1Start.time,
+                    duration = beatNote.duration
+                });
+            else if (beatNote.name == "Beat 2 Start")
+                beat2.Add(new BeatNote
+                {
+                    name = beatNote.name,
+                    time = beatNote.time - beat2Start.time,
+                    duration = beatNote.duration
+                });
+            else if (beatNote.name == "Beat 3 Start")
+                beat3.Add(new BeatNote
+                {
+                    name = beatNote.name,
+                    time = beatNote.time - beat3Start.time,
+                    duration = beatNote.duration
+                });
+            else if (beatNote.name == "Beat 4 Start")
+                beat4.Add(new BeatNote
+                {
+                    name = beatNote.name,
+                    time = beatNote.time - beat4Start.time,
+                    duration = beatNote.duration
+                });
+        }
+
+        _beats.Add(beat1);
+        _beats.Add(beat2);
+        _beats.Add(beat3);
+        _beats.Add(beat4);
+    }
+
+    public HackingBeat GetRandomBeat()
+    {
+        int index = Random.Range(1, 4);
+        HackingBeat HackingBeat = new HackingBeat{ trackNumber = index, beatNotes = _beats[index]};
+        return HackingBeat;
     }
 }
