@@ -4,11 +4,10 @@ using UnityEngine;
 
 public abstract class Enemy : Entity
 {
+    [SerializeField] private float shootRange = 15f;
     [SerializeField] private TrailConfigScriptableObject trailConfig;
     [SerializeField] private Transform shootStart;
     private Player _player;
-    private Rigidbody _rb;
-
     private float _lastShot;
     protected Rigidbody _rb;
 
@@ -83,10 +82,6 @@ public abstract class Enemy : Entity
             {
                 StartCoroutine(PlayTrail(shootStart.position, hit.point, hit));
             }
-        }
-        else
-        {
-            StartCoroutine(PlayTrail(shootStart.position, shootStart.transform.position + (shootDirection * 500f), new RaycastHit()));
         }
     }
 

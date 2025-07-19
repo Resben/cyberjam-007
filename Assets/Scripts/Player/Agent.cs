@@ -101,7 +101,7 @@ public class Agent : MonoBehaviour
 
     private bool DidReachPriorityTarget()
     {
-        return _priorityTarget ? (_priorityTarget.transform.position.z - _priorityTarget.transform.position.z) < _distanceToPriority : false;
+        return _priorityTarget ? (_priorityTarget.transform.position.z - transform.position.z) < _distanceToPriority : false;
     }
 
     private bool TargetPriority()
@@ -113,7 +113,7 @@ public class Agent : MonoBehaviour
     private Vector3 GetPriorityPosition()
     {
         Vector3 pos = _priorityTarget.transform.position;
-        pos.z -= 2.5f; // Little offset off the character
+        pos.z -= 1.5f; // Little offset off the character
         return pos;
     }
 

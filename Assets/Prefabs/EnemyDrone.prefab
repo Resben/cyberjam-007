@@ -30,7 +30,39 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3405639656638926906}
+  - {fileID: 645505297982585457}
   m_Father: {fileID: 8478741501951673848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4663529375431433254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 645505297982585457}
+  m_Layer: 0
+  m_Name: ShootStart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &645505297982585457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4663529375431433254}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.014, y: 1.726, z: 1.522}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1943238807918425887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5094757532409511112
 GameObject:
@@ -107,6 +139,9 @@ MonoBehaviour:
   walkSpeed: 6.5
   sprintSpeed: 11
   agent: {fileID: 6194700180657339808}
+  shootRange: 3
+  trailConfig: {fileID: 11400000, guid: b1a91fcdcc12c5844ad48df2cd33441e, type: 2}
+  shootStart: {fileID: 645505297982585457}
 --- !u!114 &5178269912160980232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +172,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58166ac3585bd0241a581c6b3d8097de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHit:
+    m_PersistentCalls:
+      m_Calls: []
   OnPriorityReached:
     m_PersistentCalls:
       m_Calls: []

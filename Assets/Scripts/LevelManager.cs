@@ -158,6 +158,7 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator OnLoss()
     {
+        _player.agent.state = AgentState.Idle;
         _player.SetAnimationState("isDead", true);
         yield return new WaitForSeconds(2.5f);
         yield return fade.DOFade(1.0f, 2.0f).WaitForCompletion();
