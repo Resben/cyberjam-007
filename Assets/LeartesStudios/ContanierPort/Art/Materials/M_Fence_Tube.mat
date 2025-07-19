@@ -81,7 +81,7 @@ Material:
     - _BlendModePreserveSpecular: 0
     - _CastShadows: 1
     - _ConservativeDepthOffsetEnable: 0
-    - _Cull: 2
+    - _Cull: 0
     - _CullMode: 0
     - _CullModeForward: 0
     - _DepthOffsetEnable: 0
@@ -107,7 +107,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Roughness_Strength: 5.42
+    - _Roughness_Strength: 8.64
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
