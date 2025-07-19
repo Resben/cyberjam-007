@@ -66,7 +66,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ec33388812cd5dc418aa7568aa0085f2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c5d30aa2d9cb454296fb30f9d37ebf9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -120,7 +120,7 @@ Material:
     - _DistortionEnabled: 0
     - _DistortionStrength: 11.36
     - _DistortionStrengthScaled: 1.136
-    - _DstBlend: 1
+    - _DstBlend: 10
     - _DstBlendAlpha: 0
     - _EmissionEnabled: 0
     - _EnvironmentReflections: 1
@@ -130,7 +130,7 @@ Material:
     - _GlossyReflections: 0
     - _LightingEnabled: 0
     - _Metallic: 0
-    - _Mode: 4
+    - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
@@ -149,8 +149,8 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.57434916, g: 0.57434916, b: 0.57434916, a: 1}
-    - _ColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 1}
+    - _ColorAddSubDiff: {r: -1, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0.44560874, g: 0.44560874, b: 0.44560874, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
