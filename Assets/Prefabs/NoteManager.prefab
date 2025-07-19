@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _notePrefab: {fileID: 7628260774461003091, guid: beedd09413bab5f40a590e418e4eadfd, type: 3}
-  _acceptanceWindow: 0.4
+  _acceptanceWindow: 0.8
   _leadWindowTime: 2
