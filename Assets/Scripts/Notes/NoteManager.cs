@@ -11,6 +11,7 @@ public class NoteManager : MonoBehaviour
     private Canvas _noteCanvas;
     private EventSystem _eventSystem;
     private GraphicRaycaster _GraphicRaycaster;
+    private GameManager _gameManager;
 
     private RectTransform _canvasRectTransform;
     private Transform _cameraTransform;
@@ -46,7 +47,7 @@ public class NoteManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
+
         if (!_hackingManager)
         {
             Debug.LogError("Hacking manager is not linked");
@@ -67,6 +68,11 @@ public class NoteManager : MonoBehaviour
             Debug.LogError("Cannot link GraphicRaycaster");
             Destroy(gameObject);
             return;
+        }
+
+        if (!_gameManager)
+        {
+            Debug.LogError("Cannot link GameManager");
         }
     }
 
@@ -105,7 +111,7 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    public void Init(HackingManager hackingManager, Canvas canvas)
+    public void Init(HackingManager hackingManager, GameManager gameManager, Canvas canvas)
     {
         _hackingManager = hackingManager;
         _noteCanvas = canvas;
@@ -113,6 +119,7 @@ public class NoteManager : MonoBehaviour
         _windowWidth = _noteCanvas.GetComponent<RectTransform>().rect.width - paddingFromEdge;
         _windowHeight = _noteCanvas.GetComponent<RectTransform>().rect.height - paddingFromEdge;
         _canvasRectTransform = _noteCanvas.GetComponent<RectTransform>();
+        _gameManager = gameManager;
     }
 
     public void StartSession(List<BeatNote> beatNotes)
@@ -158,7 +165,7 @@ public class NoteManager : MonoBehaviour
     
     void SpawnNotes(List<BeatNote> Beat)
     {
-        Debug.Log($"Spawncount = {Beat.Count}");
+        //Debug.Log($"Spawncount = {Beat.Count}");
         foreach (BeatNote beatNote in Beat)
         {
             StartCoroutine(SpawnNoteCoroutine(beatNote.time, beatNote.duration));
@@ -254,10 +261,12 @@ public class NoteManager : MonoBehaviour
     public void AddSuccessPoint()
     {
         _hackingManager.AddSuccessPoint();
+        if (_gameManager) _gameManager.stats.good++;
     }
 
     public void AddFailPoint()
     {
         _hackingManager.AddFailPoint();
+        if (_gameManager) _gameManager.stats.fails++;
     }
 }

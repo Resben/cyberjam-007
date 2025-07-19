@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     public Level CurrentLevel;
     public bool isDebugMode = false;
     public PlayerInputActions inputActions;
-    private float volume = 1f;
+    private float volume = 0.2f;
     private float sfxVolume = 1f;
     private static GameManager _instance;
     private GameState _lastState;

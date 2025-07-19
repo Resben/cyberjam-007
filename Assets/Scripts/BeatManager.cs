@@ -47,7 +47,7 @@ public class BeatManager : MonoBehaviour
 
     private readonly List<MusicEvent> musicData = new();
 
-    [SerializeField] private float musicVolume = 0.5f;
+    [SerializeField] private float musicVolume;
 
     private List<List<BeatNote>> _beats = new();
 
@@ -58,6 +58,8 @@ public class BeatManager : MonoBehaviour
             Debug.LogError("No music events assigned in BeatManager.");
             DestroyImmediate(gameObject);
         }
+
+        musicVolume = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GetVolume();
 
         foreach (var musicEvent in musicFile)
         {

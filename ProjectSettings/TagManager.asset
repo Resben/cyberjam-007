@@ -12,6 +12,8 @@ TagManager:
   - PlayerBody
   - HackingManager
   - EventSystem
+  - GameManager
+  - LevelManager
   layers:
   - Default
   - TransparentFX
