@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using System.Collections;
+using FMOD.Studio;
 
 public struct TypeWriterSettings
 {
@@ -10,6 +11,7 @@ public struct TypeWriterSettings
     public bool clearCurrent;
     public int charactersPerSecond;
     public float delayBetweenLines; // -1 for same speed as charactersPerSecond
+    public EventInstance sound;
     public bool playSound;
 }
 
